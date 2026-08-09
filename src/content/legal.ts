@@ -137,7 +137,7 @@ export const legalPages = {
       {
         heading: 'Analytics and tag management',
         paragraphs: [
-          'This site loads Google Tag Manager, which in turn loads Google Analytics. Together they record which pages you visit, roughly where you are, which site or advertisement you arrived from, and what kind of device and browser you use.',
+          'This site loads Google Analytics and Google Tag Manager. Together they record which pages you visit, roughly where you are, which site or advertisement you arrived from, and what kind of device and browser you use.',
           'This is measurement of how the site is used, not identification of you. We do not send your name, phone number or email address to Google, and we do not use analytics to build a profile of you or to match you to an enquiry you submitted.',
           'These tools set cookies in your browser and your IP address is processed by Google, under Google’s own privacy policy rather than this one. You can stop them entirely with Google’s official browser opt-out add-on, with your browser’s cookie controls, or with any standard tracker blocker. Nothing on this site stops working if you do, including the enquiry forms.',
         ],
