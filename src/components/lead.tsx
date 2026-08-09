@@ -1,8 +1,23 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
 import { Button, cn } from './ui'
+
+/**
+ * Where a completed enquiry lands.
+ *
+ * Both entry points send the visitor here: this dialog, and the chat widget
+ * via its `redirectUrl` in components/chat-widget.tsx. If this ever changes,
+ * change it in both places or the two paths diverge.
+ *
+ * A distinct URL rather than an in-place confirmation is also what makes the
+ * conversion measurable later. A analytics or Ads conversion can be tied to a
+ * pageview of /thank-you; an inline state change needs event tracking wired
+ * into this component by hand.
+ */
+const THANK_YOU = '/thank-you'
 
 /**
  * Every CTA on every route opens the same enquiry form. Rather than lifting
@@ -48,6 +63,7 @@ type Status = 'idle' | 'sending' | 'done' | 'error'
 
 export function LeadDialog() {
   const ref = useRef<HTMLDialogElement>(null)
+  const router = useRouter()
   const [intent, setIntent] = useState('Enquiry')
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
@@ -59,10 +75,14 @@ export function LeadDialog() {
       setStatus('idle')
       setError(null)
       ref.current?.showModal()
+      /* Pull the thank-you page down while they are typing, so the redirect
+         after submit is instant rather than a blank pause on a slow phone.
+         Opening the dialog is the earliest reliable signal of intent. */
+      router.prefetch(THANK_YOU)
     }
     window.addEventListener(OPEN_EVENT, onOpen)
     return () => window.removeEventListener(OPEN_EVENT, onOpen)
-  }, [])
+  }, [router])
 
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -95,7 +115,21 @@ export function LeadDialog() {
           pagePath: window.location.pathname,
         }),
       })
-      setStatus(response.ok ? 'done' : 'error')
+      if (!response.ok) {
+        setStatus('error')
+        return
+      }
+
+      /* 'done' before navigating, not instead of it. The dialog swaps to the
+         confirmation immediately so the button never sits on "Sending…", and
+         the route change lands on top of that. On a fast connection the
+         confirmation is never seen; on a slow one it is the difference
+         between feedback and a dead button.
+
+         The dialog is deliberately NOT closed here. Closing it would flash
+         the underlying page for a frame before the route changes. */
+      setStatus('done')
+      router.push(THANK_YOU)
     } catch {
       setStatus('error')
     }
