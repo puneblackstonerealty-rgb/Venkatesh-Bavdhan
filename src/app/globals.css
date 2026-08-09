@@ -209,3 +209,22 @@
     line-height: 1;
   }
 }
+
+/**
+ * Hides the chat widget on routes that suppress it.
+ *
+ * The widget is injected once by a third-party script and then owned by that
+ * script, so React cannot unmount it on a route change. ChatWidget toggles
+ * `.chat-suppressed` on <body> instead, and this hides the widget's single
+ * scoped root without disturbing the state the script holds internally.
+ *
+ * `display: none` rather than visibility or opacity, so the launcher cannot be
+ * clicked or focused by a keyboard while it is meant to be gone.
+ *
+ * Outside a @layer on purpose: the widget ships its own stylesheet with high
+ * specificity on #leadgenie-root, and layered rules always lose to unlayered
+ * ones regardless of specificity.
+ */
+body.chat-suppressed #leadgenie-root {
+  display: none !important;
+}

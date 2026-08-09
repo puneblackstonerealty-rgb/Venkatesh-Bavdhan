@@ -49,6 +49,21 @@ const SUPPRESSED = ['/thank-you']
 export function ChatWidget({ agentName }: { agentName: string }) {
   const pathname = usePathname()
 
+  /* Hide an ALREADY-INJECTED widget on a suppressed route.
+
+     The injection guard below only decides whether to add the script. Once the
+     widget is in the DOM it belongs to the third-party script, not to React,
+     so a client-side navigation onto /thank-you left the launcher sitting
+     there — on the one page whose whole job is to stop asking for the number
+     again.
+
+     Toggling a body class rather than removing the nodes: the script keeps its
+     own state, and tearing its DOM out from under it breaks it on the way
+     back. The rule lives in globals.css next to the widget's other overrides. */
+  useEffect(() => {
+    document.body.classList.toggle('chat-suppressed', SUPPRESSED.includes(pathname))
+  }, [pathname])
+
   useEffect(() => {
     if (SUPPRESSED.includes(pathname)) return
 
