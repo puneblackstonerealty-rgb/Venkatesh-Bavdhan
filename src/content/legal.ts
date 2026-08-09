@@ -107,7 +107,7 @@ export const legalPages = {
           'Your IP address and browser user-agent, recorded with the enquiry as a basic anti-abuse measure.',
         ],
         after: [
-          'We do not set cookies of our own, and this site loads no analytics or advertising tags.',
+          'We do not set cookies of our own. This site does load Google Tag Manager, which is covered in its own section below.',
         ],
       },
       {
@@ -132,6 +132,14 @@ export const legalPages = {
         heading: 'The chat window',
         paragraphs: [
           'The chat window runs entirely from this website and sends what you enter in it to the same place as the forms. It is not a third-party chat service, it does not load anything from another company, and nothing you type reaches anyone until you submit your mobile number.',
+        ],
+      },
+      {
+        heading: 'Analytics and tag management',
+        paragraphs: [
+          'This site loads Google Tag Manager, which in turn loads Google Analytics. Together they record which pages you visit, roughly where you are, which site or advertisement you arrived from, and what kind of device and browser you use.',
+          'This is measurement of how the site is used, not identification of you. We do not send your name, phone number or email address to Google, and we do not use analytics to build a profile of you or to match you to an enquiry you submitted.',
+          'These tools set cookies in your browser and your IP address is processed by Google, under Google’s own privacy policy rather than this one. You can stop them entirely with Google’s official browser opt-out add-on, with your browser’s cookie controls, or with any standard tracker blocker. Nothing on this site stops working if you do, including the enquiry forms.',
         ],
       },
       {

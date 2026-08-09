@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Fraunces, Manrope } from 'next/font/google'
 
+import { Analytics, AnalyticsNoScript } from '@/components/analytics'
 import { ChatWidget } from '@/components/chat-widget'
 import { SiteFooter } from '@/components/footer'
 import { Header } from '@/components/header'
@@ -114,6 +115,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {/* The sticky mobile CTA bar is fixed to the bottom, so the page needs
           matching clearance or it covers the last of the footer. */}
       <body className="min-h-dvh pb-[calc(4.25rem+env(safe-area-inset-bottom))] lg:pb-0">
+        {/* GTM's noscript fallback, which Google requires immediately after
+            the opening <body>. Renders nothing unless GTM is configured. */}
+        <AnalyticsNoScript />
+
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
@@ -134,6 +139,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ChatWidget agentName={site.chatAgentName} />
 
         <SiteStructuredData />
+
+        {/* Last in the body and loaded afterInteractive, so the tag never
+            competes with the page for the first paint. */}
+        <Analytics />
       </body>
     </html>
   )
