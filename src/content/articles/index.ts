@@ -20,8 +20,17 @@ import type { ArticleModule } from './types'
 
 import * as releasedSoFar from './what-has-actually-been-released'
 import * as bavdhanConnectivity from './what-bavdhan-actually-connects-to'
+import * as reraCheck from './how-to-check-a-maharera-registration'
+import * as preLaunchMeaning from './what-pre-launch-actually-means'
+import * as developerRecord from './the-developer-track-record'
 
-const REGISTERED: ArticleModule[] = [releasedSoFar, bavdhanConnectivity]
+const REGISTERED: ArticleModule[] = [
+  releasedSoFar,
+  bavdhanConnectivity,
+  reraCheck,
+  preLaunchMeaning,
+  developerRecord,
+]
 
 /** Newest first. This is the order every listing uses. */
 export const articles: ArticleModule[] = [...REGISTERED].sort((a, b) =>
