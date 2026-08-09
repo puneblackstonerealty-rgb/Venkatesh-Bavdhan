@@ -1,0 +1,22 @@
+node_modules/
+.next/
+.env
+.env.local
+*.tsbuildinfo
+next-env.d.ts
+
+# The ready-to-paste Apps Script. Same code as Code.gs but with the real
+# SHARED_SECRET filled in, so it must never be committed. Code.gs is the
+# version that belongs in the repo; it keeps the CHANGE-ME placeholder.
+scripts/google-apps-script/Code.local.gs
+
+# Editor scratch files.
+.idea/
+.vscode/
+
+# Vercel link state — holds project and org IDs, which differ per account.
+.vercel
+.vercel-*
+.gstack/
+
+.vercel

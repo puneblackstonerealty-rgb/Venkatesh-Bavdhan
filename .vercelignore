@@ -1,0 +1,27 @@
+# What NOT to upload to Vercel.
+#
+# The CLI falls back to .gitignore when this file is absent, but this folder is
+# not a git repo, so that fallback is not something to rely on. Without the
+# first two lines the CLI uploads node_modules and .next, which is roughly
+# 800 MB and a build that installs on top of a stale tree.
+#
+# Vercel installs dependencies and builds from source on its own.
+
+node_modules/
+.next/
+
+# Local build artefacts and secrets.
+*.tsbuildinfo
+.env
+.env.local
+
+# Carries the real Apps Script shared secret. The build never reads it and it
+# has no business sitting in a deployment.
+scripts/google-apps-script/Code.local.gs
+
+# Tooling scratch, editor state, and docs that the build never reads.
+.gstack/
+.vercel-*
+.idea/
+.vscode/
+docs/

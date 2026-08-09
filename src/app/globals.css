@@ -1,0 +1,211 @@
+@import 'tailwindcss';
+
+/* ─────────────────────────────────────────────────────────────────────────
+   Design tokens.
+
+   This site has NO PHOTOGRAPHY — the developer has released none. Type,
+   colour and space therefore carry the entire page, which makes these tokens
+   load-bearing in a way they would not be on a site with a hero render to
+   hide behind.
+
+   The palette is twilight blue-green, warm limestone and copper: chosen for
+   Bavdhan, which sits under the Sahyadri foothills on Pune's western edge,
+   and chosen deliberately NOT to be the forest-green-and-gold of the client's
+   Kharadi site. The two projects will be seen side by side and must not read
+   as one recoloured template.
+
+   ⚠ One rule about copper: it is only ever used on dark surfaces. #c08654 on
+   twilight is 5.1:1; the same copper on white is 2.9:1 and would fail. On
+   light surfaces the accent is --color-brand (slate-teal), 8.2:1 on white.
+   There is deliberately no light-background copper token, so the mistake
+   cannot be made by reaching for one.
+
+   Measured contrast, all against their intended background:
+     brand   on white     8.2:1      body    on white    7.7:1
+     ink     on white    17.6:1      muted   on white    4.9:1
+     white   on twilight 15.8:1      copper  on twilight 5.1:1
+     twilight-deep on copper  5.8:1  (the copper button)
+   ───────────────────────────────────────────────────────────────────────── */
+@theme {
+  /* Neutrals, warmed very slightly so they sit under the limestone surface
+     rather than fighting it with a blue-grey cast. */
+  --color-ink: #101a20;
+  --color-body: #47555c;
+  --color-muted: #66737a;
+  --color-line: #e2e6e6;
+  --color-line-strong: #c8d0d1;
+  --color-surface: #f7f5f1;
+  --color-card: #ffffff;
+
+  /* Brand */
+  --color-brand: #2c5561;
+  --color-brand-hover: #22454f;
+  --color-brand-soft: #e8eef0;
+  --color-twilight: #152430;
+  --color-twilight-deep: #0d1820;
+  --color-copper: #c08654;
+  --color-copper-deep: #8f5f38;
+
+  /* Type scale, sized for Manrope. Manrope has a large x-height, so unlike a
+     Futura-descendant it does not need every step nudged up — 16px body reads
+     as 16px. Line heights ride with each step so nothing has to be re-set at
+     the call site. */
+  --text-2xs: 0.75rem; /* 12px — uppercase micro labels only */
+  --text-2xs--line-height: 1.45;
+  --text-2xs--letter-spacing: 0.14em;
+  --text-xs: 0.8125rem; /* 13px */
+  --text-xs--line-height: 1.6;
+  --text-sm: 0.9375rem; /* 15px */
+  --text-sm--line-height: 1.65;
+  --text-base: 1rem; /* 16px — body copy */
+  --text-base--line-height: 1.75;
+  --text-lg: 1.125rem; /* 18px */
+  --text-lg--line-height: 1.55;
+  --text-xl: 1.375rem; /* 22px */
+  --text-xl--line-height: 1.35;
+  --text-2xl: 1.75rem; /* 28px */
+  --text-2xl--line-height: 1.25;
+  --text-3xl: 2.25rem; /* 36px */
+  --text-3xl--line-height: 1.18;
+  --text-4xl: 3rem; /* 48px */
+  --text-4xl--line-height: 1.1;
+  --text-5xl: 4rem; /* 64px */
+  --text-5xl--line-height: 1.03;
+
+  /* ─── Corner radius ──────────────────────────────────────────────────────
+     ONE scale for the whole site, taken from the chat widget so the two do
+     not read as different products. The widget's own values are 18px for its
+     container, 16px for message bubbles, 14px for buttons and inputs, 11px
+     for small pills and 50% for circles — a soft scale that steps with the
+     size of the element. This mirrors it.
+
+     The site previously used 2–4px everywhere, which sat badly next to the
+     widget's 18px window.
+
+     Rule of thumb, and it is the rule the whole codebase follows:
+       rounded-xs   badges, chips, tiny overlays
+       rounded-sm   small pills
+       rounded-md   buttons, inputs, anything you click or type into
+       rounded-lg   cards and bordered panels
+       rounded-xl   large containers, dialogs, media frames
+       rounded-full circles only — bullet dots, avatars, blur orbs
+
+     These override Tailwind's defaults on purpose, so `rounded-md` means 14px
+     everywhere and nobody has to remember an arbitrary value. Do not
+     reintroduce `rounded-[Npx]`. */
+  --radius-xs: 0.5rem; /* 8px */
+  --radius-sm: 0.6875rem; /* 11px — the widget's small pill */
+  --radius-md: 0.875rem; /* 14px — the widget's buttons and inputs */
+  --radius-lg: 1rem; /* 16px — the widget's message bubbles */
+  --radius-xl: 1.125rem; /* 18px — the widget's chat window */
+  --radius-2xl: 1.5rem; /* 24px */
+}
+
+@theme inline {
+  --font-display: var(--font-display-src), 'Georgia', 'Times New Roman', serif;
+  --font-sans: var(--font-body-src), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  /* ⚠ No transform / filter / backdrop-filter / contain:paint on html or body.
+     Any of them becomes a containing block for position:fixed descendants and
+     silently breaks the sticky header and the mobile drawer.
+     `clip` not `hidden`: hidden creates a scroll container and kills sticky. */
+  html {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    /* The header is sticky, so anchor targets must clear it. */
+    scroll-padding-top: 5rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-card);
+    color: var(--color-body);
+    font-size: var(--text-base);
+    line-height: 1.75;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Fraunces is a soft, high-contrast serif with optical sizing. It is set
+     light (300) at display sizes, where its contrast is the point, and its
+     default optical axis handles the rest. No negative tracking: closing up a
+     serif this delicate muddies it. */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--color-ink);
+    font-weight: 300;
+    letter-spacing: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 2px;
+    border-radius: var(--radius-xs);
+  }
+
+  ::selection {
+    background: var(--color-brand);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /* The uppercase micro label that opens every section and card. */
+  .eyebrow {
+    font-size: var(--text-2xs);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /* A hairline that starts at the text and runs out — used under eyebrows to
+     give sections a consistent left edge without a heavy rule. */
+  .rule-lead::after {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 1px;
+    margin-top: 0.75rem;
+    background: currentColor;
+    opacity: 0.35;
+  }
+
+  /* The wordmark, set in type rather than shipped as an image.
+     ⚠ Deliberate: no logo file has been supplied for this project, and the
+     developer identification is not yet confirmed (see CONFIRM in
+     content/project.ts). Borrowing the sibling project's logo asset would
+     assert a brand relationship nobody has verified. Type-setting it is
+     honest, works at every size, and is a one-file swap when the real
+     wordmark arrives. */
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1;
+  }
+
+  .wordmark-kicker {
+    font-size: 0.5rem;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    font-weight: 600;
+    line-height: 1;
+  }
+}

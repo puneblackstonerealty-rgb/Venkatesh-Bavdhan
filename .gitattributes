@@ -1,0 +1,17 @@
+# Normalise line endings so a Windows checkout and the Linux build box agree.
+# Without this, git rewrites CRLF on every file it touches and diffs fill with
+# whole-file changes that contain no actual edits.
+* text=auto eol=lf
+
+# Binary assets git must never try to normalise.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico  binary
+*.woff  binary
+*.woff2 binary
+
+# Generated. Collapse it in diffs and exclude it from language stats.
+package-lock.json -diff linguist-generated
