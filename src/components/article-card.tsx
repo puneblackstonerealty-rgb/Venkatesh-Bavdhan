@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { formatArticleDate } from '@/content/articles'
 import type { ArticleMeta } from '@/content/articles/types'
+import { isVector } from '@/lib/images'
 
 import { cn } from './ui'
 
@@ -46,6 +47,10 @@ export function ArticleCard({
           <Image
             src={meta.cover.src}
             alt={meta.cover.alt}
+            /* Diagram covers are SVG. See src/lib/images.ts — without this the
+               optimizer answers 400 and the card renders an empty tile, in
+               production only. */
+            unoptimized={isVector(meta.cover.src)}
             fill
             priority={priority}
             sizes={feature ? '(min-width: 768px) 520px, 100vw' : '(min-width: 640px) 380px, 100vw'}

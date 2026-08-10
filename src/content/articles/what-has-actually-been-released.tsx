@@ -1,3 +1,5 @@
+import { Figure } from '@/components/article-figure'
+
 import type { ArticleMeta } from './types'
 
 /* ───────────────────────────────────────────────────────────────────────────
@@ -29,6 +31,10 @@ export const meta: ArticleMeta = {
   updatedAt: '2026-08-09',
   author: 'Blackstone Realty',
   readingMinutes: 4,
+  cover: {
+    src: '/illustrations/release-ledger.svg',
+    alt: 'Ledger showing five released items about Serenique and six that are still awaited',
+  },
   sources: [
     { label: 'MahaRERA portal', href: 'https://maharera.maharashtra.gov.in/' },
     { label: 'Venkatesh Buildcon', href: 'https://www.venkateshbuildcon.com' },
@@ -84,6 +90,15 @@ export default function Body() {
         <li>Renders, elevations or a brochure.</li>
         <li>A street address for the site.</li>
       </ul>
+
+      <Figure
+        src="/illustrations/the-correction.svg"
+        alt="Comparison of the listing site figures against the figures the client confirmed"
+        width={1200}
+        height={675}
+        caption="What one listing site published against what the developer confirmed. The gap is why this ledger exists."
+        credit="Illustration"
+      />
 
       <h2>The correction</h2>
       <p>

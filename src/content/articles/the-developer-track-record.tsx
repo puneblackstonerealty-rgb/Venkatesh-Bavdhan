@@ -4,6 +4,8 @@ import {
   ongoingProjects,
   portfolio,
 } from '../developer-projects'
+import { Figure } from '@/components/article-figure'
+
 import type { ArticleMeta } from './types'
 
 export const meta: ArticleMeta = {
@@ -15,8 +17,15 @@ export const meta: ArticleMeta = {
   publishedAt: '2026-08-09',
   author: 'Blackstone Realty',
   readingMinutes: 4,
+  cover: {
+    src: '/developer/midori-towers-commercial.webp',
+    alt: 'Midori Towers Commercial, a completed Venkatesh Buildcon project',
+  },
   sources: [
-    { label: 'Venkatesh Buildcon, Pune projects', href: 'https://www.venkateshbuildcon.com/pune-projects/' },
+    {
+      label: 'Venkatesh Buildcon, Pune projects',
+      href: 'https://www.venkateshbuildcon.com/pune-projects/',
+    },
     { label: 'MahaRERA portal', href: 'https://maharera.maharashtra.gov.in/' },
   ],
 }
@@ -55,12 +64,21 @@ export default function Body() {
         site, which is ordinary at this stage and worth stating rather than glossing over.
       </p>
 
+      <Figure
+        src="/developer/vertica.jpg"
+        alt="Vertica at Balewadi High Street, a Venkatesh Buildcon commercial project"
+        width={900}
+        height={700}
+        caption="Vertica at Balewadi High Street. A delivered building by the same developer, not a picture of Serenique."
+        credit="Delivered project"
+      />
+
       <h2>Where they build</h2>
       <p>
         The delivered work clusters in a few parts of Pune rather than scattering across the metro.
         Ambegaon and Dhayari account for a large share of the completed projects. Keshavnagar in
-        Mundhwa carries the four Graffiti buildings. Kothrud, Vadgaon, Katraj and Vadgaon Sheri
-        each hold delivered stock.
+        Mundhwa carries the four Graffiti buildings. Kothrud, Vadgaon, Katraj and Vadgaon Sheri each
+        hold delivered stock.
       </p>
       <p>
         The current work sits further west and north: Baner, Shivajinagar, Erandwane, Prabhat Road,

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Diagram showing that a phase registration covers only part of a multi-tower scheme">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">A phase registration is not a project registration</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">One registration is on record for Serenique. Eleven towers are planned. Those are different statements.</text>
+
+  <!-- The scheme -->
+  <text x="80" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">THE SCHEME AS DESCRIBED · 11 TOWERS ON 14 ACRES</text>
+  <rect x="80" y="216" width="1040" height="150" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+
+  <!-- Towers -->
+  <g>
+    <rect x="120" y="248" width="46" height="86" rx="4" fill="#2c5561"/>
+    <rect x="180" y="248" width="46" height="86" rx="4" fill="#2c5561"/>
+    <rect x="240" y="248" width="46" height="86" rx="4" fill="#2c5561"/>
+    <rect x="300" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+    <rect x="360" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+    <rect x="420" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+    <rect x="480" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+    <rect x="540" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+    <rect x="600" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+    <rect x="660" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+    <rect x="720" y="248" width="46" height="86" rx="4" fill="#c8d0d1"/>
+  </g>
+  <rect x="106" y="236" width="194" height="110" rx="8" fill="none" stroke="#c08654" stroke-width="2.5"/>
+  <text x="203" y="228" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#8f5f38" text-anchor="middle">registered</text>
+  <text x="800" y="286" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Which towers sit inside Phase 1</text>
+  <text x="800" y="312" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">has not been published. The bracket</text>
+  <text x="800" y="338" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">above is illustrative, not a fact.</text>
+
+  <!-- What a phase carries -->
+  <text x="80" y="424" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">WHAT EACH PHASE CARRIES OF ITS OWN</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="444" width="248" height="118" rx="12" fill="#152430"/>
+    <text x="108" y="484" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Its own sanctioned</text>
+    <text x="108" y="512" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">plan</text>
+    <text x="108" y="542" font-size="15" fill="#ffffff" opacity="0.6">not the marketing layout</text>
+
+    <rect x="344" y="444" width="248" height="118" rx="12" fill="#152430"/>
+    <text x="372" y="484" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Its own completion</text>
+    <text x="372" y="512" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">date</text>
+    <text x="372" y="542" font-size="15" fill="#ffffff" opacity="0.6">this is the date that binds</text>
+
+    <rect x="608" y="444" width="248" height="118" rx="12" fill="#152430"/>
+    <text x="636" y="484" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Its own filed</text>
+    <text x="636" y="512" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">carpet areas</text>
+    <text x="636" y="542" font-size="15" fill="#ffffff" opacity="0.6">these override any brochure</text>
+
+    <rect x="872" y="444" width="248" height="118" rx="12" fill="#152430"/>
+    <text x="900" y="484" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Its own quarterly</text>
+    <text x="900" y="512" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">progress filings</text>
+    <text x="900" y="542" font-size="15" fill="#ffffff" opacity="0.6">public, and worth reading</text>
+  </g>
+
+  <line x1="80" y1="592" x2="1120" y2="592" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="630" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">A promise made about the scheme does not bind a phase that is not yet registered</text>
+  <text x="80" y="660" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#66737a">Ask which phase your tower falls in, and check that phase&#8217;s own record before you pay anything.</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Schematic of the Pune Metro Aqua Line and its approved Phase 2 extension from Vanaz to Chandani Chowk">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Approved, funded, and not yet built</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">The Aqua Line today, and the Phase 2 extension that would bring it to Bavdhan&#8217;s doorstep</text>
+
+  <!-- Running line -->
+  <line x1="470" y1="300" x2="1080" y2="300" stroke="#2c5561" stroke-width="10" stroke-linecap="round"/>
+  <!-- Extension -->
+  <line x1="150" y1="300" x2="470" y2="300" stroke="#c08654" stroke-width="10" stroke-linecap="round" stroke-dasharray="16 12"/>
+
+  <g fill="#ffffff" stroke="#2c5561" stroke-width="4">
+    <circle cx="620" cy="300" r="9"/>
+    <circle cx="770" cy="300" r="9"/>
+    <circle cx="920" cy="300" r="9"/>
+  </g>
+  <circle cx="1080" cy="300" r="15" fill="#2c5561"/>
+  <circle cx="470" cy="300" r="16" fill="#2c5561"/>
+  <circle cx="470" cy="300" r="6" fill="#ffffff"/>
+  <circle cx="150" cy="300" r="16" fill="#c08654"/>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" text-anchor="middle">
+    <text x="150" y="262" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#101a20">Chandani Chowk</text>
+    <text x="150" y="238" font-size="14" fill="#8f5f38">proposed terminus</text>
+
+    <text x="470" y="262" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#101a20">Vanaz</text>
+    <text x="470" y="238" font-size="14" fill="#66737a">running today</text>
+
+    <text x="1080" y="262" font-size="20" fill="#101a20">Ramwadi</text>
+    <text x="1080" y="238" font-size="14" fill="#66737a">east terminus</text>
+  </g>
+
+  <!-- Labels under -->
+  <text x="310" y="348" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#8f5f38" text-anchor="middle">CORRIDOR 2A · UNDER CONSTRUCTION</text>
+  <text x="775" y="348" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a" text-anchor="middle">OPEN AND RUNNING</text>
+
+  <!-- Facts -->
+  <line x1="80" y1="410" x2="1120" y2="410" stroke="#e2e6e6"/>
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <text x="80" y="452" font-size="13" fill="#66737a" letter-spacing="0.18em">APPROVED</text>
+    <text x="80" y="486" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#101a20">25 June 2025</text>
+    <text x="80" y="512" font-size="15" fill="#47555c">Union Cabinet</text>
+
+    <text x="360" y="452" font-size="13" fill="#66737a" letter-spacing="0.18em">CORRIDORS 2A + 2B</text>
+    <text x="360" y="486" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#101a20">12.75 km · 13 stations</text>
+    <text x="360" y="512" font-size="15" fill="#47555c">Vanaz to Chandani Chowk, Ramwadi to Wagholi</text>
+
+    <text x="80" y="566" font-size="13" fill="#66737a" letter-spacing="0.18em">COST</text>
+    <text x="80" y="600" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#101a20">₹3,626 crore</text>
+
+    <text x="360" y="566" font-size="13" fill="#66737a" letter-spacing="0.18em">TIMELINE</text>
+    <text x="360" y="600" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#101a20">four years from sanction</text>
+    <text x="360" y="626" font-size="15" fill="#47555c">Execution began April 2026</text>
+  </g>
+
+  <rect x="800" y="430" width="320" height="200" rx="14" fill="#152430"/>
+  <text x="828" y="470" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#c08654" letter-spacing="0.18em">HOW TO PRICE IT</text>
+  <text x="828" y="506" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Buy the line that runs</text>
+  <text x="828" y="542" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.65">Vanaz is under 4 km away and</text>
+  <text x="828" y="564" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.65">open today. Treat 2A as upside</text>
+  <text x="828" y="586" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.65">you did not pay a premium for.</text>
+</svg>

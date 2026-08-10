@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="The Bavdhan to Hinjawadi commute and the three routes it can take">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Fourteen kilometres, and about thirty minutes</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">The published figure for Bavdhan to Hinjawadi. What it does not tell you is which thirty minutes.</text>
+
+  <!-- Route diagram -->
+  <circle cx="180" cy="250" r="14" fill="#2c5561"/>
+  <text x="180" y="216" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#101a20" text-anchor="middle">Bavdhan</text>
+  <circle cx="1020" cy="250" r="14" fill="#c08654"/>
+  <text x="1020" y="216" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#101a20" text-anchor="middle">Hinjawadi</text>
+  <line x1="194" y1="250" x2="1006" y2="250" stroke="#2c5561" stroke-width="8" stroke-linecap="round"/>
+  <text x="600" y="240" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#ffffff" text-anchor="middle">14 km</text>
+
+  <!-- Time bands -->
+  <text x="80" y="330" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">THE SAME DRIVE, AT THREE DIFFERENT HOURS</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <text x="80" y="382" font-size="17" fill="#101a20">Sunday afternoon</text>
+    <rect x="300" y="362" width="180" height="28" rx="4" fill="#2c5561" opacity="0.35"/>
+    <text x="496" y="382" font-size="16" fill="#66737a">the number in the brochure</text>
+
+    <text x="80" y="442" font-size="17" fill="#101a20">Weekday, off-peak</text>
+    <rect x="300" y="422" width="300" height="28" rx="4" fill="#2c5561" opacity="0.65"/>
+    <text x="616" y="442" font-size="16" fill="#66737a">roughly the published thirty minutes</text>
+
+    <text x="80" y="502" font-size="17" fill="#101a20">Weekday, 9am</text>
+    <rect x="300" y="482" width="560" height="28" rx="4" fill="#c08654"/>
+    <text x="876" y="502" font-size="16" fill="#8f5f38">the one you will actually do, twice a day</text>
+  </g>
+  <text x="300" y="546" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a">Bar lengths are illustrative. The point is the ratio, not a claimed figure.</text>
+
+  <line x1="80" y1="580" x2="1120" y2="580" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="618" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">Drive it on a Tuesday at the hour you would leave</text>
+  <text x="80" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Then drive it home at the hour you would return. Those two numbers decide whether this address works for you, and no brochure contains them.</text>
+</svg>

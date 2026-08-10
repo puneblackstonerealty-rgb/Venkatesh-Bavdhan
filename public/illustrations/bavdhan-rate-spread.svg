@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Chart showing four published rate ranges for Bavdhan that do not agree with each other">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Four sources, four different Bavdhans</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">Published rate per square foot for the same suburb in the same year</text>
+
+  <!-- Scale: 7000 to 12500 mapped across x=200..1120 -->
+  <g stroke="#e2e6e6" stroke-width="1">
+    <line x1="200" y1="196" x2="200" y2="520"/>
+    <line x1="367" y1="196" x2="367" y2="520"/>
+    <line x1="534" y1="196" x2="534" y2="520"/>
+    <line x1="702" y1="196" x2="702" y2="520"/>
+    <line x1="869" y1="196" x2="869" y2="520"/>
+    <line x1="1036" y1="196" x2="1036" y2="520"/>
+  </g>
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#66737a" text-anchor="middle">
+    <text x="200" y="548">₹7,000</text>
+    <text x="367" y="548">₹8,000</text>
+    <text x="534" y="548">₹9,000</text>
+    <text x="702" y="548">₹10,000</text>
+    <text x="869" y="548">₹11,000</text>
+    <text x="1036" y="548">₹12,000</text>
+  </g>
+
+  <!-- Bars -->
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <text x="80" y="238" font-size="17" fill="#101a20">Source A</text>
+    <rect x="284" y="220" width="669" height="26" rx="4" fill="#2c5561"/>
+    <text x="967" y="238" font-size="15" fill="#47555c">₹7,500 to ₹10,500</text>
+
+    <text x="80" y="304" font-size="17" fill="#101a20">Source B</text>
+    <rect x="284" y="286" width="418" height="26" rx="4" fill="#2c5561" opacity="0.72"/>
+    <text x="716" y="304" font-size="15" fill="#47555c">₹7,500 to ₹9,500</text>
+
+    <text x="80" y="370" font-size="17" fill="#101a20">Source C</text>
+    <circle cx="1119" cy="365" r="13" fill="#c08654"/>
+    <line x1="284" y1="365" x2="1106" y2="365" stroke="#c8d0d1" stroke-width="1" stroke-dasharray="4 4"/>
+    <text x="1119" y="336" font-size="15" fill="#8f5f38" text-anchor="end">₹11,950 average</text>
+
+    <text x="80" y="436" font-size="17" fill="#101a20">2 BHK ask</text>
+    <rect x="284" y="418" width="669" height="26" rx="4" fill="#2c5561" opacity="0.35"/>
+    <text x="967" y="436" font-size="15" fill="#47555c">₹70 L to ₹1.1 Cr</text>
+
+    <text x="80" y="502" font-size="17" fill="#101a20">3 BHK ask</text>
+    <rect x="451" y="484" width="669" height="26" rx="4" fill="#2c5561" opacity="0.35"/>
+    <text x="451" y="474" font-size="15" fill="#47555c">₹1.1 Cr to ₹1.8 Cr</text>
+  </g>
+
+  <line x1="80" y1="586" x2="1120" y2="586" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="622" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">A locality average tells you the postcode, not the price</text>
+  <text x="80" y="652" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#66737a">The spread is roughly 60 per cent. Each source is averaging a different mix of resale stock, mid-segment launches and hill-view towers.</text>
+</svg>

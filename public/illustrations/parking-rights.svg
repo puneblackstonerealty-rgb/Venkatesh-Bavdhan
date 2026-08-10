@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="What a buyer actually owns when a parking space is allotted with a flat">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">What you own when you are &#8220;given&#8221; parking</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">Three arrangements, sold in almost identical language, with very different consequences</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="176" width="1040" height="128" rx="14" fill="#152430"/>
+    <text x="112" y="216" font-size="13" fill="#c08654" letter-spacing="0.18em">STRONGEST</text>
+    <text x="112" y="254" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#ffffff">Named in the agreement, with the bay number</text>
+    <text x="112" y="286" font-size="17" fill="#ffffff" opacity="0.7">The specific space is identified in the registered agreement for sale. This is the version worth insisting on.</text>
+
+    <rect x="80" y="320" width="1040" height="128" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="112" y="360" font-size="13" fill="#66737a" letter-spacing="0.18em">WEAKER</text>
+    <text x="112" y="398" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#101a20">Allotted by letter, after the agreement</text>
+    <text x="112" y="430" font-size="17" fill="#47555c">An allotment letter is a promise from the builder, not a right recorded against the flat. It can be revisited at handover.</text>
+
+    <rect x="80" y="464" width="1040" height="128" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="112" y="504" font-size="13" fill="#66737a" letter-spacing="0.18em">WEAKEST</text>
+    <text x="112" y="542" font-family="Georgia, 'Times New Roman', serif" font-size="27" fill="#101a20">Floating, first come first served</text>
+    <text x="112" y="574" font-size="17" fill="#47555c">You have access to the basement, not to a place in it. Fine at 40 per cent occupancy, contested at 95.</text>
+  </g>
+
+  <text x="80" y="638" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#2c5561">Common areas belong to the society, not the builder, once conveyance happens</text>
+  <text x="80" y="666" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a">Which is why a builder selling stilt or open parking as a separate saleable unit has repeatedly been struck down. Get the position in writing.</text>
+</svg>

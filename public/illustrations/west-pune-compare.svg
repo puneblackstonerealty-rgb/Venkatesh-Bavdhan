@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Comparison of Bavdhan, Baner and Kothrud on what each offers and what each costs you">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Three addresses on Pune&#8217;s west side</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">Each trades a different thing away. Knowing which trade you are making is the whole decision.</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="176" width="336" height="72" rx="12" fill="#152430"/>
+    <text x="108" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#ffffff">Bavdhan</text>
+
+    <rect x="432" y="176" width="336" height="72" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="460" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#101a20">Baner</text>
+
+    <rect x="784" y="176" width="336" height="72" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="812" y="222" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#101a20">Kothrud</text>
+
+    <text x="80" y="298" font-size="12" fill="#66737a" letter-spacing="0.18em">WHAT YOU GET</text>
+    <text x="108" y="336" font-size="18" fill="#47555c">The junction. Kothrud, Baner,</text>
+    <text x="108" y="360" font-size="18" fill="#47555c">Aundh and Hinjawadi without</text>
+    <text x="108" y="384" font-size="18" fill="#47555c">crossing the city. Hills behind.</text>
+
+    <text x="460" y="336" font-size="18" fill="#47555c">The deepest offices, retail</text>
+    <text x="460" y="360" font-size="18" fill="#47555c">and restaurants of the three,</text>
+    <text x="460" y="384" font-size="18" fill="#47555c">and a shorter Hinjawadi run.</text>
+
+    <text x="812" y="336" font-size="18" fill="#47555c">A finished neighbourhood,</text>
+    <text x="812" y="360" font-size="18" fill="#47555c">on the metro since 2022,</text>
+    <text x="812" y="384" font-size="18" fill="#47555c">closest to central Pune.</text>
+
+    <line x1="80" y1="414" x2="1120" y2="414" stroke="#e2e6e6"/>
+
+    <text x="80" y="452" font-size="12" fill="#66737a" letter-spacing="0.18em">WHAT YOU GIVE UP</text>
+    <text x="108" y="490" font-size="18" fill="#47555c">Water in some pockets, internal</text>
+    <text x="108" y="514" font-size="18" fill="#47555c">roads, and a peak-hour queue</text>
+    <text x="108" y="538" font-size="18" fill="#47555c">onto the junction.</text>
+
+    <text x="460" y="490" font-size="18" fill="#47555c">The highest rate of the three,</text>
+    <text x="460" y="514" font-size="18" fill="#47555c">and density that has already</text>
+    <text x="460" y="538" font-size="18" fill="#47555c">arrived rather than is coming.</text>
+
+    <text x="812" y="490" font-size="18" fill="#47555c">Little new inventory, so most</text>
+    <text x="812" y="514" font-size="18" fill="#47555c">of what is available is resale</text>
+    <text x="812" y="538" font-size="18" fill="#47555c">in older buildings.</text>
+
+    <line x1="80" y1="568" x2="1120" y2="568" stroke="#e2e6e6"/>
+
+    <text x="80" y="606" font-size="12" fill="#66737a" letter-spacing="0.18em">BUY IT IF</text>
+    <text x="108" y="644" font-size="18" fill="#2c5561">You want space and the hills,</text>
+    <text x="108" y="668" font-size="18" fill="#2c5561">and can wait for the metro.</text>
+
+    <text x="460" y="644" font-size="18" fill="#47555c">You want the finished version</text>
+    <text x="460" y="668" font-size="18" fill="#47555c">now and will pay for it.</text>
+
+    <text x="812" y="644" font-size="18" fill="#47555c">You want to be on the metro</text>
+    <text x="812" y="668" font-size="18" fill="#47555c">and near the centre today.</text>
+  </g>
+</svg>

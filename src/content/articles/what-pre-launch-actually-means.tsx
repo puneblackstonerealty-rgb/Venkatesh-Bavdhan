@@ -1,3 +1,5 @@
+import { Figure } from '@/components/article-figure'
+
 import type { ArticleMeta } from './types'
 
 export const meta: ArticleMeta = {
@@ -9,6 +11,10 @@ export const meta: ArticleMeta = {
   publishedAt: '2026-08-09',
   author: 'Blackstone Realty',
   readingMinutes: 5,
+  cover: {
+    src: '/illustrations/pre-launch-tradeoff.svg',
+    alt: 'What a buyer gains and gives up by committing at pre-launch rather than at launch',
+  },
   sources: [{ label: 'MahaRERA portal', href: 'https://maharera.maharashtra.gov.in/' }],
 }
 
@@ -22,8 +28,8 @@ export default function Body() {
         no amenity schedule, no floor plans.
       </p>
       <p>
-        That is exactly where Venkatesh Serenique is today. It is worth understanding what that
-        does and does not mean for you.
+        That is exactly where Venkatesh Serenique is today. It is worth understanding what that does
+        and does not mean for you.
       </p>
 
       <h2>Why the pricing is lower</h2>
@@ -37,6 +43,15 @@ export default function Body() {
         to you. Once the price list is published and the show flat opens, that risk disappears and
         so does the discount.
       </p>
+
+      <Figure
+        src="/illustrations/release-ledger.svg"
+        alt="Ledger showing five released items about Serenique and six that are still awaited"
+        width={1200}
+        height={675}
+        caption="The right-hand column is what you are accepting you will not see before you commit."
+        credit="Illustration"
+      />
 
       <h2>What you are actually accepting</h2>
 
@@ -72,7 +87,9 @@ export default function Body() {
       <h2>The questions worth asking now</h2>
       <ul>
         <li>Which phase is my flat in, and is that phase registered?</li>
-        <li>What is the completion date on that phase&rsquo;s registration, not in conversation?</li>
+        <li>
+          What is the completion date on that phase&rsquo;s registration, not in conversation?
+        </li>
         <li>Is the quoted price all-inclusive, and if not, what is excluded?</li>
         <li>What is the payment schedule tied to, construction stages or calendar dates?</li>
         <li>What happens to my booking amount if I withdraw before the agreement is signed?</li>

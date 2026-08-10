@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="The systems that change when a residential tower reaches twenty-seven floors">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">What changes above the fifteenth floor</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">A 27-storey tower is not a taller version of a 7-storey one. Five systems behave differently.</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="180" width="1040" height="86" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <circle cx="126" cy="223" r="17" fill="#2c5561"/>
+    <text x="126" y="230" font-size="16" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="168" y="216" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#101a20">Lifts stop being a convenience</text>
+    <text x="168" y="246" font-size="17" fill="#47555c">Ask how many per tower and their rated speed. Two lifts for 27 floors is a different morning from three.</text>
+
+    <rect x="80" y="278" width="1040" height="86" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <circle cx="126" cy="321" r="17" fill="#2c5561"/>
+    <text x="126" y="328" font-size="16" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="168" y="314" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#101a20">Water has to be pumped, and pumped again</text>
+    <text x="168" y="344" font-size="17" fill="#47555c">Upper floors depend on booster pumps and pressure zoning. In a suburb with an intermittent supply, that matters twice.</text>
+
+    <rect x="80" y="376" width="1040" height="86" rx="12" fill="#152430"/>
+    <circle cx="126" cy="419" r="17" fill="#c08654"/>
+    <text x="126" y="426" font-size="16" fill="#152430" text-anchor="middle">3</text>
+    <text x="168" y="412" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#ffffff">Fire safety becomes a design constraint</text>
+    <text x="168" y="442" font-size="17" fill="#ffffff" opacity="0.7">Refuge floors, pressurised staircases, wet risers and a turntable ladder that can actually reach you. Ask which floors are refuge floors.</text>
+
+    <rect x="80" y="474" width="1040" height="86" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <circle cx="126" cy="517" r="17" fill="#2c5561"/>
+    <text x="126" y="524" font-size="16" fill="#ffffff" text-anchor="middle">4</text>
+    <text x="168" y="510" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#101a20">Wind is real at that height</text>
+    <text x="168" y="540" font-size="17" fill="#47555c">Balcony use on the upper third changes. So does what you can leave outside, and how the windows are specified.</text>
+
+    <rect x="80" y="572" width="1040" height="72" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <circle cx="126" cy="608" r="17" fill="#2c5561"/>
+    <text x="126" y="615" font-size="16" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="168" y="600" font-family="Georgia, 'Times New Roman', serif" font-size="23" fill="#101a20">Maintenance per square foot rises with height</text>
+    <text x="168" y="628" font-size="17" fill="#47555c">Pumps, lifts, facade access and diesel for the backup all cost more in a tall building than a short one.</text>
+  </g>
+
+  <text x="80" y="668" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#66737a">General guidance on high-rise buildings. Nothing here is specific to Serenique, whose specifications have not been published.</text>
+</svg>

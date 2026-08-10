@@ -40,7 +40,7 @@ const ROUTES: Array<{ path: string; priority: number; changeFrequency: 'weekly' 
  *
  * Articles below are exempt: they carry their own real dates already.
  */
-const CONTENT_LAST_UPDATED = '2026-08-09'
+const CONTENT_LAST_UPDATED = '2026-08-10'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date(CONTENT_LAST_UPDATED)

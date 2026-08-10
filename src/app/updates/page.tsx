@@ -5,7 +5,7 @@ import { CtaButton } from '@/components/lead'
 import { PageCta, PageHero } from '@/components/page-shell'
 import { BreadcrumbStructuredData } from '@/components/structured-data'
 import { Container, Section } from '@/components/ui'
-import { articleMetas, updatesIndex, usedCategories } from '@/content/articles'
+import { articleMetas, articlesByCategory, updatesIndex, usedCategories } from '@/content/articles'
 import { pageMetadata } from '@/lib/seo'
 
 export const dynamic = 'error'
@@ -18,8 +18,10 @@ export const metadata: Metadata = pageMetadata({
 })
 
 export default function UpdatesPage() {
-  const [latest, ...rest] = articleMetas
+  const [latest] = articleMetas
   const categories = usedCategories()
+  // The feature card already carries the newest piece, so it is skipped here.
+  const groups = articlesByCategory(latest?.slug)
 
   return (
     <>
@@ -56,13 +58,21 @@ export default function UpdatesPage() {
             <>
               <ArticleCard meta={latest} variant="feature" priority />
 
-              {rest.length > 0 && (
-                <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                  {rest.map((meta) => (
-                    <ArticleCard key={meta.slug} meta={meta} />
-                  ))}
-                </div>
-              )}
+              {groups.map((group) => (
+                <section key={group.name} className="mt-14">
+                  <div className="flex flex-wrap items-baseline justify-between gap-4 border-b border-line pb-4">
+                    <h2 className="text-2xl">{group.name}</h2>
+                    <span className="text-sm text-muted">
+                      {group.items.length} {group.items.length === 1 ? 'article' : 'articles'}
+                    </span>
+                  </div>
+                  <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {group.items.map((meta) => (
+                      <ArticleCard key={meta.slug} meta={meta} />
+                    ))}
+                  </div>
+                </section>
+              ))}
             </>
           )}
         </Container>

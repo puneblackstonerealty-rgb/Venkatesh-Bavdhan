@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Seven checks a buyer can make on a project that has published almost nothing">
+  <rect width="1200" height="675" fill="#152430"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#c08654"/>
+
+  <text x="80" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#ffffff">Seven things you can check anyway</text>
+  <text x="80" y="124" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#ffffff" opacity="0.6">No brochure, no price list, no plans. Diligence is still possible, and most of it is free.</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <circle cx="112" cy="188" r="16" fill="#c08654"/>
+    <text x="112" y="194" font-size="15" fill="#152430" text-anchor="middle">1</text>
+    <text x="148" y="182" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">The registration on the portal</text>
+    <text x="148" y="208" font-size="16" fill="#ffffff" opacity="0.65">Promoter name, declared completion date, sanctioned layout, filed carpet areas. All public.</text>
+
+    <circle cx="112" cy="252" r="16" fill="#c08654"/>
+    <text x="112" y="258" font-size="15" fill="#152430" text-anchor="middle">2</text>
+    <text x="148" y="246" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">The promoter&#8217;s other registrations</text>
+    <text x="148" y="272" font-size="16" fill="#ffffff" opacity="0.65">Every project by the same promoter, including the ones that ran late. This is the real track record.</text>
+
+    <circle cx="112" cy="316" r="16" fill="#c08654"/>
+    <text x="112" y="322" font-size="15" fill="#152430" text-anchor="middle">3</text>
+    <text x="148" y="310" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Quarterly progress filings</text>
+    <text x="148" y="336" font-size="16" fill="#ffffff" opacity="0.65">Promoters must file them. Compare what is filed against what the sales team is saying.</text>
+
+    <circle cx="112" cy="380" r="16" fill="#c08654"/>
+    <text x="112" y="386" font-size="15" fill="#152430" text-anchor="middle">4</text>
+    <text x="148" y="374" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">A delivered building, visited alone</text>
+    <text x="148" y="400" font-size="16" fill="#ffffff" opacity="0.65">Talk to somebody who has lived there five years. Twenty minutes beats any brochure.</text>
+
+    <circle cx="112" cy="444" r="16" fill="#c08654"/>
+    <text x="112" y="450" font-size="15" fill="#152430" text-anchor="middle">5</text>
+    <text x="148" y="438" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">The land, and the road to it</text>
+    <text x="148" y="464" font-size="16" fill="#ffffff" opacity="0.65">Stand on the plot on a weekday morning. Water, access and what will be built opposite.</text>
+
+    <circle cx="112" cy="508" r="16" fill="#c08654"/>
+    <text x="112" y="514" font-size="15" fill="#152430" text-anchor="middle">6</text>
+    <text x="148" y="502" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Whether a bank will lend against it</text>
+    <text x="148" y="528" font-size="16" fill="#ffffff" opacity="0.65">An approved-project list means a lender has already done legal and technical diligence. Free to you.</text>
+
+    <circle cx="112" cy="572" r="16" fill="#c08654"/>
+    <text x="112" y="578" font-size="15" fill="#152430" text-anchor="middle">7</text>
+    <text x="148" y="566" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">What is in writing, and what is not</text>
+    <text x="148" y="592" font-size="16" fill="#ffffff" opacity="0.65">Anything quoted verbally at this stage is a plan, not a commitment. Ask for it on paper or discount it.</text>
+  </g>
+
+  <line x1="80" y1="620" x2="1120" y2="620" stroke="#ffffff" stroke-opacity="0.15"/>
+  <text x="80" y="656" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#c08654">None of these require the developer&#8217;s cooperation, which is the point of them</text>
+</svg>

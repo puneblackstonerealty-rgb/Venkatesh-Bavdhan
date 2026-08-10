@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Timeline showing conveyance deadlines and the deemed conveyance route in Maharashtra">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Who owns the land under your flat</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">Until conveyance happens, the answer is still the builder</text>
+
+  <!-- Route A -->
+  <text x="80" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#2c5561" letter-spacing="0.18em">THE WAY IT IS MEANT TO GO</text>
+  <g>
+    <rect x="80" y="216" width="240" height="72" rx="12" fill="#2c5561"/>
+    <text x="104" y="252" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff">Society registered</text>
+    <text x="104" y="274" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#ffffff" opacity="0.65">or OC issued</text>
+
+    <text x="336" y="258" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#c08654">→</text>
+
+    <rect x="380" y="216" width="300" height="72" rx="12" fill="#2c5561" opacity="0.85"/>
+    <text x="404" y="252" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff">4 months under MOFA</text>
+    <text x="404" y="274" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#ffffff" opacity="0.65">3 months post-OC on a RERA project</text>
+
+    <text x="696" y="258" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#c08654">→</text>
+
+    <rect x="740" y="216" width="380" height="72" rx="12" fill="#2c5561" opacity="0.7"/>
+    <text x="764" y="252" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff">Builder executes the conveyance deed</text>
+    <text x="764" y="274" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#ffffff" opacity="0.65">land and building pass to the society</text>
+  </g>
+
+  <!-- Route B -->
+  <text x="80" y="352" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#8f5f38" letter-spacing="0.18em">WHEN THE BUILDER DOES NOT COOPERATE</text>
+  <g>
+    <rect x="80" y="372" width="1040" height="86" rx="12" fill="#152430"/>
+    <text x="108" y="410" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#ffffff">Deemed conveyance</text>
+    <text x="108" y="440" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff" opacity="0.7">A statutory remedy under Section 11 of the Maharashtra Ownership Flats Act. The society applies without the builder.</text>
+  </g>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="486" width="330" height="128" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="108" y="522" font-size="13" fill="#66737a" letter-spacing="0.18em">WHERE</text>
+    <text x="108" y="556" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#101a20">Competent Authority</text>
+    <text x="108" y="584" font-size="16" fill="#47555c">District Deputy Registrar</text>
+    <text x="108" y="604" font-size="16" fill="#47555c">of Cooperative Societies</text>
+
+    <rect x="435" y="486" width="330" height="128" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="463" y="522" font-size="13" fill="#66737a" letter-spacing="0.18em">HOW</text>
+    <text x="463" y="556" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#101a20">Form VII</text>
+    <text x="463" y="584" font-size="16" fill="#47555c">with a ₹2,000 court fee stamp</text>
+    <text x="463" y="604" font-size="16" fill="#47555c">and 8 supporting documents</text>
+
+    <rect x="790" y="486" width="330" height="128" rx="12" fill="#ffffff" stroke="#c08654"/>
+    <text x="818" y="522" font-size="13" fill="#8f5f38" letter-spacing="0.18em">THE RELAXATION</text>
+    <text x="818" y="556" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#101a20">No OC? Still allowed</text>
+    <text x="818" y="584" font-size="16" fill="#47555c">Maharashtra cut the document</text>
+    <text x="818" y="604" font-size="16" fill="#47555c">list from 12 to 8 and dropped</text>
+  </g>
+  <text x="818" y="638" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#47555c">the OC and CC requirement.</text>
+
+  <text x="80" y="660" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a">General information about the statutory route, not legal advice. Take a lawyer through your own society&#8217;s papers.</text>
+</svg>

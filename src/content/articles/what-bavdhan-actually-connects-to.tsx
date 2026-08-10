@@ -1,3 +1,5 @@
+import { Figure } from '@/components/article-figure'
+
 import type { ArticleMeta } from './types'
 
 export const meta: ArticleMeta = {
@@ -9,6 +11,10 @@ export const meta: ArticleMeta = {
   publishedAt: '2026-08-06',
   author: 'Blackstone Realty',
   readingMinutes: 5,
+  cover: {
+    src: '/illustrations/bavdhan-distances.svg',
+    alt: 'Hub and spoke schematic of published distances from Bavdhan to nearby landmarks',
+  },
   sources: [{ label: 'Public Bavdhan locality data, compiled August 2026' }],
 }
 
@@ -16,9 +22,9 @@ export default function Body() {
   return (
     <>
       <p>
-        Most Pune suburbs are described by what they sit near. Bavdhan is better described by what it
-        lets you skip. It is one of the few addresses from which Kothrud, Baner, Aundh and Hinjawadi
-        are all reachable without crossing the centre of the city.
+        Most Pune suburbs are described by what they sit near. Bavdhan is better described by what
+        it lets you skip. It is one of the few addresses from which Kothrud, Baner, Aundh and
+        Hinjawadi are all reachable without crossing the centre of the city.
       </p>
       <p>
         That comes down to a single junction. Chandani Chowk is where Paud Road meets National
@@ -46,14 +52,23 @@ export default function Body() {
       </ul>
       <p>
         These are measured from the centre of Bavdhan, not from any particular project gate. We have
-        not converted them all into drive times either. The ones above carrying a time are the ones a
-        source actually published.
+        not converted them all into drive times either. The ones above carrying a time are the ones
+        a source actually published.
       </p>
+
+      <Figure
+        src="/illustrations/chandani-chowk.svg"
+        alt="Schematic of the Chandani Chowk interchange showing eight ramp directions from Bavdhan"
+        width={1200}
+        height={675}
+        caption="Eight ramps rather than a single flyover, which is what five converging roads require."
+        credit="Illustration"
+      />
 
       <h2>The bottleneck that got fixed</h2>
       <p>
-        For years the fair objection to Bavdhan was Chandani Chowk itself. The junction that gave the
-        suburb its reach was also its chokepoint, and the peak-hour queue undid the geography.
+        For years the fair objection to Bavdhan was Chandani Chowk itself. The junction that gave
+        the suburb its reach was also its chokepoint, and the peak-hour queue undid the geography.
       </p>
       <p>
         The flyover and the widened approach roads have changed that in a way residents can feel. It
@@ -90,8 +105,8 @@ export default function Body() {
       </p>
       <p>
         The trade is fairly plain. You give up an in-locality high street. You get hill views, lower
-        density than Baner, and a junction that reaches four employment hubs without touching central
-        Pune.
+        density than Baner, and a junction that reaches four employment hubs without touching
+        central Pune.
       </p>
     </>
   )

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="What a buyer gains and gives up by committing at pre-launch rather than at launch">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">The pre-launch trade, both sides of it</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">The discount is real. So is the reason it exists.</text>
+
+  <!-- Gain -->
+  <rect x="80" y="176" width="500" height="380" rx="14" fill="#152430"/>
+  <text x="112" y="220" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#c08654" letter-spacing="0.18em">WHAT YOU GAIN</text>
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#ffffff">
+    <text x="112" y="268">A rate set before the market sees it</text>
+    <text x="112" y="316">First pick of floor, tower and aspect</text>
+    <text x="112" y="364">A longer runway to arrange funds</text>
+    <text x="112" y="412">The developer&#8217;s attention, because</text>
+    <text x="112" y="436">early bookings are what fund a launch</text>
+  </g>
+  <text x="112" y="500" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#c08654">Typically 3 to 8 per cent</text>
+  <text x="112" y="528" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.6">below the public launch rate</text>
+
+  <!-- Give up -->
+  <rect x="620" y="176" width="500" height="380" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+  <text x="652" y="220" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">WHAT YOU GIVE UP</text>
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#47555c">
+    <text x="652" y="268">A carpet area you can check</text>
+    <text x="652" y="316">A floor plan you can furnish on paper</text>
+    <text x="652" y="364">An amenity schedule anyone has committed to</text>
+    <text x="652" y="412">A specification list in an annexure</text>
+    <text x="652" y="436">and a render of what it will look like</text>
+  </g>
+  <text x="652" y="500" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#101a20">You are buying the plot,</text>
+  <text x="652" y="528" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#101a20">the promoter and the date</text>
+
+  <line x1="80" y1="592" x2="1120" y2="592" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="630" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">Which is fine, as long as you know that is the transaction</text>
+  <text x="80" y="662" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">The mistake is not buying early. It is buying early while believing you have information that does not exist yet.</text>
+</svg>

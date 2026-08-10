@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Ledger of what the developer has released about Serenique and what is still awaited">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Five things exist. Six do not.</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">Everything the developer has issued about Serenique, and everything it has not</text>
+
+  <!-- Released column -->
+  <rect x="80" y="176" width="500" height="440" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+  <rect x="80" y="176" width="500" height="56" rx="14" fill="#2c5561"/>
+  <rect x="80" y="214" width="500" height="18" fill="#2c5561"/>
+  <text x="108" y="212" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#ffffff" letter-spacing="0.18em">RELEASED</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="20" fill="#101a20">
+    <text x="108" y="286">MahaRERA registration</text>
+    <text x="556" y="286" fill="#2c5561" text-anchor="end">Registered</text>
+    <line x1="108" y1="308" x2="556" y2="308" stroke="#e2e6e6"/>
+
+    <text x="108" y="348">Configurations</text>
+    <text x="556" y="348" fill="#2c5561" text-anchor="end">2, 3 &amp; 4 BHK</text>
+    <line x1="108" y1="370" x2="556" y2="370" stroke="#e2e6e6"/>
+
+    <text x="108" y="410">Towers</text>
+    <text x="556" y="410" fill="#2c5561" text-anchor="end">11</text>
+    <line x1="108" y1="432" x2="556" y2="432" stroke="#e2e6e6"/>
+
+    <text x="108" y="472">Floors per tower</text>
+    <text x="556" y="472" fill="#2c5561" text-anchor="end">3B + G + P + 27</text>
+    <line x1="108" y1="494" x2="556" y2="494" stroke="#e2e6e6"/>
+
+    <text x="108" y="534">Land parcel</text>
+    <text x="556" y="534" fill="#2c5561" text-anchor="end">14 acres</text>
+  </g>
+
+  <!-- Awaited column -->
+  <rect x="620" y="176" width="500" height="440" rx="14" fill="#ffffff" stroke="#c8d0d1" stroke-dasharray="6 5"/>
+  <rect x="620" y="176" width="500" height="56" rx="14" fill="#c08654"/>
+  <rect x="620" y="214" width="500" height="18" fill="#c08654"/>
+  <text x="648" y="212" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#ffffff" letter-spacing="0.18em">AWAITED</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="20" fill="#101a20">
+    <text x="648" y="278">Total homes</text>
+    <line x1="648" y1="298" x2="1096" y2="298" stroke="#e2e6e6"/>
+    <text x="648" y="332">Carpet areas</text>
+    <line x1="648" y1="352" x2="1096" y2="352" stroke="#e2e6e6"/>
+    <text x="648" y="386">Price list</text>
+    <line x1="648" y1="406" x2="1096" y2="406" stroke="#e2e6e6"/>
+    <text x="648" y="440">Floor &amp; master plans</text>
+    <line x1="648" y1="460" x2="1096" y2="460" stroke="#e2e6e6"/>
+    <text x="648" y="494">Amenity schedule</text>
+    <line x1="648" y1="514" x2="1096" y2="514" stroke="#e2e6e6"/>
+    <text x="648" y="548">Renders &amp; brochure</text>
+  </g>
+  <text x="648" y="592" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#8f5f38">Any site publishing these has invented them.</text>
+
+  <text x="80" y="654" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a">The left column is sourced and attributed on this site. The right column is why registering early is worth anything at all.</text>
+</svg>

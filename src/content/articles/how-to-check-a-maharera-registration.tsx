@@ -1,3 +1,5 @@
+import { Figure } from '@/components/article-figure'
+
 import type { ArticleMeta } from './types'
 
 export const meta: ArticleMeta = {
@@ -9,6 +11,10 @@ export const meta: ArticleMeta = {
   publishedAt: '2026-08-09',
   author: 'Blackstone Realty',
   readingMinutes: 5,
+  cover: {
+    src: '/illustrations/maharera-lookup.svg',
+    alt: 'What to read on a MahaRERA project record and which name to search under',
+  },
   sources: [
     { label: 'MahaRERA portal', href: 'https://maharera.maharashtra.gov.in/' },
     {
@@ -22,9 +28,9 @@ export default function Body() {
   return (
     <>
       <p>
-        A registration number on a marketing website is a claim, not proof. It is text on a page, and
-        whoever typed it may have copied it from another site that copied it from somewhere else.
-        The number itself is not the protection. Looking it up is.
+        A registration number on a marketing website is a claim, not proof. It is text on a page,
+        and whoever typed it may have copied it from another site that copied it from somewhere
+        else. The number itself is not the protection. Looking it up is.
       </p>
       <p>
         The lookup is free, public and takes about two minutes. Here is what to do and, more useful,
@@ -100,6 +106,15 @@ export default function Body() {
         payment. If what you find differs from what is printed here, the portal is right and we want
         to know.
       </p>
+
+      <Figure
+        src="/illustrations/phase-one.svg"
+        alt="Diagram showing that a phase registration covers only part of a multi-tower scheme"
+        width={1200}
+        height={675}
+        caption="A phase registration covers a phase. On an eleven-tower scheme that is a distinction worth holding on to."
+        credit="Illustration"
+      />
 
       <h2>Two things registration does not mean</h2>
       <p>

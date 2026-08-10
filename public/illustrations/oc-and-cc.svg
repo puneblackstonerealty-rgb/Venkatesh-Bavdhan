@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Comparison of the commencement certificate, completion certificate and occupancy certificate">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Three certificates, and only one lets you move in</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">They arrive in this order, and they are not interchangeable</text>
+
+  <!-- Timeline arrow -->
+  <line x1="140" y1="216" x2="1080" y2="216" stroke="#c8d0d1" stroke-width="2"/>
+  <circle cx="200" cy="216" r="11" fill="#c8d0d1"/>
+  <circle cx="600" cy="216" r="11" fill="#c08654"/>
+  <circle cx="1000" cy="216" r="14" fill="#2c5561"/>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#66737a" text-anchor="middle">
+    <text x="200" y="192">before the first brick</text>
+    <text x="600" y="192">when the building is finished</text>
+    <text x="1000" y="192">before anyone lives there</text>
+  </g>
+
+  <!-- Cards -->
+  <rect x="80" y="256" width="336" height="290" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+  <text x="108" y="300" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">CC · COMMENCEMENT</text>
+  <text x="108" y="340" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#101a20">Permission to build</text>
+  <text x="108" y="378" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Issued by the planning authority</text>
+  <text x="108" y="402" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">once the plans are sanctioned.</text>
+  <text x="108" y="440" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Ask for it before paying. A tower</text>
+  <text x="108" y="464" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">being sold without one is being</text>
+  <text x="108" y="488" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">sold ahead of its permissions.</text>
+
+  <rect x="432" y="256" width="336" height="290" rx="14" fill="#ffffff" stroke="#c08654"/>
+  <text x="460" y="300" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#8f5f38" letter-spacing="0.18em">COMPLETION CERTIFICATE</text>
+  <text x="460" y="340" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#101a20">Built as approved</text>
+  <text x="460" y="378" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Confirms the structure matches</text>
+  <text x="460" y="402" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">the sanctioned plan.</text>
+  <text x="460" y="440" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">It says the building is legal.</text>
+  <text x="460" y="464" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">It does not say it is fit to</text>
+  <text x="460" y="488" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">occupy.</text>
+
+  <rect x="784" y="256" width="336" height="290" rx="14" fill="#152430"/>
+  <text x="812" y="300" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#c08654" letter-spacing="0.18em">OC · OCCUPANCY</text>
+  <text x="812" y="340" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#ffffff">Fit to live in</text>
+  <text x="812" y="378" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff" opacity="0.7">Water, drainage, electricity, fire</text>
+  <text x="812" y="402" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff" opacity="0.7">safety and lifts all signed off.</text>
+  <text x="812" y="440" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#c08654">This is the one to insist on</text>
+  <text x="812" y="464" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#c08654">before taking possession, and</text>
+  <text x="812" y="488" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#c08654">before the final payment.</text>
+
+  <line x1="80" y1="584" x2="1120" y2="584" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="622" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">Moving in without an OC is not a technicality</text>
+  <text x="80" y="654" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">It affects utility connections, resale, home loans to your buyer, and the society&#8217;s ability to take title to the land.</text>
+</svg>

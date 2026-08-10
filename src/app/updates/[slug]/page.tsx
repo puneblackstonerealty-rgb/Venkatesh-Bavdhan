@@ -9,6 +9,7 @@ import { PageCta, Prose } from '@/components/page-shell'
 import { Container, Eyebrow, Section } from '@/components/ui'
 import { articleMetas, formatArticleDate, getArticle, relatedArticles } from '@/content/articles'
 import { site } from '@/content/project'
+import { isVector } from '@/lib/images'
 import { pageMetadata, SITE_URL } from '@/lib/seo'
 
 export const dynamic = 'error'
@@ -32,6 +33,13 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       title: meta.title,
       description: meta.excerpt,
     }),
+    /* Opts this route out of the root layout's `%s | Venkatesh Serenique`
+       template. That suffix costs 21 of the ~60 characters Google displays,
+       which is a fair trade on /location (where the brand IS the query) and a
+       bad one on an article titled "The five-year defect liability period",
+       where the headline is the entire reason anyone clicks. Landing pages
+       keep the suffix; articles get the full line. */
+    title: { absolute: meta.title },
     // Overrides the site-wide `website` type for this route only.
     openGraph: {
       type: 'article',
@@ -64,6 +72,7 @@ export default async function ArticlePage({ params }: Params) {
         author={meta.author}
         publishedAt={meta.publishedAt}
         updatedAt={meta.updatedAt}
+        cover={meta.cover?.src}
       />
 
       {/* ── Masthead ───────────────────────────────────────────────────── */}
@@ -110,6 +119,8 @@ export default async function ArticlePage({ params }: Params) {
                 fill
                 priority
                 sizes="(min-width: 1024px) 1056px, 100vw"
+                /* See src/lib/images.ts — SVG diagrams must skip the optimizer. */
+                unoptimized={isVector(meta.cover.src)}
                 className="object-cover"
               />
             </div>
@@ -190,6 +201,7 @@ function ArticleStructuredData({
   author,
   publishedAt,
   updatedAt,
+  cover,
 }: {
   title: string
   excerpt: string
@@ -197,6 +209,7 @@ function ArticleStructuredData({
   author: string
   publishedAt: string
   updatedAt?: string
+  cover?: string
 }) {
   const url = `${SITE_URL}/updates/${slug}`
   const data = {
@@ -208,6 +221,10 @@ function ArticleStructuredData({
         headline: title,
         description: excerpt,
         url,
+        /* Claimed only when the page actually renders one, and absolute
+           because a relative path in JSON-LD is resolved against the
+           document, which breaks the moment the page is syndicated. */
+        ...(cover ? { image: `${SITE_URL}${cover}` } : {}),
         datePublished: publishedAt,
         dateModified: updatedAt ?? publishedAt,
         author: { '@type': 'Organization', name: author },

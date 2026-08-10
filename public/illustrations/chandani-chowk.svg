@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Schematic of the Chandani Chowk interchange showing eight ramp directions from Bavdhan">
+  <rect width="1200" height="675" fill="#152430"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#c08654"/>
+
+  <text x="80" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#ffffff">The junction Bavdhan is priced on</text>
+  <text x="80" y="124" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#ffffff" opacity="0.6">Chandani Chowk on NH-48. Eight ramps, ₹865 crore, integrated structures completed March 2024.</text>
+
+  <!-- Ramps -->
+  <g stroke="#c08654" stroke-opacity="0.5" stroke-width="2">
+    <line x1="600" y1="400" x2="600" y2="230"/>
+    <line x1="600" y1="400" x2="770" y2="290"/>
+    <line x1="600" y1="400" x2="860" y2="400"/>
+    <line x1="600" y1="400" x2="770" y2="510"/>
+    <line x1="600" y1="400" x2="600" y2="580"/>
+    <line x1="600" y1="400" x2="430" y2="510"/>
+    <line x1="600" y1="400" x2="340" y2="400"/>
+    <line x1="600" y1="400" x2="430" y2="290"/>
+  </g>
+
+  <!-- Hub -->
+  <circle cx="600" cy="400" r="46" fill="none" stroke="#c08654" stroke-width="2"/>
+  <circle cx="600" cy="400" r="16" fill="#c08654"/>
+  <text x="600" y="452" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" fill="#c08654" text-anchor="middle" letter-spacing="0.18em">NH-48</text>
+
+  <!-- Nodes -->
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff">
+    <circle cx="600" cy="230" r="6" fill="#ffffff"/>
+    <text x="600" y="210" text-anchor="middle">Mumbai / Expressway</text>
+
+    <circle cx="770" cy="290" r="6" fill="#ffffff"/>
+    <text x="792" y="284">Baner &amp; Aundh</text>
+
+    <circle cx="860" cy="400" r="6" fill="#ffffff"/>
+    <text x="882" y="406">Katraj-Dehu Road bypass</text>
+
+    <circle cx="770" cy="510" r="6" fill="#ffffff"/>
+    <text x="792" y="516">Kothrud</text>
+
+    <circle cx="600" cy="580" r="6" fill="#ffffff"/>
+    <text x="600" y="606" text-anchor="middle">Satara Road / Pune South</text>
+
+    <circle cx="430" cy="510" r="6" fill="#ffffff"/>
+    <text x="408" y="516" text-anchor="end">Paud Road</text>
+
+    <circle cx="340" cy="400" r="6" fill="#ffffff"/>
+    <text x="318" y="406" text-anchor="end">Mulshi Road</text>
+
+    <circle cx="430" cy="290" r="8" fill="#c08654"/>
+    <text x="408" y="278" text-anchor="end" fill="#c08654">Bavdhan</text>
+    <text x="408" y="300" text-anchor="end" font-size="14" fill="#ffffff" opacity="0.55">where the project sits</text>
+  </g>
+
+  <text x="80" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#ffffff" opacity="0.45">Built by NHAI. Schematic of the directions served, not a map, and not to scale. Peak-hour queues on the Bavdhan approach have not gone away.</text>
+</svg>

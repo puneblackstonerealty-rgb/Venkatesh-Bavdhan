@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Schools, hospitals and everyday retail named in the Bavdhan catchment">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">The ordinary week, named</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">Institutions in the Bavdhan catchment. Listed without drive times, because none were published.</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <!-- Schools -->
+    <rect x="80" y="176" width="336" height="290" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+    <rect x="80" y="176" width="336" height="8" rx="4" fill="#2c5561"/>
+    <text x="108" y="222" font-size="13" fill="#2c5561" letter-spacing="0.18em">SCHOOLS</text>
+    <text x="108" y="266" font-size="18" fill="#47555c">Vibgyor High, Bavdhan</text>
+    <text x="108" y="300" font-size="18" fill="#47555c">Indus International School</text>
+    <text x="108" y="334" font-size="18" fill="#47555c">The Orchid School</text>
+    <text x="108" y="368" font-size="18" fill="#47555c">Mercedes-Benz International</text>
+    <text x="108" y="402" font-size="18" fill="#47555c">Ryan International School</text>
+    <text x="108" y="442" font-size="15" fill="#66737a">Proximity is not admission. Ask each one.</text>
+
+    <!-- Healthcare -->
+    <rect x="432" y="176" width="336" height="290" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+    <rect x="432" y="176" width="336" height="8" rx="4" fill="#c08654"/>
+    <text x="460" y="222" font-size="13" fill="#8f5f38" letter-spacing="0.18em">HEALTHCARE</text>
+    <text x="460" y="266" font-size="18" fill="#47555c">Sahyadri Hospital, Kothrud</text>
+    <text x="460" y="290" font-size="15" fill="#66737a">about 4 km</text>
+    <text x="460" y="330" font-size="18" fill="#47555c">Jupiter Hospital, Baner</text>
+    <text x="460" y="354" font-size="15" fill="#66737a">about 6 km</text>
+    <text x="460" y="394" font-size="18" fill="#47555c">Manipal Hospital, Pashan</text>
+    <text x="460" y="428" font-size="18" fill="#47555c">Chellaram Hospital</text>
+
+    <!-- Retail -->
+    <rect x="784" y="176" width="336" height="290" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+    <rect x="784" y="176" width="336" height="8" rx="4" fill="#2c5561"/>
+    <text x="812" y="222" font-size="13" fill="#2c5561" letter-spacing="0.18em">EVERYDAY &amp; RETAIL</text>
+    <text x="812" y="266" font-size="18" fill="#47555c">Aditya Shagun Mall</text>
+    <text x="812" y="300" font-size="18" fill="#47555c">Vishal Shopping Complex</text>
+    <text x="812" y="334" font-size="18" fill="#47555c">Bandal Dhankude Plaza</text>
+    <text x="812" y="368" font-size="18" fill="#47555c">D-Mart</text>
+    <text x="812" y="422" font-size="15" fill="#66737a">The layer under the malls is what</text>
+    <text x="812" y="444" font-size="15" fill="#66737a">decides daily life. Walk it.</text>
+  </g>
+
+  <line x1="80" y1="510" x2="1120" y2="510" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="550" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">Two of these carry a distance. The rest do not, and are not given one here</text>
+  <text x="80" y="582" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Real-estate microsites attach a confident &#8220;5 minutes&#8221; to every landmark they can name. Those numbers are almost always invented,</text>
+  <text x="80" y="606" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">and they are the easiest claim on a page to disprove by getting in a car.</text>
+  <text x="80" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a">Compiled from public locality data for Bavdhan, August 2026. No street address has been published for this project.</text>
+</svg>

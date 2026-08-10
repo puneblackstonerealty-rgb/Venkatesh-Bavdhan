@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Timeline of the five-year structural defect liability period under RERA section 14(3)">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Five years of warranty you already own</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">Section 14(3) of the Real Estate (Regulation and Development) Act, 2016</text>
+
+  <!-- Timeline -->
+  <rect x="120" y="212" width="1000" height="52" rx="8" fill="#2c5561"/>
+  <circle cx="120" cy="238" r="16" fill="#c08654"/>
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#ffffff" text-anchor="middle">
+    <text x="220" y="245">year 1</text>
+    <text x="420" y="245">year 2</text>
+    <text x="620" y="245">year 3</text>
+    <text x="820" y="245">year 4</text>
+    <text x="1020" y="245">year 5</text>
+  </g>
+  <text x="120" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#8f5f38" text-anchor="middle">possession</text>
+  <text x="1120" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a" text-anchor="end">cover ends</text>
+
+  <!-- The 30 day rule -->
+  <rect x="80" y="308" width="500" height="152" rx="14" fill="#152430"/>
+  <text x="108" y="348" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#c08654" letter-spacing="0.18em">ONCE YOU REPORT IT IN WRITING</text>
+  <text x="108" y="396" font-family="Georgia, 'Times New Roman', serif" font-size="44" fill="#ffffff">30 days</text>
+  <text x="108" y="430" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff" opacity="0.65">for the promoter to put it right,</text>
+  <text x="108" y="452" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#ffffff" opacity="0.65">at no cost to you.</text>
+
+  <rect x="620" y="308" width="500" height="152" rx="14" fill="#ffffff" stroke="#c8d0d1"/>
+  <text x="648" y="348" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">WHAT IS COVERED</text>
+  <text x="648" y="382" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#47555c">Structural defects</text>
+  <text x="648" y="410" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#47555c">Defective workmanship</text>
+  <text x="648" y="438" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#47555c">Poor quality of materials or services</text>
+
+  <line x1="80" y1="504" x2="1120" y2="504" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="546" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#2c5561">A one-year warranty clause in your agreement does not shorten this</text>
+  <text x="80" y="580" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#47555c">The statutory period overrides a private contract term. If the agreement offers less, the Act still gives you five years.</text>
+  <text x="80" y="616" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#47555c">Report every defect in writing, dated, with photographs. A verbal complaint starts no clock and proves nothing later.</text>
+
+  <text x="80" y="660" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a">General information about the statute, not legal advice. The period runs from the date of possession, per unit.</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="What to read on a MahaRERA project record and which name to search under">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">Search the registered name, not the brand</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">A registration number printed on a website is a claim. Two minutes on the portal turns it into a fact.</text>
+
+  <!-- Name mapping -->
+  <rect x="80" y="176" width="450" height="100" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+  <text x="108" y="212" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" fill="#66737a" letter-spacing="0.18em">MARKETING NAME</text>
+  <text x="108" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#101a20">Venkatesh Serenique</text>
+
+  <text x="556" y="234" font-family="Georgia, 'Times New Roman', serif" font-size="28" fill="#c08654">→</text>
+
+  <rect x="620" y="176" width="500" height="100" rx="12" fill="#152430"/>
+  <text x="648" y="212" font-family="Helvetica Neue, Arial, sans-serif" font-size="12" fill="#c08654" letter-spacing="0.18em">REGISTERED PROJECT NAME</text>
+  <text x="648" y="250" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#ffffff">Shree Venkatesh Serenique Phase 1</text>
+
+  <!-- What to read -->
+  <text x="80" y="330" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">FOUR THINGS TO READ ON THE RECORD</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="350" width="248" height="150" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="108" y="392" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#101a20">The promoter</text>
+    <text x="108" y="424" font-size="16" fill="#47555c">The legal entity you</text>
+    <text x="108" y="446" font-size="16" fill="#47555c">will contract with, not</text>
+    <text x="108" y="468" font-size="16" fill="#47555c">the brand on the hoarding.</text>
+
+    <rect x="344" y="350" width="248" height="150" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="372" y="392" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#101a20">The completion date</text>
+    <text x="372" y="424" font-size="16" fill="#47555c">Declared to the regulator.</text>
+    <text x="372" y="446" font-size="16" fill="#47555c">This is the date delay</text>
+    <text x="372" y="468" font-size="16" fill="#47555c">interest is measured from.</text>
+
+    <rect x="608" y="350" width="248" height="150" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="636" y="392" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#101a20">The sanctioned plan</text>
+    <text x="636" y="424" font-size="16" fill="#47555c">Downloadable. Take it</text>
+    <text x="636" y="446" font-size="16" fill="#47555c">with you to the site and</text>
+    <text x="636" y="468" font-size="16" fill="#47555c">compare what you are told.</text>
+
+    <rect x="872" y="350" width="248" height="150" rx="12" fill="#ffffff" stroke="#c08654"/>
+    <text x="900" y="392" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#101a20">The filed carpet areas</text>
+    <text x="900" y="424" font-size="16" fill="#47555c">These override any</text>
+    <text x="900" y="446" font-size="16" fill="#47555c">brochure. If the two</text>
+    <text x="900" y="468" font-size="16" fill="#47555c">differ, this one wins.</text>
+  </g>
+
+  <line x1="80" y1="536" x2="1120" y2="536" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="576" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">maharera.maharashtra.gov.in</text>
+  <text x="80" y="608" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Search registered projects by number where you have one, and by the registered name where you do not. Do this before any payment.</text>
+  <text x="80" y="652" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#66737a">The registration number published for this project has an unusual prefix and has not yet been verified against the portal. Check it yourself.</text>
+</svg>

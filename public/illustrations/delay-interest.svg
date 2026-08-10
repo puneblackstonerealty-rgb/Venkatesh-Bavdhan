@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="How delay interest is calculated under MahaRERA and what filing a complaint involves">
+  <rect width="1200" height="675" fill="#f7f5f1"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2c5561"/>
+
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#101a20">If possession is late, interest is arithmetic</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#47555c">You do not have to win an argument to be owed it. You have to have a registered agreement and a missed date.</text>
+
+  <!-- The formula -->
+  <rect x="80" y="176" width="1040" height="150" rx="14" fill="#152430"/>
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <text x="120" y="216" font-size="13" fill="#c08654" letter-spacing="0.18em">THE RATE</text>
+    <text x="120" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#ffffff">SBI MCLR + 2%</text>
+    <text x="120" y="298" font-size="16" fill="#ffffff" opacity="0.6">on every rupee you have paid</text>
+
+    <text x="560" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#c08654">=</text>
+
+    <text x="640" y="216" font-size="13" fill="#c08654" letter-spacing="0.18em">AS AT APRIL 2026</text>
+    <text x="640" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#ffffff">10.85% a year</text>
+    <text x="640" y="298" font-size="16" fill="#ffffff" opacity="0.6">running from the agreed date to actual possession</text>
+  </g>
+
+  <!-- Process -->
+  <text x="80" y="386" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#66737a" letter-spacing="0.18em">IF YOU HAVE TO FILE</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="406" width="246" height="132" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="108" y="452" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#2c5561">₹5,000</text>
+    <text x="108" y="484" font-size="16" fill="#47555c">complaint fee,</text>
+    <text x="108" y="506" font-size="16" fill="#47555c">paid online</text>
+
+    <rect x="344" y="406" width="246" height="132" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="372" y="452" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#2c5561">60 to 90</text>
+    <text x="372" y="484" font-size="16" fill="#47555c">days to a first</text>
+    <text x="372" y="506" font-size="16" fill="#47555c">hearing, typically</text>
+
+    <rect x="608" y="406" width="246" height="132" rx="12" fill="#ffffff" stroke="#c8d0d1"/>
+    <text x="636" y="452" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#2c5561">60 days</text>
+    <text x="636" y="484" font-size="16" fill="#47555c">to pay, once the</text>
+    <text x="636" y="506" font-size="16" fill="#47555c">order is made</text>
+
+    <rect x="872" y="406" width="248" height="132" rx="12" fill="#152430"/>
+    <text x="900" y="446" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#ffffff">Enforceable</text>
+    <text x="900" y="478" font-size="16" fill="#ffffff" opacity="0.7">Recoverable as arrears</text>
+    <text x="900" y="500" font-size="16" fill="#ffffff" opacity="0.7">of land revenue, through</text>
+    <text x="900" y="522" font-size="16" fill="#ffffff" opacity="0.7">the District Collector</text>
+  </g>
+
+  <line x1="80" y1="576" x2="1120" y2="576" stroke="#c8d0d1" stroke-width="1.5"/>
+  <text x="80" y="614" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#2c5561">The date that counts is the one on the MahaRERA record</text>
+  <text x="80" y="646" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#47555c">Not the one in the brochure, and not the one you were told in the lounge. Check the declared completion date for your phase before you book.</text>
+  <text x="80" y="668" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#66737a">General information, not legal advice. Rates change; confirm the current one before relying on it.</text>
+</svg>
