@@ -27,6 +27,13 @@ const nextConfig: NextConfig = {
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
         ],
       },
+      {
+        /* The brochure is handed over on /thank-you after an enquiry, so keep
+           the PDF itself out of search results. It is a file, not a page, so
+           an X-Robots-Tag header is the only place a noindex can go. */
+        source: '/brochure/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
     ]
   },
 }

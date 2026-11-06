@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
 
+import { markLeadSubmitted } from '@/lib/lead-session'
+
 import { Button, cn } from './ui'
 
 /**
@@ -121,6 +123,11 @@ export function LeadDialog() {
         setStatus('error')
         return
       }
+
+      /* The server has accepted it. Remember that for this tab, so /thank-you
+         can hand over the brochure, before anything navigates away. Never
+         throws: a blocked sessionStorage must not fail a lead that was taken. */
+      markLeadSubmitted()
 
       /* 'done' first, so the button never sits on "Sending…" if the route
          change is slow. */

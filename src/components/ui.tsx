@@ -101,6 +101,7 @@ export function Button({
   onClick,
   type = 'button',
   href,
+  download,
   className,
   full,
   size = 'md',
@@ -111,6 +112,8 @@ export function Button({
   onClick?: () => void
   type?: 'button' | 'submit'
   href?: string
+  /** Only meaningful with `href`: asks the browser to save the file rather than navigate. */
+  download?: boolean
   className?: string
   full?: boolean
   size?: 'sm' | 'md' | 'lg'
@@ -129,7 +132,7 @@ export function Button({
   )
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} download={download} onClick={onClick} className={classes}>
         {children}
       </a>
     )

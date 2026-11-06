@@ -699,3 +699,24 @@ export const faqs = [
     a: 'Because it is still pre-launch. Serenique is registered with MahaRERA, but the developer has not yet issued a brochure, price list, floor plans or renders. We publish what can be verified and say plainly what cannot, rather than filling the gaps with figures borrowed from elsewhere.',
   },
 ] as const
+
+/**
+ * The developer's official brochure, handed over on /thank-you after an
+ * enquiry (components/brochure-download.tsx). `null` until one is issued, and
+ * while it is null the thank-you page is unchanged.
+ *
+ * To switch it on: put the PDF in public/brochure/, then set the export below.
+ * `npm run audit` fails if `href` points at a file that is missing or empty.
+ */
+export type Brochure = {
+  /** Root-relative and always under /brochure/. The file lives in public/brochure/. */
+  href: string
+  /** The link text, e.g. "Download the project brochure". */
+  title: string
+  /** Shown beside the title, e.g. "PDF, 12 MB". */
+  sizeLabel: string
+  /** Who issued it and when. Provenance for editors; not rendered. */
+  source: string
+}
+
+export const brochure: Brochure | null = null

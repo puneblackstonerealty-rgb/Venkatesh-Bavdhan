@@ -3,6 +3,8 @@
 import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
+import { markLeadSubmitted } from '@/lib/lead-session'
+
 const CSS_ID = 'serenique-chatbot-css'
 const JS_ID = 'serenique-chatbot-js'
 
@@ -34,6 +36,7 @@ type ChatbotConfig = {
   openOnScroll: boolean
   teaserText?: string
   ipLookupUrl: string | null
+  onLead?: () => void
 }
 
 declare global {
@@ -83,6 +86,15 @@ export function ChatWidget({ agentName }: { agentName: string }) {
          third-party request the privacy policy does not declare, for a value
          /api/lead already reads from x-forwarded-for. */
       ipLookupUrl: null,
+
+      /* The widget's own callback, so the vendored file in /public stays
+         untouched. It runs just before the widget redirects to /thank-you, so
+         a chatbot enquiry unlocks the brochure there like a form one does.
+
+         The widget posts with mode: 'no-cors' and never learns whether the
+         server accepted the lead, so this marks a submission, not a confirmed
+         capture. The flag only gates a link to a public file. */
+      onLead: () => markLeadSubmitted(),
     }
 
     if (!document.getElementById(CSS_ID)) {

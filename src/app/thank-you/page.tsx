@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ArticleCard } from '@/components/article-card'
+import { BrochureDownload } from '@/components/brochure-download'
 import { Button, Container, Eyebrow, Section, SectionHead } from '@/components/ui'
 import { articleMetas } from '@/content/articles'
 import { releaseStatus, site, thankYou } from '@/content/project'
@@ -46,6 +47,7 @@ export default function ThankYouPage() {
             <p className="mt-5 text-base text-white/65">{thankYou.lede}</p>
 
             <div className="mt-9 flex flex-wrap justify-center gap-3">
+              <BrochureDownload />
               <Button href={`tel:${site.phone}`} variant="copper" size="lg">
                 <PhoneIcon />
                 Call {site.phoneDisplay}
