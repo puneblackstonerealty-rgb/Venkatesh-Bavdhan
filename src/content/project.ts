@@ -709,8 +709,12 @@ export const faqs = [
  * `npm run audit` fails if `href` points at a file that is missing or empty.
  */
 export type Brochure = {
-  /** Root-relative and always under /brochure/. The file lives in public/brochure/. */
-  href: string
+  /**
+   * Must start with /brochure/ (the type enforces it, and `npm run audit` checks it):
+   * the noindex header in next.config.ts covers only that path. The file lives
+   * in public/brochure/.
+   */
+  href: `/brochure/${string}`
   /** The link text, e.g. "Download the project brochure". */
   title: string
   /** Shown beside the title, e.g. "PDF, 12 MB". */

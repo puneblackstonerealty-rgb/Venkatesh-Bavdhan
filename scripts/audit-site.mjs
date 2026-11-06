@@ -9,7 +9,8 @@
 //   - an <img> without alt text
 //   - an <img> (src or srcset, including the url= param of /_next/image) whose
 //     file is not in public/ or the build output; case-sensitive, as on Vercel
-//   - a brochure that project.ts exports but whose file is not in public/
+//   - a brochure that project.ts exports but whose href is outside /brochure/
+//     (the only path sent X-Robots-Tag: noindex) or whose file is not in public/
 //   - a sibling project's name in the visible text, meta tags, alt / aria-label /
 //     title attributes or JSON-LD; a placeholder phone number; or lorem ipsum
 //   - an em or en dash in visible text (house style)
@@ -267,7 +268,9 @@ for (const [file, minWords] of LLMS_FILES) {
   }
 }
 
-/* brochure: if project.ts exports one (not null), its file must be in public/.
+/* brochure: if project.ts exports one (not null), its href must be under /brochure/
+   (next.config.ts sends X-Robots-Tag: noindex only there, and robots.txt leaves
+   the path crawlable so the header can be read) and its file must be in public/.
    Read as text, so the audit needs no TypeScript toolchain. */
 const projectFile = join(ROOT, 'src', 'content', 'project.ts')
 const projectSrc = existsSync(projectFile) ? readFileSync(projectFile, 'utf8') : ''
@@ -282,6 +285,9 @@ if (brochureAt !== -1) {
     if (!href || !href.startsWith('/')) {
       failures++
       report.push('FAIL brochure is exported from project.ts but has no root-relative href to check')
+    } else if (!href.startsWith('/brochure/')) {
+      failures++
+      report.push(`FAIL brochure ${href} is not under /brochure/, so it would not get the X-Robots-Tag noindex header`)
     } else if (!existsExact(PUBLIC, href) || statSync(file).size === 0) {
       failures++
       report.push(`FAIL brochure ${href} is missing or empty in public/`)

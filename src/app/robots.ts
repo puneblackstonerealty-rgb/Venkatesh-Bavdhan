@@ -22,9 +22,10 @@ export default function robots(): MetadataRoute.Robots {
         // /thank-you is a post-submission confirmation with nothing to offer
         // search, and indexing it lets people arrive without ever enquiring.
         // /api/* is not a page. Both must also stay out of the sitemap.
-        // /brochure/ is the PDF handed over on /thank-you; it is also sent
-        // X-Robots-Tag: noindex (next.config.ts).
-        disallow: ['/api/', '/thank-you', '/brochure/'],
+        // /brochure/ is deliberately NOT disallowed: the PDFs there are kept out
+        // of the index by an X-Robots-Tag: noindex header (next.config.ts), and a
+        // crawler blocked here could never read it.
+        disallow: ['/api/', '/thank-you'],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
