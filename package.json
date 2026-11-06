@@ -11,7 +11,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "audit": "node scripts/audit-site.mjs",
+    "verify": "npm run typecheck && npm run lint && npm run build && npm run audit"
   },
   "dependencies": {
     "next": "16.3.0",
