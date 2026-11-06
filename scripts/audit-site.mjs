@@ -10,15 +10,16 @@
 //   - an <img> (src or srcset, including the url= param of /_next/image) whose
 //     file is not in public/ or the build output; case-sensitive, as on Vercel
 //   - a brochure that project.ts exports but whose file is not in public/
-//   - a sibling project's name, a placeholder phone number, or lorem ipsum
+//   - a sibling project's name in the visible text, meta tags, alt / aria-label /
+//     title attributes or JSON-LD; a placeholder phone number; or lorem ipsum
 //   - an em or en dash in visible text (house style)
 //   - an internal link that points at no built page
 //   - a sitemap URL that has no built page
-//   - llms.txt / llms-full.txt missing or suspiciously short
+//   - llms.txt missing or suspiciously short
 //
-// The five sites carry this same script. Everything that differs between them
-// is in the CONFIG block below; keep the rest identical so a change can be
-// applied to all five copies unchanged.
+// The five sites carry this same script. Apart from the bullet list above,
+// everything that differs between them is in the CONFIG block below; keep the
+// rest identical so a change can be applied to all five copies unchanged.
 
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
@@ -122,6 +123,20 @@ const visibleText = (h) =>
     .replace(/<style[\s\S]*?<\/style>/g, ' ')
     .replace(/<[^>]+>/g, ' ')
 
+/* What a search engine or screen reader sees that visibleText() does not: meta
+   tag values, alt / aria-label / title attributes and JSON-LD, entity-decoded.
+   Other <script> bodies (the RSC payload) are left out on purpose: they hold
+   props that are never rendered, and would give false positives. */
+const hiddenText = (h) => {
+  const markup = h.replace(/<script[\s\S]*?<\/script>/g, ' ').replace(/<style[\s\S]*?<\/style>/g, ' ')
+  const values = [
+    ...[...markup.matchAll(/<meta\b[^>]*?\scontent="([^"]*)"/g)].map((m) => m[1]),
+    ...[...markup.matchAll(/\s(?:alt|aria-label|title)="([^"]*)"/g)].map((m) => m[1]),
+    ...[...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => m[1]),
+  ]
+  return decode(values.join(' | '))
+}
+
 /* Every file an <img> asks for. next/image renders
    src="/_next/image?url=%2Fgallery%2F1.webp&w=..." so the real file is the url=
    param; srcset entries are read the same way. Absolute http(s) URLs and data:
@@ -209,7 +224,11 @@ for (const file of htmlFiles.sort()) {
   }
 
   const text = visibleText(h)
-  if (SIBLING_NAMES.test(text) && !SIBLING_ROUTES_OK.includes(route)) issues.push('sibling project name in text')
+  if (!SIBLING_ROUTES_OK.includes(route)) {
+    if (SIBLING_NAMES.test(text)) issues.push('sibling project name in text')
+    const hidden = hiddenText(h).match(SIBLING_NAMES)
+    if (hidden) issues.push(`sibling project name "${hidden[0]}" in meta, alt, aria-label, title or JSON-LD`)
+  }
   for (const [pattern, message] of FORBIDDEN_IN_HTML) if (pattern.test(h)) issues.push(message)
   if (/00000\s?00000|\+910000000000|lorem ipsum/i.test(h)) issues.push('placeholder content')
   if (DASH_ROUTES && DASH_ROUTES.test(route) && /[–—]/.test(text)) issues.push('em/en dash in text')
