@@ -27,12 +27,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!article) return pageMetadata({ path: '/updates', title: 'Not found', description: '', index: false })
 
   const { meta } = article
+  const description = meta.metaDescription ?? meta.excerpt
+  const base = pageMetadata({
+    path: `/updates/${meta.slug}`,
+    title: meta.title,
+    description,
+  })
   return {
-    ...pageMetadata({
-      path: `/updates/${meta.slug}`,
-      title: meta.title,
-      description: meta.excerpt,
-    }),
+    ...base,
     /* Opts this route out of the root layout's `%s | Venkatesh Serenique`
        template. That suffix costs 21 of the ~60 characters Google displays,
        which is a fair trade on /location (where the brand IS the query) and a
@@ -40,14 +42,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
        where the headline is the entire reason anyone clicks. Landing pages
        keep the suffix; articles get the full line. */
     title: { absolute: meta.title },
-    // Overrides the site-wide `website` type for this route only.
+    /* Overrides the site-wide `website` type for this route only. Spreads the
+       base block first: replacing it outright dropped `images`, which left
+       every article with no og:image (the share card fell back to nothing). */
     openGraph: {
+      ...base.openGraph,
       type: 'article',
       locale: 'en_IN',
       siteName: site.name,
       url: `${SITE_URL}/updates/${meta.slug}`,
       title: meta.title,
-      description: meta.excerpt,
+      description,
       publishedTime: meta.publishedAt,
       modifiedTime: meta.updatedAt ?? meta.publishedAt,
       authors: [meta.author],
@@ -176,11 +181,11 @@ export default async function ArticlePage({ params }: Params) {
       )}
 
       <PageCta
-        title="Be first when the numbers land"
-        body="Carpet areas, the price list and the plans go to registered buyers before they reach the portals."
+        title="Get today’s price for the home you want"
+        body="The price list on this site carries its date. The sales team confirms the current price, sends the cost sheet and the floor plan for the home you pick, and books your site visit."
       >
         <CtaButton intent="Register your interest" variant="copper" size="lg">
-          Register Your Interest
+          Get the Cost Sheet
         </CtaButton>
       </PageCta>
     </>

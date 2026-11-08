@@ -80,7 +80,7 @@ export default function UpdatesPage() {
 
       <PageCta
         title="Get each update as it lands"
-        body="Carpet areas, the price list, the plans and the amenity schedule go to registered buyers first."
+        body="New price lists, the Phase 2 launch and construction progress go to registered buyers first."
       >
         <CtaButton intent="Register for Updates" variant="copper" size="lg">
           Register for Updates

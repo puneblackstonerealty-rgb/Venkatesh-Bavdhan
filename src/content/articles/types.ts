@@ -23,6 +23,14 @@ export type ArticleMeta = {
   title: string
   /** One or two sentences. Used on the card, in <meta description> and in the share card. */
   excerpt: string
+  /**
+   * Overrides `excerpt` in the meta description and share card only.
+   *
+   * Search results cut descriptions off near 160 characters, and the audit
+   * fails anything over 165. Set this where the excerpt runs longer, so the
+   * card keeps its full sentence and the search result does not end mid-word.
+   */
+  metaDescription?: string
   category: Category
   /** ISO date, `YYYY-MM-DD`. Drives sort order and the visible date. */
   publishedAt: string
