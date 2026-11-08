@@ -12,10 +12,37 @@ const nextConfig: NextConfig = {
   turbopack: { root: projectRoot },
   poweredByHeader: false,
   images: {
-    /* No project photography exists yet — see README. This block is configured
-       ahead of the asset drop so that adding renders to /public is a content
-       change and not a config change. */
+    /* The developer's renders and brochure pictures live in /public/gallery
+       (brochure redesign, Nov 2026). */
     formats: ['image/avif', 'image/webp'],
+  },
+  /* Articles retired in the November 2026 refresh, after the launch made
+     their premise wrong. Each points at the article that now carries its
+     subject, permanently, so search results and old links land somewhere
+     useful. */
+  async redirects() {
+    return [
+      {
+        source: '/updates/fourteen-acres-and-eleven-towers',
+        destination: '/updates/phase-one-and-the-whole-site',
+        permanent: true,
+      },
+      {
+        source: '/updates/the-numbers-that-were-never-true',
+        destination: '/updates/phase-one-and-the-whole-site',
+        permanent: true,
+      },
+      {
+        source: '/updates/buying-when-nothing-has-been-published',
+        destination: '/updates/how-to-check-a-maharera-registration',
+        permanent: true,
+      },
+      {
+        source: '/updates/what-pre-launch-actually-means',
+        destination: '/updates/what-has-actually-been-released',
+        permanent: true,
+      },
+    ]
   },
   async headers() {
     return [

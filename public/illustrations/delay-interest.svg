@@ -14,8 +14,8 @@
 
     <text x="560" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#a37731">=</text>
 
-    <text x="640" y="216" font-size="13" fill="#a37731" letter-spacing="0.18em">AS AT APRIL 2026</text>
-    <text x="640" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#fffaf4">10.85% a year</text>
+    <text x="640" y="216" font-size="13" fill="#a37731" letter-spacing="0.18em">SINCE 15 OCT 2026</text>
+    <text x="640" y="264" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#fffaf4">10.95% a year</text>
     <text x="640" y="298" font-size="16" fill="#fffaf4" opacity="0.6">running from the agreed date to actual possession</text>
   </g>
 
@@ -46,7 +46,7 @@
   </g>
 
   <line x1="80" y1="576" x2="1120" y2="576" stroke="#d9c29c" stroke-width="1.5"/>
-  <text x="80" y="614" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#405828">The date that counts is the one on the MahaRERA record</text>
-  <text x="80" y="646" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">Not the one in the brochure, and not the one you were told in the lounge. Check the declared completion date for your phase before you book.</text>
+  <text x="80" y="614" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#405828">The date that counts is the one in your agreement</text>
+  <text x="80" y="646" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">MahaRERA held in December 2025 that your registered agreement&#8217;s date governs. Read it before you sign.</text>
   <text x="80" y="668" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#73695d">General information, not legal advice. Rates change; confirm the current one before relying on it.</text>
 </svg>

@@ -9,6 +9,7 @@ export const meta: ArticleMeta = {
     'Chandani Chowk was the worst bottleneck in west Pune for a decade. Eight ramps and a rebuilt interchange later, here is what actually changed and what did not.',
   category: 'Locality',
   publishedAt: '2026-08-02',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -16,7 +17,11 @@ export const meta: ArticleMeta = {
     alt: 'Schematic of the Chandani Chowk interchange showing eight ramp directions from Bavdhan',
   },
   sources: [
-    { label: 'Published reporting on the NHAI Chandani Chowk interchange, completed March 2024' },
+    {
+      label: 'Punekar News, Chandani Chowk flyover inaugurated by Nitin Gadkari, 12 August 2023',
+      href: 'https://www.punekarnews.in/pune-chandni-chowk-flyover-inaugurated-gadkari-asks-ajit-pawar-and-chandrakant-patil-to-recommend-name-for-the-flyover/',
+    },
+    { label: 'Reporting on Chandani Chowk metro works and the heavy-vehicle restriction, October 2026' },
     { label: 'Locality research for Bavdhan, compiled August 2026' },
   ],
 }
@@ -33,12 +38,18 @@ export default function Body() {
         That is the thing that has changed, and it is the reason the suburb reads differently in
         2026 than it did in 2020.
       </p>
+      <p>
+        It is not finished changing. Metro works for the Aqua Line extension to Chandani Chowk began
+        in April 2026, and from 28 October 2026 heavy vehicles have been kept off the Chandani Chowk
+        to Kothrud Depot stretch while they continue. The PMC has also drawn up a widening plan for
+        the road from Chandani Chowk to Bhugaon, which it describes as congested.
+      </p>
 
       <h2>What was built</h2>
       <p>
-        The National Highways Authority of India rebuilt the junction as a multi-level interchange
-        at a reported cost of around ₹865 crore. The integrated structures were completed in March
-        2024.
+        The junction was rebuilt as a multi-level interchange at a reported cost of around ₹865
+        crore. Nitin Gadkari opened it on 12 August 2023, when it was described as completely ready
+        for traffic.
       </p>
       <p>
         The design is eight ramps rather than a single flyover, giving grade-separated movement in

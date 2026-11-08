@@ -11,6 +11,7 @@ export const meta: ArticleMeta = {
     'Fourteen kilometres and about thirty minutes is the published figure. It is accurate at some hours and optimistic at the ones you would actually travel.',
   category: 'Locality',
   publishedAt: '2026-08-10',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 5,
   cover: {
@@ -31,8 +32,9 @@ export default function Body() {
         that decides the address for them, and it deserves more than one line in a distance table.
       </p>
       <p>
-        The published figure is <strong>14 km, about 30 minutes</strong>. That is a real figure. It
-        is also the only one anyone publishes, and it describes a specific set of conditions.
+        The developer puts Hinjawadi at <strong>8 to 12 km</strong> from Serenique, depending on
+        which phase of the IT park you work in, and the usual quoted drive is about 30 minutes. Both
+        describe a specific set of conditions.
       </p>
 
       <h2>Which thirty minutes</h2>

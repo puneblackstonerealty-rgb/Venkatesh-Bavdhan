@@ -2,6 +2,8 @@ import Link from 'next/link'
 
 import { Figure, Note } from '@/components/article-figure'
 
+import { priceList, rupeesShort, startingPrice } from '@/content/project'
+
 import type { ArticleMeta } from './types'
 
 export const meta: ArticleMeta = {
@@ -9,8 +11,11 @@ export const meta: ArticleMeta = {
   title: 'Bavdhan property rates in 2026, and why sources disagree',
   excerpt:
     'One portal says ₹7,500 a square foot. Another says ₹11,950. That is a sixty per cent spread on the same suburb in the same year, and the reason is worth understanding.',
+  metaDescription:
+    "Bavdhan rates in 2026 from four published sources, and how they compare with Serenique's own price list dated 13 Oct 2026.",
   category: 'Locality',
   publishedAt: '2026-08-01',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 7,
   cover: {
@@ -115,12 +120,18 @@ export default function Body() {
       />
 
       <h2>What this means for Serenique specifically</h2>
-      <p>It means very little, and that is the honest answer.</p>
       <p>
-        The developer has published{' '}
-        <Link href="/configurations">no price list, no carpet areas and no floor plans</Link> for
-        this project. Taking a Bavdhan average and presenting it as this project&rsquo;s pricing
-        would be inventing a number, which is the one thing this site does not do.
+        Serenique now has its own numbers, so you do not need a locality average to guess at it.
+        The developer&rsquo;s{' '}
+        <Link href="/configurations#price-list">price list dated {priceList.issued}</Link> starts
+        at {rupeesShort(startingPrice('2 BHK').agreement)} agreement value for a 2 BHK, or{' '}
+        {rupeesShort(startingPrice('2 BHK').allIn)} all-in, and{' '}
+        {rupeesShort(startingPrice('3 BHK').allIn)} all-in for a 3 BHK.
+      </p>
+      <p>
+        Be careful comparing those with the per-square-foot rates above. The price list is on RERA
+        carpet area, while portal averages are usually on a larger saleable or built-up figure, so
+        a carpet rate always looks higher than a portal rate for the same flat.
       </p>
       <p>
         What the locality data does give you is a sanity check for later. When a price list does

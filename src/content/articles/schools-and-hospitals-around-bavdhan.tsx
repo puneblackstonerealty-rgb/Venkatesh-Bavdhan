@@ -9,8 +9,11 @@ export const meta: ArticleMeta = {
   title: 'Schools, hospitals and the ordinary week in Bavdhan',
   excerpt:
     'Commutes get the attention. The trips that decide whether an address works are the school run and the chemist at ten at night, and those are different journeys entirely.',
+  metaDescription:
+    "Schools and hospitals around Bavdhan, checked against the developer's November 2026 list, and what to ask each before you count it.",
   category: 'Locality',
   publishedAt: '2026-08-06',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -35,8 +38,10 @@ export default function Body() {
 
       <h2>Schools</h2>
       <p>
-        Named in the catchment: Vibgyor High Bavdhan, Indus International School, The Orchid School,
-        Mercedes-Benz International School and Ryan International School.
+        Named in the catchment: Ryan International School, which the developer puts within 2 km,
+        The Orchid School, Mercedes-Benz International School, and Indus International School,
+        which is at Bhukum rather than in Bavdhan itself. An earlier version of this page listed a
+        Vibgyor campus in Bavdhan; we could not find one.
       </p>
       <p>
         That is a genuinely strong list for a west Pune suburb. Two caveats before you count it.
@@ -57,7 +62,7 @@ export default function Body() {
       <h2>Healthcare</h2>
       <p>
         Sahyadri Hospital at Kothrud is about 4 km away and Jupiter Hospital at Baner about 6 km.
-        Manipal Hospital at Pashan and Chellaram Hospital are also in the catchment.
+        Chellaram Hospital is within 2 km, per the developer, and Manipal Hospital is at Baner.
       </p>
       <p>
         Two multispecialty hospitals inside about six kilometres is a real advantage, and it is one

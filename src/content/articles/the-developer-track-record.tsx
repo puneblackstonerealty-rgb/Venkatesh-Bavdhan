@@ -15,6 +15,7 @@ export const meta: ArticleMeta = {
     'Every developer says they are established. This is what Venkatesh Buildcon has actually delivered across Pune, taken from their own published portfolio and counted.',
   category: 'Developer News',
   publishedAt: '2026-08-09',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 4,
   cover: {
@@ -34,9 +35,9 @@ export default function Body() {
   return (
     <>
       <p>
-        When a project is pre-launch there is very little about the building itself to assess. No
-        carpet areas, no plans, no show flat. What you can assess is the builder, because their
-        finished work is standing in Pune and can be visited.
+        Serenique now has plans, carpet areas and a price list, but the building itself is years
+        away. What you can assess today is the builder, because their finished work is standing in
+        Pune and can be visited.
       </p>
       <p>
         The figures below come from Venkatesh Buildcon&rsquo;s own website, counted rather than
@@ -46,10 +47,11 @@ export default function Body() {
       <h2>The portfolio</h2>
       <ul>
         <li>
-          <strong>{portfolio.total} projects</strong> in Pune, across roughly 26 years.
+          <strong>{portfolio.total} projects</strong> in Pune, across roughly 26 years, Serenique
+          among them.
         </li>
         <li>
-          <strong>{completedProjects.length} completed</strong> and delivered.
+          <strong>{completedProjects.length} marked completed</strong> by the developer.
         </li>
         <li>
           <strong>{ongoingProjects.length} under construction</strong> today.
@@ -60,8 +62,8 @@ export default function Body() {
         </li>
       </ul>
       <p>
-        Serenique is not among them. It is a newer registration and does not yet appear on their own
-        site, which is ordinary at this stage and worth stating rather than glossing over.
+        Serenique has been on the developer&rsquo;s own site since 27 August 2026, listed among its
+        ongoing projects as &ldquo;Now launched&rdquo;.
       </p>
 
       <Figure

@@ -1,43 +1,44 @@
-import { Figure } from '@/components/article-figure'
+import Link from 'next/link'
+
+import { Figure, Note } from '@/components/article-figure'
+import { phase1, priceList, releaseStatus } from '@/content/project'
 
 import type { ArticleMeta } from './types'
 
-/* ───────────────────────────────────────────────────────────────────────────
-   ARTICLE TEMPLATE. Copy this file to start a new one.
+/* Rewritten 8 November 2026. The August version listed what nobody had
+   published yet; since the launch almost all of it is out. The ledger below
+   reads from `releaseStatus` in content/project.ts, the same list the site
+   uses everywhere else, so it cannot drift from the rest of the site. It
+   also absorbs "what-pre-launch-actually-means", retired the same day. */
 
-   The body below is plain JSX. Use <h2>, <h3>, <p>, <ul><li>, <ol><li>,
-   <blockquote>, <strong>, <a>, <hr> and <table>. The <Prose> wrapper on the
-   article page styles all of them, so you never need an import or a className.
-
-   Two house rules:
-   1. Any figure you state needs a source. Put it in `meta.sources` and it
-      renders at the foot of the article.
-   2. Write it the way you would say it. No em dashes, no "not just X but Y",
-      no rhetorical questions. Short sentences beat balanced ones.
-   ─────────────────────────────────────────────────────────────────────────── */
+const released = releaseStatus.items.filter((item) => item.released)
+const awaited = releaseStatus.items.filter((item) => !item.released)
 
 export const meta: ArticleMeta = {
   slug: 'what-has-actually-been-released',
   title: 'What has been released at Venkatesh Serenique so far',
-  excerpt:
-    'Several sites publish a full spec sheet for this project. Most of it did not come from the developer. Updated 9 August with the developer’s own figures, which corrected two of ours.',
+  excerpt: `Serenique launched in August 2026. The MahaRERA registration, floor plans, carpet areas, renders and a price list dated ${priceList.issuedShort} are all out. Here is the full ledger.`,
+  metaDescription: `Serenique launched in August 2026: MahaRERA registration, floor plans, carpet areas, renders and a price list are out. The full ledger.`,
   category: 'Project Update',
   publishedAt: '2026-08-07',
-  /* The developer's figures arrived on the 9th and contradicted the listing
-     data this article was built on. Rewriting it quietly was the wrong call
-     for a piece whose entire argument is "check where the number came from",
-     so the correction is stated in the body and this date renders on the
-     page beside the original one. */
-  updatedAt: '2026-08-09',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 4,
   cover: {
     src: '/illustrations/release-ledger.svg',
-    alt: 'Ledger showing five released items about Serenique and six that are still awaited',
+    alt: 'Ledger of what the developer has published about Venkatesh Serenique',
   },
   sources: [
-    { label: 'MahaRERA portal', href: 'https://maharera.maharashtra.gov.in/' },
-    { label: 'Venkatesh Buildcon', href: 'https://www.venkateshbuildcon.com' },
+    {
+      label: `MahaRERA, ${phase1.registeredName} (${phase1.reraId}), corrected ${phase1.correctedOn}`,
+      href: 'https://maharera.maharashtra.gov.in',
+    },
+    {
+      label: 'Venkatesh Buildcon, Serenique project page, "Now launched", read 6 November 2026',
+      href: 'https://www.venkateshbuildcon.com',
+    },
+    { label: 'Venkatesh Buildcon, Serenique brochure and Wing A2 and A3 floor plans, October 2026' },
+    { label: `Venkatesh Buildcon, price list for Wings A2 and A3, ${priceList.issued}` },
   ],
 }
 
@@ -45,100 +46,88 @@ export default function Body() {
   return (
     <>
       <p>
-        Venkatesh Serenique is registered, named and moving. Almost none of the numbers a buyer
-        normally asks for exist yet. That is ordinary for a project at this stage, but it is worth
-        stating clearly, because a handful of websites currently ranking for this project publish a
-        complete specification for it.
+        Venkatesh Serenique went from a name to a launched project between August and October
+        2026. In August, almost nothing a buyer asks for had been published. Today most of it has,
+        and most of it can be checked against MahaRERA.
       </p>
 
-      <h2>What is on the record</h2>
-      <p>
-        The scale figures below came to us from the developer on 9 August. They replace the numbers
-        this article carried when it was first published, which came from a listing site and were
-        wrong by a wide margin. The correction is set out further down.
-      </p>
+      <h2>What is out</h2>
       <ul>
-        <li>
-          <strong>14 acres</strong> at Bavdhan, on the western edge of Pune.
-        </li>
-        <li>
-          <strong>Eleven towers</strong>, each running{' '}
-          <strong>three basements, ground, a podium and 27 floors</strong>.
-        </li>
-        <li>
-          <strong>2, 3 and 4 BHK</strong> homes.
-        </li>
-        <li>
-          Registered with MahaRERA as <strong>Shree Venkatesh Serenique Phase 1</strong>.
-        </li>
-        <li>
-          Possession scheduled for <strong>December 2031</strong>.
-        </li>
-      </ul>
-
-      <h2>What nobody has published</h2>
-      <p>
-        Not the developer, not the portals. If you have seen any of the following quoted for this
-        project, it did not come from the builder:
-      </p>
-      <ul>
-        <li>Carpet areas for any of the three configurations.</li>
-        <li>A price list, or a rate per square foot.</li>
-        <li>The total number of homes.</li>
-        <li>Unit floor plans and the master plan.</li>
-        <li>The amenity schedule.</li>
-        <li>Renders, elevations or a brochure.</li>
-        <li>A street address for the site.</li>
+        {released.map((item) => (
+          <li key={item.id}>
+            <strong>{item.label}:</strong> {item.value}
+          </li>
+        ))}
       </ul>
 
       <Figure
-        src="/illustrations/the-correction.svg"
-        alt="Comparison of the listing site figures against the figures the client confirmed"
+        src="/illustrations/release-ledger.svg"
+        alt="Ledger of what the developer has published about Serenique"
         width={1200}
         height={675}
-        caption="What one listing site published against what the developer confirmed. The gap is why this ledger exists."
+        caption="The developer's own material, not a listing site's guesses, is now the source for almost every figure."
         credit="Illustration"
       />
 
-      <h2>The correction</h2>
+      {awaited.length > 0 && (
+        <>
+          <h2>What is still not published</h2>
+          <ul>
+            {awaited.map((item) => (
+              <li key={item.id}>
+                <strong>{item.label}:</strong> {item.value}
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
       <p>
-        When this article went up on 7 August it said the project was 2.5 acres, three towers and
-        380 homes in 2 and 3 BHK. Every one of those came from the same listing site, which was the
-        only page publishing checkable numbers at the time. Four of the five were wrong.
-      </p>
-      <p>
-        The project is 14 acres, not 2.5. It is eleven towers, not three. It includes a 4 BHK. We
-        have taken the unit count off the site entirely rather than correct it, because no new total
-        has been issued and 380 homes across eleven towers of 27 floors is not a number that can be
-        quietly adjusted. It will go back up when the developer publishes one.
-      </p>
-      <p>
-        Worth saying plainly: two sites we had dismissed as unreliable were listing a 4 BHK all
-        along, and they were right about it. They were right without publishing a carpet area, next
-        to figures that are still wrong, which is why we did not follow them. The lesson is not that
-        those sites are trustworthy. It is that a listing site is a poor substitute for the builder,
-        including when it happens to agree with the builder.
-      </p>
-
-      <h3>The possession date</h3>
-      <p>
-        You will also see 2028 quoted. That figure sits on a site which reproduces a different
-        Venkatesh project&rsquo;s statistics on its Bavdhan page, and a 27-floor tower handing over
-        in 2028 does not fit any normal construction timeline. An eleven-tower scheme is a longer
-        build again. December 2031 is the better-sourced date, and the registered completion date on
-        the MahaRERA portal is the one to rely on.
+        Two more things are worth asking for in person. The floor-rise schedule, because the price
+        list says floor rise applies from the fifth residential floor but does not print the rate.
+        And anything about Phase 2: the other {phase1.futureAcres} acres are marked future
+        development, and nothing about them is registered.
       </p>
 
-      <h2>What happens next</h2>
+      <h2>What changed since August</h2>
+      <ul>
+        <li>
+          <strong>The registration checks out.</strong> {phase1.reraId} is a genuine MahaRERA
+          number. Its PM prefix is one of the current formats, not the typo this site once suspected.
+          It is registered as {phase1.registeredName}, completion {phase1.completion}.
+        </li>
+        <li>
+          <strong>The scale is Phase 1&rsquo;s.</strong> One building, three residential wings,{' '}
+          {phase1.homes} homes and {phase1.shops} shops on {phase1.landAcres} acres. The earlier
+          whole-scheme figures we carried are replaced. <Link href="/updates/phase-one-and-the-whole-site">
+            Phase 1 and the whole site
+          </Link>{' '}
+          explains the difference.
+        </li>
+        <li>
+          <strong>There is a price list.</strong> The developer&rsquo;s sheet dated{' '}
+          {priceList.issued} is published line by line on{' '}
+          <Link href="/configurations#price-list">the configurations page</Link>. It was valid for{' '}
+          {priceList.validDays} days, so ask for today&rsquo;s.
+        </li>
+      </ul>
+
+      <Note title="&ldquo;Pre-launch&rdquo; never meant much">
+        <p>
+          The word has no legal standing. Under Section 3 of the RERA Act a project that needs
+          registration cannot be advertised or booked until it is registered, and once it is, its
+          sanctioned plans and carpet areas are on the MahaRERA portal for anyone to read. If you
+          pay anything before then, your money is not protected the way the Act intends.
+        </p>
+      </Note>
+
+      <h2>How to use this</h2>
       <p>
-        Pre-launch pricing usually reaches registered buyers before it reaches the listing portals,
-        and that window is the commercial reason to look at a project this early. When the developer
-        issues carpet areas, the price list, the plans or the amenity schedule, it goes up here and
-        goes out to everyone on the list the same day.
-      </p>
-      <p>
-        Until then, the honest answer to &ldquo;what does a flat at Serenique cost?&rdquo; is that
-        nobody knows. Anyone quoting you a number is quoting you a guess.
+        Treat this page as a checklist, not a summary. Each item on it has a document behind it,
+        and the sales team should be able to show you every one. Anything they cannot show you is
+        still a promise. <Link href="/updates/how-to-check-a-maharera-registration">
+          Checking the registration yourself
+        </Link>{' '}
+        takes ten minutes.
       </p>
     </>
   )

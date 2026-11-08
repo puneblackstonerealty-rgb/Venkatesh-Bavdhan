@@ -7,8 +7,11 @@ export const meta: ArticleMeta = {
   title: 'Who owns the land under your flat, and when',
   excerpt:
     'Buying a flat does not give your society the land it stands on. Conveyance does, and when the builder will not cooperate, Maharashtra has a statutory route around them.',
+  metaDescription:
+    "Conveyance and deemed conveyance for a Maharashtra RERA project: the timelines, the new MOFA Section 11A route, and phased schemes.",
   category: 'Buying Guide',
   publishedAt: '2026-08-05',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 7,
   cover: {
@@ -16,6 +19,10 @@ export const meta: ArticleMeta = {
     alt: 'Timeline showing conveyance deadlines and the deemed conveyance route in Maharashtra',
   },
   sources: [
+    {
+      label: 'Chambers, Deemed conveyance under MOFA: the 2025 amendment and RERA',
+      href: 'https://chambers.com/articles/deemed-conveyance-under-the-mofa-the-2025-amendment-and-its-implications-under-rera',
+    },
     { label: 'Maharashtra Ownership Flats Act, 1963, Section 11' },
     {
       label: 'Real Estate (Regulation and Development) Act, 2016',
@@ -81,8 +88,11 @@ export default function Body() {
 
       <h2>How deemed conveyance works</h2>
       <p>
-        It is a statutory remedy under Section 11 of the Maharashtra Ownership Flats Act. The
-        society applies to the Competent Authority, which is the District Deputy Registrar of
+        For a RERA-registered project like Serenique, the remedy is now Section 11A of the
+        Maharashtra Ownership Flats Act, added by an amendment enacted on 31 December 2025 and
+        backdated to 1 May 2016. It applies where the promoter breaches Section 17 of the RERA Act.
+        Section 11 still governs older, pre-RERA projects. Either way the society applies to the
+        Competent Authority, which is the District Deputy Registrar of
         Cooperative Societies, who hears both sides and issues a conveyance order. That order is
         then registered at the sub-registrar&rsquo;s office like any other deed.
       </p>
@@ -138,9 +148,9 @@ export default function Body() {
           the single biggest delay in the process.
         </li>
         <li>
-          <strong>On a phased scheme, ask how the land will be divided.</strong> Eleven towers on
-          fourteen acres may convey as one society or as several, and that decision is made long
-          before anyone thinks about it.
+          <strong>On a phased scheme, ask how the land will be divided.</strong> Phase 1 sits on 3.75
+          acres of a 9.75-acre parcel, and the phases may convey as one society or as several. That
+          decision is made long before anyone thinks about it.
         </li>
       </ul>
       <p>

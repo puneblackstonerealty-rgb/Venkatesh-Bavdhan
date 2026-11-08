@@ -32,7 +32,8 @@ export const meta: ArticleMeta = {
       href: 'https://maharera.maharashtra.gov.in',
     },
     {
-      label: 'Venkatesh Buildcon, Serenique project page (land parcel, Phase 1 and Phase 2), read 6 November 2026',
+      label:
+        'Venkatesh Buildcon, Serenique project page (land parcel, Phase 1 and Phase 2), read 6 November 2026',
       href: 'https://www.venkateshbuildcon.com',
     },
     { label: 'Venkatesh Buildcon, Phase 1 floor plans for Wings A2 and A3, October 2026' },
@@ -90,8 +91,8 @@ export default function Body() {
       <h2>What we got wrong in August</h2>
       <p>
         Before launch, this site published the scheme as 14 acres and 11 towers of 2, 3 and 4 BHK
-        homes. Those figures came to us second-hand, ahead of any official material, and we said
-        so at the time.
+        homes. Those figures came to us second-hand, ahead of any official material, and we said so
+        at the time.
       </p>
       <p>
         We also deleted a figure we had seen on a listing site, 380 homes, because it looked
@@ -131,8 +132,8 @@ export default function Body() {
           paying for depends on it. Nothing about Phase 2 is registered yet.
         </li>
         <li>
-          <strong>Treat any whole-project figure as marketing</strong> until a registration
-          carries it.
+          <strong>Treat any whole-project figure as marketing</strong> until a registration carries
+          it.
         </li>
       </ul>
       <p>

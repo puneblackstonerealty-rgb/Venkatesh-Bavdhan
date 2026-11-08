@@ -9,8 +9,11 @@ export const meta: ArticleMeta = {
   title: 'CC, completion certificate and OC: which one lets you move in',
   excerpt:
     'Three certificates arrive in order and only the last one means the building is fit to live in. Taking possession without it affects your utilities, your resale and your society.',
+  metaDescription:
+    "Commencement, completion and occupancy certificates: which one lets you move in, who issues it, and why possession without an OC is invalid.",
   category: 'Buying Guide',
   publishedAt: '2026-08-03',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -47,8 +50,8 @@ export default function Body() {
 
       <h2>Completion Certificate</h2>
       <p>
-        Issued when the building is finished and the authority is satisfied it was built to the
-        sanctioned plan. It confirms the structure is legal.
+        Submitted by the owner through the supervising architect or engineer when the building is
+        finished, confirming it was built to the sanctioned plan.
       </p>
       <p>
         It does not say the building is fit to occupy. Those are different tests and this is the
@@ -61,7 +64,11 @@ export default function Body() {
         lifts are all in place and signed off, and that the building may legally be occupied.
       </p>
       <p>
-        <strong>Do not take possession, and do not make the final payment, without it.</strong>
+        <strong>Do not take possession, and do not make the final payment, without it.</strong> In
+        Pune the PMC issues it, and under the state&rsquo;s unified building rules it is deemed
+        granted if the PMC does not decide within 21 days. MahaRERA held in December 2025 that
+        &ldquo;fit-out possession&rdquo; without an OC is not valid possession. Once the OC is
+        issued, you have two months to take possession under Section 19(10).
       </p>
 
       <Note title="Why the OC is not a formality">

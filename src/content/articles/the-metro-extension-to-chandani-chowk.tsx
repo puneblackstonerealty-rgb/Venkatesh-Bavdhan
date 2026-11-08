@@ -9,8 +9,11 @@ export const meta: ArticleMeta = {
   title: 'The metro extension to Chandani Chowk, and how to price it',
   excerpt:
     'Corridor 2A was cleared by the Union Cabinet in June 2025 and entered execution in April 2026. It is a real project on a four-year build, which is a specific thing to buy on.',
+  metaDescription:
+    "Pune Metro Corridor 2A, Vanaz to Chandani Chowk: what was approved, what started in April 2026, and what it is worth to Bavdhan.",
   category: 'Locality',
   publishedAt: '2026-08-04',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -109,9 +112,10 @@ export default function Body() {
 
       <h2>The other side of construction</h2>
       <p>
-        Worth saying, because nobody selling you a flat will. Four years of elevated metro
-        construction along the Paud Road corridor means four years of diversions, dust and lane
-        closures on the route you would use daily.
+        Worth saying, because nobody selling you a flat will. Corridor 2A itself is short, about
+        1.1 km from Vanaz to Chandani Chowk with two stations, Kothrud Depot and Chandani Chowk. But
+        its works began in April 2026, and since 28 October 2026 heavy vehicles have been kept off
+        the Chandani Chowk to Kothrud Depot stretch. That is the route you would use daily.
       </p>
       <p>
         That is the cost of the benefit, and it lands before the benefit does. If you are moving in

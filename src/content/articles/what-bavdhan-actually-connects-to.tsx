@@ -7,8 +7,11 @@ export const meta: ArticleMeta = {
   title: 'What Bavdhan connects to, and what it does not',
   excerpt:
     'Bavdhan sits beside the junction where Paud Road, NH-48 and the Expressway meet. That is the whole case for the address, and the one thing that used to spoil it has been fixed.',
+  metaDescription:
+    "Bavdhan's connections as the developer publishes them: Vanaz metro under 4 km, Kothrud and Baner 2 to 5 km, Hinjawadi 8 to 12 km, schools and hospitals.",
   category: 'Locality',
   publishedAt: '2026-08-06',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 5,
   cover: {
@@ -37,10 +40,11 @@ export default function Body() {
           <strong>Vanaz metro station on the Aqua Line</strong>, under 4 km, and already running.
         </li>
         <li>
-          <strong>Kothrud and Baner commercial hubs</strong>, 5 to 7 km.
+          <strong>Kothrud and Baner commercial hubs</strong>, 2 to 5 km, per the developer.
         </li>
         <li>
-          <strong>Hinjawadi IT Park</strong>, roughly 14 km, about 30 minutes.
+          <strong>Hinjawadi IT Park</strong>, 8 to 12 km per the developer, about 30 minutes off
+          peak. Metro Line 3 to Hinjawadi opened on 4 November 2026.
         </li>
         <li>
           <strong>Pune International Airport</strong>, about 30 minutes.
@@ -84,11 +88,12 @@ export default function Body() {
       <h2>Everyday life</h2>
       <ul>
         <li>
-          <strong>Schools:</strong> Vibgyor High Bavdhan, Indus International, The Orchid School,
-          Mercedes-Benz International School, Ryan International.
+          <strong>Schools:</strong> Ryan International (within 2 km), The Orchid School,
+          Mercedes-Benz International School, and Indus International School at Bhukum.
         </li>
         <li>
-          <strong>Healthcare:</strong> Sahyadri Kothrud, Jupiter Baner, Manipal Pashan, Chellaram.
+          <strong>Healthcare:</strong> Chellaram Hospital (within 2 km), Sahyadri Kothrud, Jupiter
+          Baner and Manipal Baner.
         </li>
         <li>
           <strong>Retail:</strong> Aditya Shagun Mall, Vishal Shopping Complex, Bandal Dhankude

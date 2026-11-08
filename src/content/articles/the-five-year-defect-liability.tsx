@@ -9,8 +9,11 @@ export const meta: ArticleMeta = {
   title: 'The five-year warranty you already own on a new flat',
   excerpt:
     'Section 14(3) makes the builder fix structural defects for five years after possession, within thirty days of being told. A shorter warranty clause in your agreement does not override it.',
+  metaDescription:
+    "The five-year defect liability under Section 14(3) of RERA: what it covers, when it starts, and how to claim if a defect is not fixed.",
   category: 'Buying Guide',
   publishedAt: '2026-08-02',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -47,7 +50,8 @@ export default function Body() {
       </p>
       <p>
         If they do not, you are entitled to compensation, and the route to it is a complaint to the
-        regulator rather than a civil suit.
+        regulator under Section 31 rather than a civil suit. Compensation is decided by MahaRERA&rsquo;s
+        Adjudicating Officer under Section 71.
       </p>
 
       <Note title="A shorter warranty in your agreement is not enforceable">
@@ -122,8 +126,8 @@ export default function Body() {
         finishes.
       </p>
       <p>
-        On a phased scheme of eleven towers, that means your warranty and your neighbour&rsquo;s in
-        a later phase expire on different dates. Keep the possession letter. It is the document that
+        On a phased scheme, that means your warranty and your neighbour&rsquo;s in a later phase
+        expire on different dates. Keep the possession letter. It is the document that
         proves when your five years began.
       </p>
 

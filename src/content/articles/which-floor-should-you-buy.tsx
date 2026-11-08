@@ -11,6 +11,7 @@ export const meta: ArticleMeta = {
     'Floor rise is charged in a straight line upwards. Almost none of the advantages you are buying behave that way, which is where the value sits.',
   category: 'Buying Guide',
   publishedAt: '2026-08-08',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -145,9 +146,10 @@ export default function Body() {
         </li>
       </ol>
       <p>
-        Serenique&rsquo;s floor plans, unit mix and floor-rise structure have not been published
-        yet. These are the questions to have ready for the day they are, rather than the day after
-        you have booked.
+        Serenique&rsquo;s floor plans are now published, and the developer&rsquo;s price list of 13
+        October 2026 says floor rise applies from the fifth residential floor. It does not print the
+        rate, so ask for it in writing before you choose a floor, along with which floors are refuge
+        floors (5, 10, 15, 20 and 25) and why the 19th has fewer homes.
       </p>
     </>
   )

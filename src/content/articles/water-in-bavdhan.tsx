@@ -9,8 +9,11 @@ export const meta: ArticleMeta = {
   title: 'Water in Bavdhan: the question nobody volunteers',
   excerpt:
     'Parts of the suburb run on an alternate-day municipal supply and fill the gap with tankers. It is the most common source of regret in a Pune society and the least likely thing to come up on a site visit.',
+  metaDescription:
+    "Water in Bavdhan: alternate-day supply, tankers, and why the developer's own spec lists chargeable tankers. What to ask before you book.",
   category: 'Locality',
   publishedAt: '2026-08-05',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -99,29 +102,28 @@ export default function Body() {
         credit="Illustration"
       />
 
-      <h2>What we do not know about Serenique</h2>
+      <h2>What the developer has said about Serenique</h2>
       <p>
-        The developer has not published a street address for this project, let alone a water
-        arrangement. So we cannot tell you which pocket the plot sits in or how it is served.
+        Phase 1 is at Survey No. 34, Bavdhan Khurd, near Chandani Chowk. The developer&rsquo;s own
+        specification lists the water supply as{' '}
+        <strong>PMC water supply, borewell and water tankers (chargeable)</strong>.
       </p>
       <p>
-        What we can tell you is that the question exists, that it is answerable, and that it should
-        be answered before a booking rather than after possession.
+        That is a candid line, and it answers the first question: tankers are part of the plan, and
+        you will pay for them through maintenance. The questions left are how often, at what cost
+        per load, and how much storage the building has to ride out a dry week.
       </p>
       <p>
-        When the plot location is released we will publish it, and this is one of the first things
-        we will ask about on your behalf.
+        Pune ran an alternate-day supply city-wide from June to August 2026. Ask the sales team how
+        the building is expected to cope in a repeat, and ask to see the overhead and underground
+        tank capacities on the plans.
       </p>
 
       <h2>The fair counterweight</h2>
       <p>
         Bavdhan is not unusual in this. Water pressure is a live issue across Pune&rsquo;s western
-        suburbs, and a large planned development with three basement levels has considerably more
-        storage capacity than an older society on a small plot.
-      </p>
-      <p>
-        A 14-acre scheme is also the kind of project that gets a sanctioned bulk connection rather
-        than being retrofitted onto an existing line. That tends to work in a buyer&rsquo;s favour.
+        suburbs, and a new building with planned storage usually copes better than an older
+        society on a small plot with one overhead tank.
       </p>
       <p>
         So this is a question, not a verdict. The mistake is not buying in Bavdhan. It is buying

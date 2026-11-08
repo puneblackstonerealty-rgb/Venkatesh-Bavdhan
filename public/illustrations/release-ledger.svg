@@ -2,8 +2,8 @@
   <rect width="1200" height="675" fill="#fef4e9"/>
   <rect x="0" y="0" width="1200" height="6" fill="#405828"/>
 
-  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">Five things exist. Six do not.</text>
-  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">Everything the developer has issued about Serenique, and everything it has not</text>
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">Almost everything is out now.</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">What the developer has issued about Serenique, as of November 2026</text>
 
   <!-- Released column -->
   <rect x="80" y="176" width="500" height="440" rx="14" fill="#fffaf4" stroke="#d9c29c"/>
@@ -17,26 +17,26 @@
     <line x1="108" y1="308" x2="556" y2="308" stroke="#ebdcc5"/>
 
     <text x="108" y="348">Configurations</text>
-    <text x="556" y="348" fill="#405828" text-anchor="end">2, 3 &amp; 4 BHK</text>
+    <text x="556" y="348" fill="#405828" text-anchor="end">1, 2, 2.5 &amp; 3 BHK</text>
     <line x1="108" y1="370" x2="556" y2="370" stroke="#ebdcc5"/>
 
-    <text x="108" y="410">Towers</text>
-    <text x="556" y="410" fill="#405828" text-anchor="end">11</text>
+    <text x="108" y="410">Phase 1</text>
+    <text x="556" y="410" fill="#405828" text-anchor="end">1 building</text>
     <line x1="108" y1="432" x2="556" y2="432" stroke="#ebdcc5"/>
 
-    <text x="108" y="472">Floors per tower</text>
-    <text x="556" y="472" fill="#405828" text-anchor="end">3B + G + P + 27</text>
+    <text x="108" y="472">Floors</text>
+    <text x="556" y="472" fill="#405828" text-anchor="end">27 and 28</text>
     <line x1="108" y1="494" x2="556" y2="494" stroke="#ebdcc5"/>
 
     <text x="108" y="534">Land parcel</text>
-    <text x="556" y="534" fill="#405828" text-anchor="end">14 acres</text>
+    <text x="556" y="534" fill="#405828" text-anchor="end">9.75 acres</text>
   </g>
 
   <!-- Awaited column -->
   <rect x="620" y="176" width="500" height="440" rx="14" fill="#fffaf4" stroke="#d9c29c" stroke-dasharray="6 5"/>
   <rect x="620" y="176" width="500" height="56" rx="14" fill="#a37731"/>
   <rect x="620" y="214" width="500" height="18" fill="#a37731"/>
-  <text x="648" y="212" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#fffaf4" letter-spacing="0.18em">AWAITED</text>
+  <text x="648" y="212" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#fffaf4" letter-spacing="0.18em">ALSO PUBLISHED</text>
 
   <g font-family="Helvetica Neue, Arial, sans-serif" font-size="20" fill="#2b2a29">
     <text x="648" y="278">Total homes</text>
@@ -51,7 +51,7 @@
     <line x1="648" y1="514" x2="1096" y2="514" stroke="#ebdcc5"/>
     <text x="648" y="548">Renders &amp; brochure</text>
   </g>
-  <text x="648" y="592" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#8a6224">Any site publishing these has invented them.</text>
+  <text x="648" y="592" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#8a6224">Every item has a document behind it.</text>
 
-  <text x="80" y="654" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#73695d">The left column is sourced and attributed on this site. The right column is why registering early is worth anything at all.</text>
+  <text x="80" y="654" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#73695d">Ask the sales team to show you each one. Anything they cannot show you is still a promise.</text>
 </svg>

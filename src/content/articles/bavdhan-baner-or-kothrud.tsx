@@ -9,8 +9,11 @@ export const meta: ArticleMeta = {
   title: 'Bavdhan, Baner or Kothrud: picking a west Pune address',
   excerpt:
     'Three suburbs off the same junction, at three different prices, each asking you to give something up. Which one is right depends on what you can tolerate, not on which is best.',
+  metaDescription:
+    "Bavdhan, Baner or Kothrud: what each west Pune address trades away, and why Bavdhan is the one still changing.",
   category: 'Locality',
   publishedAt: '2026-08-03',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 7,
   cover: {
@@ -62,8 +65,8 @@ export default function Body() {
         Bavdhan.
       </p>
       <p>
-        The trade is the rate, which is the highest of the three, and density that has already
-        happened rather than density that is coming. The version of Baner you are buying is the
+        The trade is the rate, well above Bavdhan&rsquo;s, and density that has already happened
+        rather than density that is coming. The version of Baner you are buying is the
         finished one, and finished neighbourhoods are priced accordingly.
       </p>
 

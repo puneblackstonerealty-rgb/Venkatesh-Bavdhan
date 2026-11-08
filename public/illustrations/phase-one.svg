@@ -3,10 +3,10 @@
   <rect x="0" y="0" width="1200" height="6" fill="#405828"/>
 
   <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">A phase registration is not a project registration</text>
-  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">One registration is on record for Serenique. Eleven towers are planned. Those are different statements.</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">Phase 1 is registered: one building on 3.75 acres. The other 6 acres are future development.</text>
 
   <!-- The scheme -->
-  <text x="80" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" letter-spacing="0.18em">THE SCHEME AS DESCRIBED · 11 TOWERS ON 14 ACRES</text>
+  <text x="80" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" letter-spacing="0.18em">THE PARCEL · 9.75 ACRES · PHASE 1 ON 3.75</text>
   <rect x="80" y="216" width="1040" height="150" rx="14" fill="#fffaf4" stroke="#d9c29c"/>
 
   <!-- Towers -->
@@ -25,9 +25,9 @@
   </g>
   <rect x="106" y="236" width="194" height="110" rx="8" fill="none" stroke="#a37731" stroke-width="2.5"/>
   <text x="203" y="228" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#8a6224" text-anchor="middle">registered</text>
-  <text x="800" y="286" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">Which towers sit inside Phase 1</text>
-  <text x="800" y="312" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">has not been published. The bracket</text>
-  <text x="800" y="338" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">above is illustrative, not a fact.</text>
+  <text x="800" y="286" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">Phase 1: Wings A1, A2, A3 and shops</text>
+  <text x="800" y="312" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">MahaRERA PM1261012601412. The blocks</text>
+  <text x="800" y="338" font-family="Helvetica Neue, Arial, sans-serif" font-size="17" fill="#4a4640">are illustrative, not to scale.</text>
 
   <!-- What a phase carries -->
   <text x="80" y="424" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" letter-spacing="0.18em">WHAT EACH PHASE CARRIES OF ITS OWN</text>

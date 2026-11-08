@@ -3,7 +3,7 @@
   <rect x="0" y="0" width="1200" height="6" fill="#a37731"/>
 
   <text x="80" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#fffaf4">Distances, not drive times</text>
-  <text x="80" y="124" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#fffaf4" opacity="0.6">Published figures from Bavdhan. Where a source gave only a distance, only a distance is shown.</text>
+  <text x="80" y="124" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#fffaf4" opacity="0.6">The developer&#8217;s figures from Serenique. Where a source gave only a distance, only a distance is shown.</text>
 
   <g fill="none" stroke="#fffaf4" stroke-opacity="0.12" stroke-width="1">
     <circle cx="600" cy="400" r="105"/>
@@ -22,7 +22,7 @@
 
   <circle cx="600" cy="400" r="13" fill="#a37731"/>
   <text x="600" y="440" font-family="Georgia, 'Times New Roman', serif" font-size="21" fill="#fffaf4" text-anchor="middle">Bavdhan</text>
-  <text x="600" y="462" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#fffaf4" opacity="0.5" text-anchor="middle">no street address published</text>
+  <text x="600" y="462" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#fffaf4" opacity="0.5" text-anchor="middle">Survey No. 34, Bavdhan Khurd</text>
 
   <g font-family="Helvetica Neue, Arial, sans-serif">
     <circle cx="452" cy="322" r="6" fill="#fffaf4"/>
@@ -35,7 +35,7 @@
 
     <circle cx="390" cy="470" r="6" fill="#fffaf4"/>
     <text x="390" y="500" font-size="18" fill="#fffaf4" text-anchor="middle">Kothrud &amp; Baner hubs</text>
-    <text x="390" y="522" font-size="15" fill="#a37731" text-anchor="middle">5 to 7 km</text>
+    <text x="390" y="522" font-size="15" fill="#a37731" text-anchor="middle">2 to 5 km</text>
 
     <circle cx="810" cy="470" r="6" fill="#fffaf4"/>
     <text x="810" y="500" font-size="18" fill="#fffaf4" text-anchor="middle">Jupiter Hospital, Baner</text>
@@ -43,7 +43,7 @@
 
     <circle cx="600" cy="600" r="6" fill="#fffaf4"/>
     <text x="600" y="630" font-size="18" fill="#fffaf4" text-anchor="middle">Hinjawadi IT Park</text>
-    <text x="600" y="652" font-size="15" fill="#a37731" text-anchor="middle">14 km, about 30 min</text>
+    <text x="600" y="652" font-size="15" fill="#a37731" text-anchor="middle">8 to 12 km</text>
   </g>
 
   <text x="80" y="668" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#fffaf4" opacity="0.4">Schematic. Not a map, not to scale.</text>

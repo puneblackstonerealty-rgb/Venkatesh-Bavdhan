@@ -9,8 +9,11 @@ export const meta: ArticleMeta = {
   title: 'What changes when a tower goes to 27 floors',
   excerpt:
     'A tall building is not a taller version of a short one. Lifts, water pressure, fire access, wind and maintenance all behave differently, and each is a question worth asking.',
+  metaDescription:
+    "What changes above the fifteenth floor at Serenique, whose Phase 1 wings rise to 27 and 28 habitable floors: lifts, water, refuge floors.",
   category: 'Buying Guide',
   publishedAt: '2026-08-04',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 7,
   cover: {
@@ -27,9 +30,9 @@ export default function Body() {
   return (
     <>
       <p>
-        Serenique is planned as eleven towers of three basements, ground, a podium and 27 floors.
-        That last figure is the one worth sitting with, because a 27-storey residential building
-        behaves differently from the seven-storey buildings most Pune buyers have lived in.
+        Serenique Phase 1 rises to 27 habitable floors in Wing A2 and 28 in Wing A3, above a parking
+        podium. That figure is the one worth sitting with, because a building that tall behaves
+        differently from the seven-storey buildings most Pune buyers have lived in.
       </p>
       <p>
         None of what follows is a criticism of tall buildings. It is a list of the questions that
@@ -132,8 +135,10 @@ export default function Body() {
       <p>
         It is an argument for asking six specific questions before you pay{' '}
         <Link href="/updates/which-floor-should-you-buy">a floor-rise premium</Link>.
-        Serenique&rsquo;s specifications have not been published yet, so these are the questions to
-        have ready for the day they are.
+        Some answers are already out. The plans show refuge floors at 5, 10, 15, 20 and 25, the fire
+        tank and pump room on the 19th, four passenger lifts and a fire lift in Wing A2, and three
+        and a fire lift in Wing A3. The specification lists Kone, Otis or Schindler lifts with
+        generator backup. Ask about the rest.
       </p>
     </>
   )

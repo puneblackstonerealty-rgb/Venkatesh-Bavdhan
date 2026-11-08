@@ -25,8 +25,8 @@ import type { ArticleModule } from './types'
      <Figure src alt width height caption credit />  an image with a caption.
        `credit` is 'Illustration' for the diagrams in /public/illustrations, or
        'Delivered project' for a photograph of a building this developer has
-       actually completed. There is no 'artistic impression' option, because
-       this project has no imagery of its own — see the note in that file.
+       actually completed. Renders of Serenique itself live in /public/gallery
+       (brochure redesign, Nov 2026) and carry IMAGE_CREDIT from project.ts.
      <Note title>…</Note>  a short aside for a definition or a caveat.
 
    Two house rules:
@@ -54,9 +54,8 @@ import type { ArticleModule } from './types'
 
 /* The project itself */
 import * as releasedSoFar from './what-has-actually-been-released'
-import * as scale from './fourteen-acres-and-eleven-towers'
+import * as scale from './phase-one-and-the-whole-site'
 import * as phaseOne from './what-phase-one-covers'
-import * as theCorrection from './the-numbers-that-were-never-true'
 
 /* Bavdhan and west Pune */
 import * as bavdhanConnectivity from './what-bavdhan-actually-connects-to'
@@ -73,7 +72,6 @@ import * as developerRecord from './the-developer-track-record'
 
 /* Buying guides. See the warning above before adding to this group. */
 import * as reraCheck from './how-to-check-a-maharera-registration'
-import * as preLaunchMeaning from './what-pre-launch-actually-means'
 import * as defectLiability from './the-five-year-defect-liability'
 import * as certificates from './occupancy-and-completion-certificates'
 import * as conveyance from './conveyance-and-deemed-conveyance'
@@ -81,13 +79,11 @@ import * as delayInterest from './when-possession-runs-late'
 import * as highRise from './living-on-the-twenty-seventh-floor'
 import * as whichFloor from './which-floor-should-you-buy'
 import * as parking from './parking-and-what-you-actually-own'
-import * as offPlanDiligence from './buying-when-nothing-has-been-published'
 
 const REGISTERED: ArticleModule[] = [
   releasedSoFar,
   scale,
   phaseOne,
-  theCorrection,
   bavdhanConnectivity,
   bavdhanRates,
   chandaniChowk,
@@ -98,7 +94,6 @@ const REGISTERED: ArticleModule[] = [
   hinjawadiCommute,
   developerRecord,
   reraCheck,
-  preLaunchMeaning,
   defectLiability,
   certificates,
   conveyance,
@@ -106,7 +101,6 @@ const REGISTERED: ArticleModule[] = [
   highRise,
   whichFloor,
   parking,
-  offPlanDiligence,
 ]
 
 /** Newest first. This is the order every listing uses. */

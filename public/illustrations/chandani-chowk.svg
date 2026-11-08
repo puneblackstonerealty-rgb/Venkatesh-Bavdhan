@@ -3,7 +3,7 @@
   <rect x="0" y="0" width="1200" height="6" fill="#a37731"/>
 
   <text x="80" y="88" font-family="Georgia, 'Times New Roman', serif" font-size="38" fill="#fffaf4">The junction Bavdhan is priced on</text>
-  <text x="80" y="124" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#fffaf4" opacity="0.6">Chandani Chowk on NH-48. Eight ramps, ₹865 crore, integrated structures completed March 2024.</text>
+  <text x="80" y="124" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#fffaf4" opacity="0.6">Chandani Chowk on NH-48. Eight ramps, ₹865 crore, opened in August 2023.</text>
 
   <!-- Ramps -->
   <g stroke="#a37731" stroke-opacity="0.5" stroke-width="2">
@@ -50,5 +50,5 @@
     <text x="408" y="300" text-anchor="end" font-size="14" fill="#fffaf4" opacity="0.55">where the project sits</text>
   </g>
 
-  <text x="80" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#fffaf4" opacity="0.45">Built by NHAI. Schematic of the directions served, not a map, and not to scale. Peak-hour queues on the Bavdhan approach have not gone away.</text>
+  <text x="80" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#fffaf4" opacity="0.45">Schematic of the directions served, not a map, and not to scale. Peak-hour queues on the Bavdhan approach have not gone away.</text>
 </svg>

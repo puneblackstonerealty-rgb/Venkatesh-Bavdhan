@@ -11,6 +11,7 @@ export const meta: ArticleMeta = {
     'A missed completion date entitles you to interest at SBI MCLR plus two per cent on everything you have paid. You do not have to win an argument to be owed it.',
   category: 'Buying Guide',
   publishedAt: '2026-08-07',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 7,
   cover: {
@@ -18,6 +19,14 @@ export const meta: ArticleMeta = {
     alt: 'How delay interest is calculated under MahaRERA and what filing a complaint involves',
   },
   sources: [
+    {
+      label: 'SBI, MCLR rates (highest MCLR 8.95% from 15 October 2026)',
+      href: 'https://sbi.bank.in/web/interest-rates/interest-rates/mclr',
+    },
+    {
+      label: 'Moneylife, MahaRERA grants a four-month extension to eligible projects, August 2026',
+      href: 'https://www.moneylife.in/article/west-asia-conflict-maharera-grants-4month-extension-to-eligible-housing-projects/81292.html',
+    },
     {
       label: 'Real Estate (Regulation and Development) Act, 2016, Sections 18 and 31',
       href: 'https://www.indiacode.nic.in/handle/123456789/2158',
@@ -30,7 +39,7 @@ export default function Body() {
   return (
     <>
       <p>
-        Possession dates slip. On a scheme of eleven towers built in phases over several years, some
+        Possession dates slip. On a scheme built in phases over several years, some
         slippage is close to normal, and most of it gets absorbed without anyone falling out.
       </p>
       <p>
@@ -48,11 +57,12 @@ export default function Body() {
         <strong>
           the State Bank of India&rsquo;s highest marginal cost of lending rate plus two per cent
         </strong>
-        . As at April 2026 that worked out to about <strong>10.85 per cent a year</strong>.
+        . SBI&rsquo;s highest MCLR has been 8.95 per cent since 15 October 2026, so the rate is now{' '}
+        <strong>10.95 per cent a year</strong>. In April 2026 it was 10.80 per cent.
       </p>
       <p>
-        On ₹50 lakh already paid, a twelve-month delay is roughly ₹5.4 lakh in interest. That is the
-        scale of it, and it is why the provision has teeth.
+        On ₹50 lakh already paid, a twelve-month delay is roughly ₹5.48 lakh in interest at 10.95 per
+        cent. That is the scale of it, and it is why the provision has teeth.
       </p>
 
       <Note title="The date that counts">
@@ -137,16 +147,18 @@ export default function Body() {
         </li>
       </ol>
 
-      <h2>What this means for a pre-launch buyer</h2>
+      <h2>What this means for a Serenique buyer</h2>
       <p>
-        Serenique&rsquo;s possession date is published as December 2031 by its listing partner, and
-        that figure has not been confirmed against the portal. Some third-party sites quote 2028,
-        which nothing supports.
+        The MahaRERA registration for Serenique Phase 1 gives a completion date of 30 September
+        2031. MahaRERA held in December 2025 that the possession date in your own registered
+        agreement governs a delay claim, even if the project&rsquo;s date on the portal is later
+        extended. So read the date in your agreement before you sign it.
       </p>
       <p>
-        None of those are the date that would govern a delay claim. That date is the declared
-        completion date on the registration covering your phase, and it exists on the public record
-        the moment your phase is registered.
+        One more change to know about. In August 2026 MahaRERA gave eligible projects an automatic
+        four-month extension because of the West Asia war. It moves the registration and the project
+        timeline. Commentators read it as no holiday from interest owed under your agreement, though
+        that has not been tested.
       </p>
       <p>
         Ask for it, read it, and keep a copy with your agreement. It is the single most valuable

@@ -7,8 +7,11 @@ export const meta: ArticleMeta = {
   title: 'How to check a MahaRERA registration before you pay anything',
   excerpt:
     'Any project can print a registration number on a website. Checking it takes about two minutes on the government portal, and it tells you things the brochure will not.',
+  metaDescription:
+    "How to check a MahaRERA registration in ten minutes, with Venkatesh Serenique as the worked example: name, phase, dates and filings.",
   category: 'Buying Guide',
   publishedAt: '2026-08-09',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 5,
   cover: {
@@ -57,16 +60,36 @@ export default function Body() {
       <h3>The registered name, not the marketing name</h3>
       <p>
         Projects are advertised under one name and registered under another. This one is marketed as
-        Venkatesh Serenique and registered as <strong>Shree Venkatesh Serenique Phase 1</strong>. A
+        Venkatesh Serenique and registered as <strong>VENKATESH SERENIQUE- PHASE -1</strong>,
+        number PM1261012601412. We checked it on the portal: the PM prefix is one of the current
+        formats. A
         mismatch is normal. What matters is that the record you are reading is unmistakably the
         project you are being sold, at the same address, by the same promoter.
+      </p>
+
+      <h3>Scan the QR code</h3>
+      <p>
+        Since 2023, MahaRERA has required every advertisement to carry the registration number, a QR
+        code that opens the project record, and the MahaRERA website. Scanning the QR on a brochure
+        or hoarding is the fastest check there is. The one on this site&rsquo;s footer is the
+        developer&rsquo;s own, from the brochure cover.
+      </p>
+
+      <h3>The quarterly filings and the bank list</h3>
+      <p>
+        Section 11(1) of the Act makes the promoter upload progress every quarter: construction
+        status, bookings and approvals. A record with stale filings is a warning. Check too whether
+        the banks you would borrow from have approved the project, and pay only into the project
+        collection account named on your demand letter, which MahaRERA has required since July
+        2024.
       </p>
 
       <h3>Which phase you are actually buying in</h3>
       <p>
         This is the one most people miss. A large development is registered in phases, and each
         phase is a separate registration with its own completion date and its own approved plans. A
-        site advertising eleven towers may hold a registration covering rather fewer of them.
+        site advertising a whole scheme may hold a registration covering one building of it, which is
+        the case here: Serenique Phase 1 is one building of three residential wings.
       </p>
       <p>
         Ask which phase your flat sits in and check that phase&rsquo;s registration. A neighbouring

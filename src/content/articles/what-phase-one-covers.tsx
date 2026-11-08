@@ -1,24 +1,38 @@
+import Link from 'next/link'
+
 import { Figure, Note } from '@/components/article-figure'
+import { grouped, phase1 } from '@/content/project'
 
 import type { ArticleMeta } from './types'
 
+/* Rewritten 8 November 2026 from the Phase 1 MahaRERA filing (Form C as
+   corrected 31 Aug 2026) and the developer's Wing A2 and A3 floor plans. The
+   August version asked which towers Phase 1 covered; the filing now says.
+   Every figure is read from `phase1` in content/project.ts. */
+
+const plannedWings = phase1.wings.filter((wing) => wing.homesPerTypicalFloor)
+const parking = phase1.parking
+
 export const meta: ArticleMeta = {
   slug: 'what-phase-one-covers',
-  title: 'One registration, eleven towers: what Phase 1 actually covers',
-  excerpt:
-    'Serenique is registered under Phase 1. The scheme is described as eleven towers. Those are two different statements, and the difference decides what is enforceable.',
+  title: 'What Phase 1 covers, wing by wing',
+  excerpt: `The MahaRERA filing for Serenique Phase 1 covers one building: Wings A1, A2 and A3 and ${phase1.shops} shops, ${grouped(phase1.units)} units in all. What each wing holds, and what the registration binds.`,
+  metaDescription: `Serenique Phase 1 on MahaRERA: Wings A1, A2 and A3 and ${phase1.shops} shops, ${grouped(phase1.units)} units. What each wing holds and what the registration binds.`,
   category: 'Project Update',
   publishedAt: '2026-08-08',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
-  readingMinutes: 6,
+  readingMinutes: 5,
   cover: {
     src: '/illustrations/phase-one.svg',
-    alt: 'Diagram showing that a phase registration covers only part of a multi-tower scheme',
+    alt: `Phase 1 of Venkatesh Serenique on ${phase1.landAcres} acres beside ${phase1.futureAcres} acres of future development`,
   },
   sources: [
-    { label: 'MahaRERA portal', href: 'https://maharera.maharashtra.gov.in/' },
-    { label: 'The client, relaying the developer, 9 August 2026' },
-    { label: 'Housing.com listing slug establishing the registered project name' },
+    {
+      label: `MahaRERA, ${phase1.registeredName} (${phase1.reraId}), Form C annexure, corrected ${phase1.correctedOn}`,
+      href: 'https://maharera.maharashtra.gov.in',
+    },
+    { label: 'Venkatesh Buildcon, Phase 1 floor plans for Wings A2 and A3, October 2026' },
   ],
 }
 
@@ -26,118 +40,93 @@ export default function Body() {
   return (
     <>
       <p>
-        The registered project name for Serenique is{' '}
-        <strong>Shree Venkatesh Serenique Phase 1</strong>. The scheme, as confirmed by the client,
-        is eleven towers on fourteen acres.
-      </p>
-      <p>
-        Read those two sentences together and a question falls out: which of the eleven towers does
-        Phase 1 cover? Nobody has said, and that gap is worth understanding rather than glossing
-        over.
-      </p>
-
-      <h2>Why developers register in phases</h2>
-      <p>
-        Because the Act lets them, and because it makes sense. A promoter registers a phase,
-        declares a completion date for it, files its sanctioned plans and its carpet areas, and
-        starts selling it. The next phase is registered when it launches.
-      </p>
-      <p>
-        The alternative would be registering eleven towers at once with a single completion date for
-        all of them, which would be both slower and less accurate.
-      </p>
-      <p>
-        So phasing is normal. What is not normal is a buyer assuming a phase registration covers the
-        whole scheme, and that assumption is easy to fall into when the marketing describes fourteen
-        acres and the registration describes considerably less.
+        Serenique is registered with MahaRERA as {phase1.registeredName}, number {phase1.reraId}.
+        The registration covers {phase1.building}, one building with three residential wings and a
+        row of {phase1.shops} shops, on {phase1.landAcres} of the parcel&rsquo;s{' '}
+        {phase1.parcelAcres} acres.
       </p>
 
       <Figure
-        src="/illustrations/maharera-lookup.svg"
-        alt="What to read on a MahaRERA project record and which name to search under"
+        src="/illustrations/phase-one.svg"
+        alt="What the Phase 1 registration covers"
         width={1200}
         height={675}
-        caption="Search the registered name rather than the marketing name. Everything below is on the record for whichever phase you look up."
+        caption={`Phase 1 is registered. The other ${phase1.futureAcres} acres are not.`}
         credit="Illustration"
       />
 
-      <h2>What each phase carries of its own</h2>
+      <h2>Wing by wing</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Wing</th>
+            <th>Units</th>
+            <th>Habitable floors</th>
+            <th>Commencement certificate up to</th>
+          </tr>
+        </thead>
+        <tbody>
+          {phase1.wings.map((wing) => (
+            <tr key={wing.id}>
+              <td>{wing.id}</td>
+              <td>{wing.units}</td>
+              <td>{wing.habitableFloors}</td>
+              <td>Floor {wing.ccFloors}</td>
+            </tr>
+          ))}
+          <tr>
+            <td>Shops</td>
+            <td>{phase1.shops}</td>
+            <td>1</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
       <p>
-        This is the part that matters, because it is what makes a phase registration a legal object
-        rather than an administrative label. Each registered phase has:
+        Almost every home is in the two tall wings.{' '}
+        {plannedWings
+          .map(
+            (wing) =>
+              `Wing ${wing.id} has ${wing.homesPerTypicalFloor} homes on a typical floor and ${wing.lifts}`,
+          )
+          .join('. ')}
+        . Wing A1&rsquo;s three units are not drawn on any published plan, so their type is not
+        known.
       </p>
-      <ul>
-        <li>
-          <strong>Its own sanctioned plan.</strong> Not the marketing layout. The version filed with
-          the authority, which is the one that governs.
-        </li>
-        <li>
-          <strong>Its own declared completion date.</strong> This is the date a delay claim would be
-          measured from, and it can differ by years between phases.
-        </li>
-        <li>
-          <strong>Its own filed carpet areas.</strong> These override any brochure figure for the
-          units inside that phase.
-        </li>
-        <li>
-          <strong>Its own quarterly progress filings,</strong> which are public and are the most
-          honest construction update available on any project.
-        </li>
-      </ul>
+      <p>
+        Both tall wings have refuge floors at {phase1.refugeFloors.join(', ')}, where the plans show
+        the handful of 1 BHK and 2.5 BHK homes. The 19th floor carries the fire tank and pump room
+        and has fewer homes than a typical floor.
+      </p>
 
-      <Note title="A promise about the scheme does not bind an unregistered phase">
+      <h2>Parking, as filed</h2>
+      <p>
+        The filing lists {grouped(parking.totals.fourWheeler)} four-wheeler spaces,{' '}
+        {grouped(parking.totals.twoWheeler)} two-wheeler spaces and {parking.totals.visitor}{' '}
+        visitor spaces across Phase 1.
+      </p>
+      <Note title="One oddity in the filing">
         <p>
-          If you are shown an amenity plan or a completion date for the overall development, ask
-          whether it is filed against a registered phase. If it is not, it is a plan rather than a
-          commitment, and there is no registered document behind it to enforce.
+          Wing A1, with three units, shows exactly the same parking figures as Wing A3, with{' '}
+          {phase1.wings.find((wing) => wing.id === 'A3')?.units} units. It may be a filing quirk. The
+          totals above include it as filed. Ask the sales team which spaces belong to your wing, and
+          make sure your allotment letter and agreement name the space.
         </p>
       </Note>
 
-      <h2>The amenity question this raises</h2>
+      <h2>What the registration binds</h2>
       <p>
-        On a fourteen-acre scheme built in phases, the shared amenities are usually delivered with a
-        particular phase rather than the first one.
+        Everything above is a statement the developer has made to the regulator for Phase 1. The
+        completion date, {phase1.completion}, is the one a delay claim is measured against, along
+        with the date in your own registered agreement. Nothing about the other{' '}
+        {phase1.futureAcres} acres is registered, so anything promised there, including shared
+        amenities, is not yet covered.
       </p>
       <p>
-        Which means a buyer in an early phase can be paying maintenance towards a clubhouse and a
-        podium that arrive several years later, alongside living next to the construction that is
-        building them.
-      </p>
-      <p>
-        That is a normal arrangement and it is not a scandal. It is worth knowing about in advance
-        rather than discovering at handover, and the way to know is to ask for the amenity delivery
-        schedule against the phase you are being sold.
-      </p>
-
-      <h2>What we have not been told about Serenique</h2>
-      <p>Three things, and we are not going to guess at any of them.</p>
-      <ol>
-        <li>
-          <strong>Which towers fall inside Phase 1.</strong> The registration exists. The mapping
-          has not been published.
-        </li>
-        <li>
-          <strong>Whether the 2, 3 and 4 BHK mix is registered or planned.</strong> The client has
-          confirmed the mix for the scheme. Whether all three configurations sit inside Phase 1 is a
-          different question, which is why this site says the project is &ldquo;planned as&rdquo;
-          rather than &ldquo;registered for&rdquo; that mix.
-        </li>
-        <li>
-          <strong>The registration number itself.</strong> The one published for this project has a
-          prefix that does not match the usual Maharashtra formats. It is reproduced exactly as its
-          source prints it rather than silently corrected, and it needs checking against the portal.
-        </li>
-      </ol>
-
-      <h2>What to ask</h2>
-      <p>
-        Before any payment: which phase is my tower in, what is that phase&rsquo;s registration
-        number, what completion date is declared on it, and what carpet area is filed for my unit
-        type.
-      </p>
-      <p>
-        Four questions, all answerable from a public record, and all of them worth more than
-        anything on a brochure.
+        <Link href="/updates/phase-one-and-the-whole-site">Phase 1 and the whole site</Link> covers
+        how the phases fit together, and{' '}
+        <Link href="/updates/parking-and-what-you-actually-own">parking and what you own</Link>{' '}
+        covers what to insist on in writing.
       </p>
     </>
   )

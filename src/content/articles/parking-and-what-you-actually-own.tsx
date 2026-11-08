@@ -7,8 +7,11 @@ export const meta: ArticleMeta = {
   title: 'Parking: what you own, and what you were only promised',
   excerpt:
     'A bay named in your registered agreement, an allotment letter and a floating arrangement are sold in near-identical language and give you three very different things.',
+  metaDescription:
+    "What you own when you are given parking: covered versus open, what the allotment letter and agreement must say, and Serenique's filed count.",
   category: 'Buying Guide',
   publishedAt: '2026-08-09',
+  updatedAt: '2026-11-08',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -16,6 +19,14 @@ export const meta: ArticleMeta = {
     alt: 'What a buyer actually owns when a parking space is allotted with a flat',
   },
   sources: [
+    {
+      label: 'MahaRERA, Serenique Phase 1 Form C parking table, corrected 31 August 2026',
+      href: 'https://maharera.maharashtra.gov.in',
+    },
+    {
+      label: 'Free Press Journal, MahaRERA makes parking details mandatory in legal documents, April 2024',
+      href: 'https://www.freepressjournal.in/amp/mumbai/maharera-makes-mandatory-to-include-all-details-related-to-parking-in-legal-documents',
+    },
     {
       label: 'Real Estate (Regulation and Development) Act, 2016',
       href: 'https://www.indiacode.nic.in/handle/123456789/2158',
@@ -50,8 +61,8 @@ export default function Body() {
 
       <h3>Allotted by letter, after the agreement</h3>
       <p>
-        Very common, and considerably weaker. An allotment letter is a promise from the builder
-        rather than a right recorded against your flat.
+        Very common, and weaker on its own. Since April 2024 the parking details have to be annexed
+        to the agreement as well, so if your agreement is silent on them, ask why.
       </p>
       <p>
         In practice most allotment letters are honoured. The problem arrives at handover, when the
@@ -72,28 +83,29 @@ export default function Body() {
 
       <Note title="The point most sales conversations skip">
         <p>
-          Common areas belong to the society once conveyance happens, not to the builder. Which is
-          why builders selling stilt or open parking as a separately saleable unit has repeatedly
-          been struck down. Covered parking within the sanctioned building envelope is treated
-          differently from open ground-level space, and the distinction is worth getting in writing.
+          The law draws a clear line. Open parking is a common area under RERA and the MahaRERA
+          rules, and cannot be sold. Covered parking, whether stilt, podium, basement or mechanised,
+          and garages can be. The Supreme Court&rsquo;s Nahalchand ruling (2010) barred selling stilt
+          parking under the older MOFA regime. Since April 2024 MahaRERA has required the type,
+          number, size and location of your parking to be set out in both the allotment letter and
+          the agreement.
         </p>
       </Note>
 
-      <h2>Why three basements changes this</h2>
+      <h2>What Serenique has filed</h2>
       <p>
-        Serenique is planned with three basement levels beneath a podium. That is the expensive way
-        to provide parking and it is the good way, because it puts the cars underground and leaves
-        the deck above free of them.
+        The MahaRERA filing for Phase 1 lists 622 four-wheeler spaces, 1,036 two-wheeler spaces and
+        49 visitor spaces. The developer&rsquo;s renders show the parking on a podium under the
+        amenity deck. A multi-level podium raises questions a single level does not.
       </p>
-      <p>It also raises questions a single-level basement does not.</p>
       <ul>
         <li>
-          <strong>Which level is your bay on?</strong> The third basement is a longer walk, a longer
+          <strong>Which level is your bay on?</strong> The lowest level is a longer walk, a longer
           ramp and a different experience in a power cut than the first.
         </li>
         <li>
-          <strong>How many ramps serve the basements?</strong> On a scheme of this size, one entry
-          ramp for the whole development is a queue at 9am.
+          <strong>How many ramps serve the parking levels?</strong> On a building of this size, one
+          entry ramp is a queue at 9am.
         </li>
         <li>
           <strong>Is there ventilation and lighting on the lower levels,</strong> and does the power
