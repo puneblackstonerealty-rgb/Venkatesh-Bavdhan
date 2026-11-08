@@ -35,6 +35,13 @@
  *        https://venkateshbuildcon.com/wp-content/uploads/2026/10/FLOOR-PLAN-WING-A2.pdf
  *        https://venkateshbuildcon.com/wp-content/uploads/2026/10/Bavdhan-Floor-Plan-Wing-A3.pdf
  *
+ *   K  THE DEVELOPER'S PRICE LIST, supplied by the client on 2026-11-08: the
+ *      one-page cost sheet dated 13 Oct 2026 for Wings A2 and A3 (see
+ *      `priceList` below for the file and what is not published from it).
+ *      First-party, and the only source of prices on this site. Where its
+ *      areas disagree with F, each line is published as the sheet states it
+ *      (the price is tied to it) with a CONFLICT note and a visitor note.
+ *
  *   ★  THE CLIENT, relaying the developer, 2026-08-09: 14 acres, 11 towers,
  *      3 basements + ground + podium + 27 floors, 2/3/4 BHK.
  *      ⚠ SUPERSEDED 2026-11-06. The project has since launched, and R and D
@@ -74,15 +81,17 @@
  *      this project (₹1.07 Cr to ₹2.19 Cr on propkeepers / propstar, LOW) and
  *      the developer page's own "Starting from 2.9 to 5 CR (All Inclusive)",
  *      which is the same string as on its Skydale page and so is not a
- *      Serenique price (spec decision 11). Price stays on request.
+ *      Serenique price (spec decision 11). Prices come from K only.
  *
  * ─── Standing rule ─────────────────────────────────────────────────────────
  *
  * The project launched in 2026 and the developer has now published plans,
- * carpet areas, amenities, specifications, renders and a brochure. The one
- * thing still unpublished is a PRICE LIST, and the site says so rather than
- * borrowing one. Nothing on this page is invented to fill a gap. If you are
- * adding a figure here, it needs a source comment beside it.
+ * carpet areas, amenities, specifications, renders and a brochure, and the
+ * client has supplied its price list (K). That list is a dated quotation that
+ * has lapsed, so every price on the site carries its date and a line telling
+ * the buyer to confirm today's price. Nothing on this page is invented to
+ * fill a gap. If you are adding a figure here, it needs a source comment
+ * beside it.
  *
  * Phase-level MahaRERA facts are labelled "Phase 1" wherever they are printed.
  * They describe the registered phase, not the 9.75-acre parcel as a whole.
@@ -191,6 +200,386 @@ export const phase1 = {
   },
 }
 
+/* Phase 1's tallest wing, for the "up to N floors" lines. R. */
+const maxFloors = Math.max(...phase1.wings.map((wing) => wing.habitableFloors))
+
+/* "30 September 2031" → "30 Sep 2031", so the short form of a date is read
+   from the one written out in full rather than retyped. */
+const shortDate = (date: string) => date.replace(/^(\d+) (\w{3})\w* (\d{4})$/, '$1 $2 $3')
+
+/* A Phase 1 wing that has a published floor plan (A2, A3). Throws rather than
+   letting a missing figure print as "undefined". */
+function plannedWing(id: string) {
+  const wing = phase1.wings.find((w) => w.id === id)
+  if (!wing?.homesPerTypicalFloor || !wing.lifts) {
+    throw new Error(`project.ts: no floor-plan figures for Wing ${id}`)
+  }
+  return { ...wing, homesPerTypicalFloor: wing.homesPerTypicalFloor, lifts: wing.lifts }
+}
+
+/* ─── Money and area formatting, shared by every page that prints a price ─── */
+
+const SQFT_PER_SQM = 10.7639
+const inrGrouping = new Intl.NumberFormat('en-IN', { maximumFractionDigits: 0 })
+const toSqft = (sqm: number) => Math.round(sqm * SQFT_PER_SQM)
+const range = (low: string, high: string) => (low === high ? low : `${low} to ${high}`)
+
+/** ₹95,90,000: the exact figure, Indian digit grouping, as the price list prints it. */
+export const rupees = (amount: number) => `₹${inrGrouping.format(amount)}`
+/** ₹95.90 L or ₹1.08 Cr, rounded to two decimals, for headlines and cards. */
+export const rupeesShort = (amount: number) =>
+  amount >= 1e7 ? `₹${(amount / 1e7).toFixed(2)} Cr` : `₹${(amount / 1e5).toFixed(2)} L`
+/** 1,021: whole numbers with digit grouping. */
+export const grouped = (n: number) => inrGrouping.format(n)
+
+/**
+ * One line of the developer's price list, as the sheet prints it.
+ */
+export type PriceLine = {
+  id: string
+  /** The sheet's FLAT TYPE column. "2 BHK (REFUGE)" on the sheet is written here in title case. */
+  type: '2 BHK' | '3 BHK' | '2 BHK (Refuge)'
+  /** The sheet's WING column. null where the sheet does not give a wing. */
+  wing: 'A2' | 'A3' | null
+  /** The sheet's SERIEL NO. column, as printed. */
+  serials: string
+  /** The sheet's RERA CARPET AREA. The sale is on this figure (sheet term 4). */
+  reraCarpet: { sqm: number; sqft: number }
+  balcony: { sqm: number; sqft: number }
+  /** null where the sheet leaves the cell blank. */
+  dryBalcony: { sqm: number; sqft: number } | null
+  /** The sheet's TOTAL CARPET AREA: RERA carpet + balcony + dry balcony. Not RERA carpet. */
+  totalCarpet: { sqm: number; sqft: number }
+  /** The sheet's LUMP SUM AGREEMENT COST. */
+  agreementValue: number
+  /** STAMP DUTY 7% (7% of the agreement value, rounded up to the next ₹100). */
+  stampDuty: number
+  registration: number
+  /** C.G.S.T. @2.50% + S.G.S.T. @2.50%, printed on the sheet as two equal columns. */
+  gst: number
+  /** The sheet's TOTAL COST: agreement value + stamp duty + registration + GST. */
+  allIn: number
+  /** Shown to visitors under the line where it disagrees with the developer's plans. */
+  note?: string
+}
+
+/**
+ * THE DEVELOPER'S PRICE LIST.
+ *
+ * K  Source: the one-page cost sheet "UPDETED COST SHEET PDF 13.10.2026.pdf",
+ *    headed VENKATESH SERENIQUE and RERA REGISTRATION No. PM1261012601412,
+ *    dated 13 Oct 2026 (file name and PDF creation date; the sheet itself
+ *    prints no date), issued by the developer for Wings A2 and A3. Supplied
+ *    by the client (Blackstone Realty) on 8 Nov 2026 in its client kit. Every
+ *    line below is the sheet's line, transcribed via
+ *    research_notes/Pune projects content refresh/client-kit-2026-11-08/price-sheets.csv
+ *    and re-checked against a render of the sheet. The sheet has 10 lines: 9
+ *    in Wings A2 and A3 and one "2 BHK (REFUGE)" line with no wing.
+ *
+ * Published in full by the user's decision of 8 Nov 2026 (spec decision 12),
+ * with the sheet's date and its own conditions. NOT published, by the same
+ * decision and the client-kit digest: the sheet itself as an image or PDF,
+ * the booking payee's name (Ruling R18), and anything from the channel-partner
+ * docket (token scheme, "indicative" price ranges, area tables).
+ *
+ * ⚠ No price goes into JSON-LD (Ruling R17): the sheet is a dated quotation
+ * that has already lapsed, and structured data cannot say "as of".
+ *
+ * ⚠ The sheet was "valid for 15 Days only" from 13 Oct 2026, so it lapsed on
+ * about 28 Oct 2026. The site says so wherever it prints a price. When the
+ * client sends a newer sheet, replace `issued` and every line together.
+ */
+const priceLines: PriceLine[] = [
+  {
+    id: 'refuge-6-7',
+    type: '2 BHK (Refuge)',
+    /* CONFLICT: the sheet's WING cell reads "2 BHK (REFUGE)", so no wing is
+       given. Its areas differ from both other sources for what is evidently
+       the same refuge-floor home (total 975 sq ft in the sheet and the
+       docket): the developer's Oct 2026 Wing A2 plan (F) shows it as a
+       2-bedroom-plus-study, Series 2, RERA carpet 83.62 sq m, balcony 5.11,
+       dry balcony 2.58, total 983 sq ft, and this site's configurations call
+       it the 2.5 BHK; the channel-partner docket (2 Sep 2026) calls it a
+       "3 BHK" of 83.03 sq m. The sheet also numbers it "6 & 7" where the plan
+       has Series 2. Published as the sheet states it, because the price is
+       tied to the sheet's figures. On the client list. */
+    wing: null,
+    serials: '6 & 7',
+    reraCarpet: { sqm: 81.4, sqft: 876.19 },
+    balcony: { sqm: 9.18, sqft: 98.81 },
+    /* The sheet leaves the dry-balcony cells blank on this line. */
+    dryBalcony: null,
+    totalCarpet: { sqm: 90.58, sqft: 975 },
+    agreementValue: 13258000,
+    stampDuty: 928100,
+    registration: 30000,
+    gst: 331450 + 331450,
+    allIn: 14879000,
+    note: 'The price list names this home “2 BHK (Refuge)” and gives no wing. The developer’s Wing A2 floor plan shows a two-bedroom home with a study on the refuge floors at 83.62 sq m RERA carpet, listed on this site as the 2.5 BHK. Confirm the configuration, wing and area with the sales team.',
+  },
+  {
+    id: 'a2-2-3-6-7',
+    type: '2 BHK',
+    wing: 'A2',
+    serials: '2, 3, 6, 7',
+    reraCarpet: { sqm: 65.65, sqft: 706.66 },
+    balcony: { sqm: 5.11, sqft: 55 },
+    dryBalcony: { sqm: 2.58, sqft: 27.77 },
+    totalCarpet: { sqm: 73.34, sqft: 789 },
+    agreementValue: 9590000,
+    stampDuty: 671300,
+    registration: 30000,
+    gst: 239750 + 239750,
+    allIn: 10770800,
+  },
+  {
+    id: 'a2-1-8',
+    type: '2 BHK',
+    wing: 'A2',
+    serials: '1 & 8',
+    reraCarpet: { sqm: 66.77, sqft: 718.71 },
+    balcony: { sqm: 5.11, sqft: 55 },
+    dryBalcony: { sqm: 2.58, sqft: 27.77 },
+    totalCarpet: { sqm: 74.46, sqft: 801 },
+    agreementValue: 9718000,
+    stampDuty: 680300,
+    registration: 30000,
+    gst: 242950 + 242950,
+    allIn: 10914200,
+  },
+  {
+    id: 'a2-4-5',
+    type: '2 BHK',
+    wing: 'A2',
+    serials: '4 & 5',
+    reraCarpet: { sqm: 67.08, sqft: 722.05 },
+    balcony: { sqm: 5.11, sqft: 55 },
+    dryBalcony: { sqm: 2.58, sqft: 27.77 },
+    totalCarpet: { sqm: 74.77, sqft: 805 },
+    agreementValue: 9766000,
+    stampDuty: 683700,
+    registration: 30000,
+    gst: 244150 + 244150,
+    allIn: 10968000,
+  },
+  {
+    id: 'a3-1',
+    type: '2 BHK',
+    wing: 'A3',
+    serials: '1',
+    reraCarpet: { sqm: 67.25, sqft: 723.88 },
+    balcony: { sqm: 5.11, sqft: 55 },
+    dryBalcony: { sqm: 2.58, sqft: 27.77 },
+    totalCarpet: { sqm: 74.94, sqft: 807 },
+    agreementValue: 9782000,
+    stampDuty: 684800,
+    registration: 30000,
+    gst: 244550 + 244550,
+    allIn: 10985900,
+  },
+  {
+    id: 'a3-2',
+    type: '2 BHK',
+    wing: 'A3',
+    serials: '2',
+    reraCarpet: { sqm: 66.86, sqft: 719.68 },
+    balcony: { sqm: 5.11, sqft: 55 },
+    dryBalcony: { sqm: 2.58, sqft: 27.77 },
+    totalCarpet: { sqm: 74.55, sqft: 802 },
+    agreementValue: 9734000,
+    stampDuty: 681400,
+    registration: 30000,
+    gst: 243350 + 243350,
+    allIn: 10932100,
+  },
+  {
+    id: 'a3-3',
+    type: '3 BHK',
+    wing: 'A3',
+    serials: '3',
+    reraCarpet: { sqm: 95.12, sqft: 1023.87 },
+    balcony: { sqm: 6.7, sqft: 72.12 },
+    dryBalcony: { sqm: 2.78, sqft: 29.92 },
+    totalCarpet: { sqm: 104.6, sqft: 1126 },
+    agreementValue: 14108000,
+    stampDuty: 987600,
+    registration: 30000,
+    gst: 352700 + 352700,
+    allIn: 15831000,
+  },
+  {
+    id: 'a3-4',
+    type: '3 BHK',
+    wing: 'A3',
+    serials: '4',
+    reraCarpet: { sqm: 94.85, sqft: 1020.97 },
+    balcony: { sqm: 6.7, sqft: 72.12 },
+    dryBalcony: { sqm: 2.78, sqft: 29.92 },
+    totalCarpet: { sqm: 104.33, sqft: 1123 },
+    agreementValue: 14076000,
+    stampDuty: 985400,
+    registration: 30000,
+    gst: 351900 + 351900,
+    allIn: 15795200,
+  },
+  {
+    id: 'a3-5',
+    type: '2 BHK',
+    wing: 'A3',
+    serials: '5',
+    reraCarpet: { sqm: 67.35, sqft: 724.96 },
+    balcony: { sqm: 5.11, sqft: 55 },
+    dryBalcony: { sqm: 2.58, sqft: 27.77 },
+    totalCarpet: { sqm: 75.04, sqft: 808 },
+    agreementValue: 9798000,
+    stampDuty: 685900,
+    registration: 30000,
+    gst: 244950 + 244950,
+    allIn: 11003800,
+  },
+  {
+    id: 'a3-6',
+    type: '2 BHK',
+    wing: 'A3',
+    serials: '6',
+    /* CONFLICT: the developer's Oct 2026 Wing A3 floor plan (F) gives Series 6
+       as 66.93 sq m RERA carpet, total 803 sq ft. The sheet's 67.85 / 813 is
+       priced at the same rate per sq m as its neighbours (about ₹1.452 lakh),
+       so the price follows the sheet's area. Published as the sheet states it.
+       On the client list. */
+    reraCarpet: { sqm: 67.85, sqft: 730.34 },
+    balcony: { sqm: 5.11, sqft: 55 },
+    dryBalcony: { sqm: 2.58, sqft: 27.77 },
+    totalCarpet: { sqm: 75.54, sqft: 813 },
+    agreementValue: 9854000,
+    stampDuty: 689800,
+    registration: 30000,
+    gst: 246350 + 246350,
+    allIn: 11066500,
+    note: 'The developer’s Wing A3 floor plan gives this home 66.93 sq m RERA carpet. Confirm the area with the sales team.',
+  },
+]
+
+/* The sheet's own arithmetic, checked at build time: the all-in total is the
+   sum of its parts on every line. A typo in the figures above fails the build
+   here rather than reaching a buyer. */
+for (const line of priceLines) {
+  const sum = line.agreementValue + line.stampDuty + line.registration + line.gst
+  if (sum !== line.allIn) {
+    throw new Error(`project.ts: price line ${line.id} adds up to ${sum}, not ${line.allIn}`)
+  }
+}
+
+const PRICE_LIST_ISSUED = '13 October 2026'
+
+export const priceList = {
+  /* K: file name and PDF creation date (see the source note above). */
+  issued: PRICE_LIST_ISSUED,
+  issuedShort: shortDate(PRICE_LIST_ISSUED),
+  /* K, term 7: "This quotation/offer is valid for 15 Days only". */
+  validDays: 15,
+  wings: 'Wings A2 and A3',
+  lines: priceLines,
+  /* K, terms and notes. Amounts only: the payee named in term 1 is NOT
+     published (Ruling R18). PLC is not on this sheet (the docket's
+     "PLC + Floor Rise Applicable*" is channel-partner material), so no PLC
+     line is printed; on the client list. */
+  terms: {
+    bookingPercent: 5,
+    floorRiseFrom: 5,
+    tdsPercent: 1,
+    stampDutyPercent: 7,
+    gstPercent: 2.5,
+    agreementWithinDays: 15,
+    maintenanceFund: [
+      { type: '1 BHK', amount: 200000 },
+      { type: '2 BHK', amount: 300000 },
+      { type: '3 BHK', amount: 400000 },
+    ],
+    advanceMaintenance: {
+      months: 30,
+      perMonth: [
+        { type: '1 BHK', amount: 7000 },
+        { type: '2 BHK', amount: 8000 },
+        { type: '3 BHK', amount: 9000 },
+      ],
+    },
+  },
+}
+
+/** The lines for one FLAT TYPE, cheapest first. */
+export function priceLinesFor(type: PriceLine['type']) {
+  return priceList.lines.filter((line) => line.type === type).sort((a, b) => a.allIn - b.allIn)
+}
+
+/**
+ * The starting price for one FLAT TYPE, derived from the lines: the lowest
+ * agreement value and the lowest all-in total (not necessarily the same line).
+ * `from` is false when every line of that type has the same price.
+ */
+export function startingPrice(type: PriceLine['type']) {
+  const lines = priceLinesFor(type)
+  if (lines.length === 0) throw new Error(`project.ts: no price line of type ${type}`)
+  const agreement = Math.min(...lines.map((line) => line.agreementValue))
+  const allIn = Math.min(...lines.map((line) => line.allIn))
+  const from = new Set(lines.map((line) => line.allIn)).size > 1
+  return { type, agreement, allIn, from, count: lines.length }
+}
+
+/** Every FLAT TYPE on the sheet, in the order the site lists configurations. */
+export const priceTypes: PriceLine['type'][] = ['2 BHK', '3 BHK', '2 BHK (Refuge)']
+
+/* The lowest all-in total on the whole sheet. */
+const lowestAllIn = Math.min(...priceList.lines.map((line) => line.allIn))
+
+const fund = priceList.terms.maintenanceFund
+const advance = priceList.terms.advanceMaintenance
+/* "₹2,00,000 (1 BHK), ..., or ₹4,00,000 (3 BHK)". The no-break spaces keep
+   "₹2,00,000 (1 BHK)" on one line. */
+const joinTypes = (rows: { type: string; amount: number }[]) =>
+  rows
+    .map((row, i) => `${i === rows.length - 1 ? 'or ' : ''}${rupees(row.amount)} (${row.type.replace(' ', ' ')})`)
+    .join(', ')
+
+/**
+ * The sheet's conditions, as sentences, for the price-list block, the legal
+ * pages and /llms.txt. Each is read from `priceList`.
+ */
+export const priceConditions = [
+  `Prices are as per the developer’s price list dated ${priceList.issued}. It was valid for ${priceList.validDays} days from that date, so confirm the current price with the sales team before you decide.`,
+  'The sale is on the RERA carpet area registered with MahaRERA, in sq m.',
+  `Floor rise is charged extra from the ${priceList.terms.floorRiseFrom}th residential floor. The price list does not state the rate.`,
+  `Booking amount: ${priceList.terms.bookingPercent}% of the agreement value.`,
+  `The agreement is registered within ${priceList.terms.agreementWithinDays} days of booking. If you are taking a home loan, the bank’s sanction letter is needed before the agreement.`,
+  `Stamp duty (${priceList.terms.stampDutyPercent}%), registration and GST (${priceList.terms.gstPercent}% CGST and ${priceList.terms.gstPercent}% SGST) are at government rates and subject to change. TDS of ${priceList.terms.tdsPercent}% is payable on the agreement value.`,
+  `Payable at possession and not in the all-in total: a maintenance contingency fund of ${joinTypes(fund)}, and advance maintenance of ${joinTypes(advance.perMonth)} a month for ${advance.months} months, plus GST.`,
+]
+
+/* Areas as the price list prints them: sq m to two places, RERA carpet and
+   balcony sq ft to two places, total sq ft whole. */
+const twoPlaces = new Intl.NumberFormat('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+export const sqmText = (sqm: number) => `${twoPlaces.format(sqm)} sq m`
+export const sqftText = (sqft: number) =>
+  `${Number.isInteger(sqft) ? grouped(sqft) : twoPlaces.format(sqft)} sq ft`
+
+/** Copy for the price-list block on /configurations. */
+export const priceCopy = {
+  eyebrow: 'Price List',
+  heading: `The developer’s price list, dated ${priceList.issued}`,
+  lede: `Every line of the developer’s cost sheet for ${priceList.wings}, as the sheet prints it. Quotations on it were valid for ${priceList.validDays} days, so confirm today’s price with our sales team before you decide.`,
+  startingHeading: 'Starting prices',
+  caption: `The developer’s price list for Venkatesh Serenique ${phase1.label}, dated ${priceList.issued}, one row per line of the sheet.`,
+  allInNote:
+    'All-in is the price list’s total cost: agreement value, stamp duty, registration and GST. It does not include floor rise, the maintenance contingency fund or advance maintenance.',
+  totalCarpetNote:
+    'Total carpet area is the price list’s own label: RERA carpet plus balcony and dry balcony. The sale is on the RERA carpet.',
+  conditionsHeading: 'Conditions on the price list',
+  /* The closing band on /configurations. Was "Get the current price list" /
+     "The developer has not published a price list. ...". */
+  ctaTitle: 'Get today’s price for your home',
+  ctaBody: `The list above is dated ${priceList.issued}. Tell us which home you are considering and we will send today’s price, the full cost sheet and its floor plan.`,
+}
+
 export const site = {
   name: 'Venkatesh Serenique',
   shortName: 'Serenique',
@@ -251,24 +640,6 @@ export const site = {
 }
 
 /**
- * The home page's <title> and meta description, the share-card alt text and
- * the project description in the JSON-LD. Kept here rather than in
- * layout.tsx / structured-data.tsx so the figures in them are read from the
- * same values as the page, not retyped.
- *
- * `title` must stay under 65 characters and `description` between 70 and 165
- * (`npm run audit` checks both).
- */
-export const siteMeta = {
-  /* D: "Premium 2 & 3 BHK Residences". Was "2, 3 & 4 BHK Pre-Launch" (★). */
-  title: 'Venkatesh Serenique Bavdhan | 2 & 3 BHK Homes, Pune',
-  /* F for the carpet area, R for the rest. */
-  description: `${phase1.label} near Chandani Chowk, Bavdhan: 2 & 3 BHK from 706 sq ft RERA carpet, ${phase1.homes} homes, MahaRERA ${phase1.reraId}, completion ${phase1.completionShort}.`,
-  ogAlt: 'Venkatesh Serenique, 2 & 3 BHK homes near Chandani Chowk, Bavdhan, Pune',
-  schemaDescription: `Residential development by Venkatesh Buildcon near Chandani Chowk, Bavdhan, Pune. ${phase1.label}, MahaRERA ${phase1.reraId}, is one building of three residential wings with ${phase1.homes} homes and ${phase1.shops} shops, in 1, 2, 2.5 and 3 BHK configurations, with a declared completion date of ${phase1.completion}. Prices are on request.`,
-}
-
-/**
  * Real routes, not anchors.
  *
  * ⚠ There is still no /amenities and no /gallery. Until November 2026 that
@@ -289,8 +660,9 @@ export const nav = [
 export const hero = {
   /* D: "Now launched" (project page, modified 2026-11-05); listed as ongoing
      on D's listing since 27 Aug 2026. R: registered 3 Aug 2026.
-     Was "PRE-LAUNCH · REGISTRATIONS OPEN". */
-  badge: 'NOW LAUNCHED · MAHARERA REGISTERED',
+     Was "PRE-LAUNCH · REGISTRATIONS OPEN". The registration is Phase 1's,
+     so the badge says so (spec decision 9). */
+  badge: `NOW LAUNCHED · ${phase1.label.toUpperCase()} MAHARERA REGISTERED`,
   title: 'Venkatesh Serenique',
   subtitle: 'BAVDHAN, PUNE',
   /* D: "Premium 2 & 3 BHK Residences" (page body); "3 & 2 BHK SERENE
@@ -317,18 +689,19 @@ export const hero = {
     /* R: 27 sanctioned habitable floors in Wing A2, 28 in Wing A3. D says
        "28-Storeyed Towers". Was "G + 27" (★, with three basements, which
        no official source confirms; D shows podium parking above ground). */
-    { label: 'Floors', value: 'Up to 28' },
+    { label: `${phase1.label} Floors`, value: `Up to ${maxFloors}` },
     /* R: completion 30/09/2031. Was "Possession: Dec 2031" (P). */
-    { label: 'RERA Completion', value: phase1.completionShort },
+    { label: `${phase1.label} RERA Completion`, value: phase1.completionShort },
   ],
-  /* No price is published by the developer for Serenique. D's "Starting
+  /* K: the lowest all-in total on the developer's price list, with its date.
+     Was "Price: On Request · Ask for the current price list". D's "Starting
      from 2.9 to 5 CR" is a template string shared with its Skydale page and
-     is NOT used (spec decision 11); broker figures are not used either. */
-  priceLabel: 'Price',
-  price: 'On Request',
-  priceNote: 'Ask for the current price list',
+     is still NOT used (spec decision 11); broker figures are not used either. */
+  priceLabel: 'From',
+  price: `${rupeesShort(lowestAllIn)} all-in`,
+  priceNote: `per the developer’s price list dated ${priceList.issuedShort}. Confirm today’s price with us.`,
   cta: 'Register Your Interest',
-  ctaSecondary: 'Request the Price List',
+  ctaSecondary: 'Get Today’s Price',
 }
 
 /**
@@ -346,7 +719,7 @@ export const featureStrip = [
   { id: 'homes', label: 'Premium 2 & 3 BHK Homes' },
   /* R: 27 and 28 habitable floors. D: "28-Storeyed Towers". Was C's
      "Thoughtfully Planned Lifestyle". */
-  { id: 'storeys', label: 'Up to 28 Habitable Floors' },
+  { id: 'storeys', label: `Up to ${maxFloors} Habitable Floors` },
   /* D: "20+ amenities"; "40,000 Sq. Ft. of Grand Indoor & Outdoor
      Amenities". Was C's "Premium Amenities for All Age Groups". */
   { id: 'amenities', label: '20+ Amenities, Ground & Podium' },
@@ -385,7 +758,7 @@ export const highlights = {
     `${phase1.label} on ${phase1.landAcres} of ${phase1.parcelAcres} acres near Chandani Chowk`,
     /* R. Was "Eleven towers of three basements, ground, podium and 27
        floors" (★). */
-    'One building, three residential wings, up to 28 habitable floors',
+    `${phase1.label}: one building, three residential wings, up to ${maxFloors} habitable floors`,
     /* R. New: the unit count was removed in August and is restored here. */
     `${phase1.homes} homes and ${phase1.shops} shops in ${phase1.label}`,
     /* D and F. Was "2, 3 and 4 BHK homes" (★). */
@@ -406,10 +779,12 @@ export const highlights = {
  * has not.
  *
  * Until November 2026 most rows here were "Awaited". The project has since
- * launched and almost everything is out; the price list is the one row still
- * unreleased. The ledger stays because it is still the fastest honest answer
- * to "what is actually known", and because the thank-you page reads its
- * unreleased rows as the list of what we will send.
+ * launched and everything is out, including (since 8 Nov 2026) the
+ * developer's price list. The one row left unreleased is today's price,
+ * because the list is a dated quotation that has lapsed. The ledger stays
+ * because it is still the fastest honest answer to "what is actually known",
+ * and because the thank-you page reads its unreleased rows as the list of
+ * what we will send.
  *
  * Values are short on purpose: they sit in a narrow right-hand column.
  */
@@ -422,9 +797,10 @@ export const releaseStatus = {
     /* D and F. Was "2, 3 & 4 BHK" (★). */
     { id: 'config', label: 'Configurations', value: '1, 2, 2.5 & 3 BHK', released: true },
     /* R. Was "Towers: 11" (★). */
-    { id: 'scale', label: 'Residential wings', value: 'A1, A2 & A3', released: true },
-    /* R. Was "Floors per tower: 3B + G + P + 27" (★). */
-    { id: 'structure', label: 'Habitable floors', value: '27 and 28', released: true },
+    { id: 'scale', label: `${phase1.label} wings`, value: 'A1, A2 & A3', released: true },
+    /* R: Wings A2 and A3 (A1 is a single floor). Was "Floors per tower:
+       3B + G + P + 27" (★). */
+    { id: 'structure', label: `${phase1.label} floors`, value: '27 and 28', released: true },
     /* D. Was "Land parcel: 14 acres" (★). */
     { id: 'land', label: 'Phase 1 land', value: `${phase1.landAcres} acres`, released: true },
     /* R. Was "Total homes: Awaited". */
@@ -444,10 +820,20 @@ export const releaseStatus = {
        Was "Awaited". */
     { id: 'imagery', label: 'Renders & brochure', value: 'Published', released: true },
     /* R. New row. */
-    { id: 'completion', label: 'RERA completion', value: '30 Sep 2031', released: true },
-    /* Still not published by D. Broker figures and D's template string are
-       not a price list (see the source header). */
-    { id: 'price', label: 'Price list', value: 'On request', released: false },
+    {
+      id: 'completion',
+      label: `${phase1.label} completion`,
+      value: shortDate(phase1.completion),
+      released: true,
+    },
+    /* K: the developer's price list, published on /configurations. Was
+       "Price list: On request". Broker figures and D's template string are
+       still not used (see the source header). */
+    { id: 'price', label: 'Price list', value: `Dated ${priceList.issuedShort}`, released: true },
+    /* The list lapsed 15 days after its date, so today's price still comes
+       from the sales team. This is the row the thank-you page lists as what
+       we will send. */
+    { id: 'currentPrice', label: 'Today’s price', value: 'From our team', released: false },
   ],
 }
 
@@ -474,10 +860,12 @@ export const reveals = {
   },
   pricing: {
     eyebrow: 'Pricing',
-    /* D has published no price list for Serenique. */
-    heading: 'The price list is shared on request',
-    body: 'The developer has not published a price list for Serenique, and the prices quoted on listing sites do not come from the developer. Ask us and we will send the current price for the home you are considering.',
-    cta: 'Request the Price List',
+    /* K. Was "The price list is shared on request" / "The developer has not
+       published a price list". The list is now on /configurations; what we
+       still send is today's price, because the list has lapsed. */
+    heading: 'Get today’s price and cost sheet',
+    body: `The prices on this site are from the developer’s price list dated ${priceList.issued}, which was valid for ${priceList.validDays} days. Tell us the home you are considering and we will send today’s price and the full cost sheet, including floor rise for your floor.`,
+    cta: 'Get Today’s Cost Sheet',
   },
   amenities: {
     eyebrow: 'Lifestyle',
@@ -500,75 +888,167 @@ export const reveals = {
 export type Configuration = {
   id: string
   type: string
-  /** RERA carpet, in sq ft. null only if the developer has not published one. */
-  area: string | null
-  price: string | null
+  /** RERA carpet range from the developer's floor plans (F), sq m. */
+  carpetSqm: readonly [number, number]
+  /** The floor plan's own "total area" column, with balconies, sq ft. */
+  totalSqft: readonly [number, number]
+  /** RERA carpet, in sq ft, derived from `carpetSqm`. */
+  area: string
   note: string
+  /** The price list's FLAT TYPE that prices this home; null if it is not on the list. */
+  priceType: PriceLine['type'] | null
+  /** Lowest agreement value on the price list, e.g. "From ₹95.90 L". null if not on the list. */
+  agreement: string | null
+  /** Lowest all-in total on the price list, e.g. "From ₹1.08 Cr". null if not on the list. */
+  price: string | null
+}
+
+/* Builds a configuration card from the floor-plan figures, so the sq ft, the
+   note and the starting prices are all derived, never retyped. */
+function configuration(c: {
+  id: string
+  type: string
+  where: string
+  carpetSqm: readonly [number, number]
+  totalSqft: readonly [number, number]
+  balconies: string
+  priceType: PriceLine['type'] | null
+  priceNote?: string
+}): Configuration {
+  const start = c.priceType ? startingPrice(c.priceType) : null
+  const from = start?.from ? 'From ' : ''
+  const sqm = range(c.carpetSqm[0].toFixed(2), c.carpetSqm[1].toFixed(2))
+  const total = range(grouped(c.totalSqft[0]), grouped(c.totalSqft[1]))
+  return {
+    id: c.id,
+    type: c.type,
+    carpetSqm: c.carpetSqm,
+    totalSqft: c.totalSqft,
+    area: `${range(grouped(toSqft(c.carpetSqm[0])), grouped(toSqft(c.carpetSqm[1])))} sq ft`,
+    note: `${c.where}. RERA carpet ${sqm} sq m. The plan’s total area, ${c.balconies}, is ${total} sq ft.${c.priceNote ? ` ${c.priceNote}` : ''}`,
+    priceType: c.priceType,
+    agreement: start ? `${from}${rupeesShort(start.agreement)}` : null,
+    price: start ? `${from}${rupeesShort(start.allIn)}` : null,
+  }
+}
+
+const refugeLine = priceLinesFor('2 BHK (Refuge)')[0]
+
+/* F, read 2026-11-06. Every `area` is the RERA carpet column of the
+   carpet-area statement, converted at 10.7639 sq ft per sq m and rounded.
+   The "total area" in each note is the plan's own sq ft column, which
+   includes the balconies; it is printed so a buyer can match it against
+   the figures listing sites quote as "carpet".
+
+   The prices are K, the price list, read by `priceType`. The price list's
+   own areas agree with F except for two lines (see the CONFLICT notes in
+   `priceLines`), so the cards keep F's areas and the price table shows the
+   sheet's.
+
+   The 4 BHK that used to be the third card (★) is gone: no published
+   Phase 1 plan contains one. Per-type unit counts are deliberately absent:
+   no source states them, and the plans do not reconcile with R's Wing A3
+   total (167) on their own. */
+const configurationItems = [
+  /* F: A2 65.57 / 65.65 / 66.77 / 67.08 sq m; A3 66.86 / 66.93 / 67.25 /
+     67.35 sq m. Total area 789 to 805 (A2), 802 to 808 (A3). */
+  configuration({
+    id: '2bhk',
+    type: '2 BHK',
+    where: 'Wings A2 and A3',
+    carpetSqm: [65.57, 67.35],
+    totalSqft: [789, 808],
+    balconies: 'with balconies',
+    priceType: '2 BHK',
+  }),
+  /* F: A3 94.85 / 95.12 sq m. Total area 1,123 / 1,126 sq ft. */
+  configuration({
+    id: '3bhk',
+    type: '3 BHK',
+    where: 'Wing A3',
+    carpetSqm: [94.85, 95.12],
+    totalSqft: [1123, 1126],
+    balconies: 'with balconies',
+    priceType: '3 BHK',
+  }),
+  /* F: A2 refuge floors, Series 2, 83.62 sq m; total 983 sq ft.
+     CONFLICT: priced from the sheet's "2 BHK (REFUGE)" line (81.40 sq m,
+     no wing), which is evidently this home (both totals near 975 to 983
+     sq ft, the only refuge-floor line). See the note on that line. */
+  configuration({
+    id: '2-5bhk',
+    type: '2.5 BHK',
+    where: 'Wing A2, on the refuge floors only',
+    carpetSqm: [83.62, 83.62],
+    totalSqft: [983, 983],
+    balconies: 'with balconies',
+    priceType: '2 BHK (Refuge)',
+    priceNote: `The price list calls it “2 BHK (Refuge)” and gives ${refugeLine.reraCarpet.sqm.toFixed(2)} sq m; confirm the area with the sales team.`,
+  }),
+  /* F: A3 refuge floors, Series 5, 48.98 sq m; total 582 sq ft. Not on the
+     price list, although the list's maintenance terms mention a 1 BHK. On
+     the client list. */
+  configuration({
+    id: '1bhk',
+    type: '1 BHK',
+    where: 'Wing A3, on the refuge floors only',
+    carpetSqm: [48.98, 48.98],
+    totalSqft: [582, 582],
+    balconies: 'with the balcony',
+    priceType: null,
+  }),
+] satisfies Configuration[]
+
+/* A configuration card by id. Throws rather than printing "undefined". */
+function configItem(id: string) {
+  const item = configurationItems.find((c) => c.id === id)
+  if (!item) throw new Error(`project.ts: no configuration "${id}"`)
+  return item
 }
 
 export const configurations = {
   heading: 'Configurations',
-  /* D and F. Was "planned as 2, 3 and 4 BHK homes across eleven towers ...
-     The developer has not published carpet areas or pricing yet" (★). */
-  intro:
-    'Phase 1 has 2 and 3 BHK homes across Wings A2 and A3, with a few 1 BHK and 2.5 BHK homes on the refuge floors. The carpet areas below are the RERA carpet areas printed on the developer’s floor plans. Prices are shared on request.',
+  /* D, F and K. Was "planned as 2, 3 and 4 BHK homes across eleven towers ...
+     The developer has not published carpet areas or pricing yet" (★), then
+     "... Prices are shared on request" (until 8 Nov 2026). */
+  intro: `Phase 1 has 2 and 3 BHK homes across Wings A2 and A3, with a few 1 BHK and 2.5 BHK homes on the refuge floors. The carpet areas below are the RERA carpet areas printed on the developer’s floor plans, and the prices are from its price list dated ${priceList.issued}.`,
   /* Page metadata for /configurations. The title is kept under 60
      characters INCLUDING the "| Venkatesh Serenique" the layout appends. */
-  metaTitle: '2 & 3 BHK: Carpet Areas & Price',
-  metaDescription:
-    'Venkatesh Serenique Phase 1, Bavdhan: 2 BHK of 706 to 725 sq ft and 3 BHK of 1,021 to 1,024 sq ft RERA carpet, plus 1 BHK and 2.5 BHK. Prices on request.',
+  metaTitle: '2 & 3 BHK: Price List & Carpet Areas',
+  /* K and F. Was "... plus 1 BHK and 2.5 BHK. Prices on request." */
+  metaDescription: `Phase 1, Bavdhan: 2 BHK of ${configItem('2bhk').area} and 3 BHK of ${configItem('3bhk').area} RERA carpet, from ${rupeesShort(startingPrice('2 BHK').allIn)} all-in on the price list of ${priceList.issuedShort}.`,
   /* What the card prints in its "Floor plan" row. F. Was "Awaited". */
   planStatus: 'On request',
   /* The lede over the scale ledger on /configurations. R and D. Was "Eleven
      towers of three basements, ground, podium and 27 floors, on 14 acres at
      Bavdhan" (★). */
   scaleLede: `${phase1.label} is one building of three residential wings, ${overview.structure}, on ${phase1.landAcres} acres of a ${phase1.parcelAcres}-acre parcel.`,
-  /* F, read 2026-11-06. Every `area` is the RERA carpet column of the
-     carpet-area statement, converted at 10.7639 sq ft per sq m and rounded.
-     The "total area" in each note is the plan's own sq ft column, which
-     includes the balconies; it is printed so a buyer can match it against
-     the figures listing sites quote as "carpet".
+  items: configurationItems,
+  /* Under the cards on the home page, beside a link to the full list. */
+  pricesNote: `Prices are the starting lines of the developer’s price list dated ${priceList.issuedShort}, which has lapsed; confirm today’s price with us.`,
+  /* Was "Register for Areas & Pricing". */
+  cta: 'Get Today’s Price & Cost Sheet',
+}
 
-     The 4 BHK that used to be the third card (★) is gone: no published
-     Phase 1 plan contains one. Per-type unit counts are deliberately absent:
-     no source states them, and the plans do not reconcile with R's Wing A3
-     total (167) on their own. */
-  items: [
-    {
-      id: '2bhk',
-      type: '2 BHK',
-      /* F: A2 65.57 / 65.65 / 66.77 / 67.08 sq m; A3 66.86 / 66.93 / 67.25 /
-         67.35 sq m. Total area 789 to 805 (A2), 802 to 808 (A3). */
-      area: '706 to 725 sq ft',
-      price: null,
-      note: 'Wings A2 and A3. RERA carpet 65.57 to 67.35 sq m. The plan’s total area, with balconies, is 789 to 808 sq ft.',
-    },
-    {
-      id: '3bhk',
-      type: '3 BHK',
-      /* F: A3 94.85 / 95.12 sq m. Total area 1,123 / 1,126 sq ft. */
-      area: '1,021 to 1,024 sq ft',
-      price: null,
-      note: 'Wing A3. RERA carpet 94.85 to 95.12 sq m. The plan’s total area, with balconies, is 1,123 to 1,126 sq ft.',
-    },
-    {
-      id: '2-5bhk',
-      type: '2.5 BHK',
-      /* F: A2 refuge floors, Series 2, 83.62 sq m; total 983 sq ft. */
-      area: '900 sq ft',
-      price: null,
-      note: 'Wing A2, on the refuge floors only. RERA carpet 83.62 sq m. The plan’s total area, with balconies, is 983 sq ft.',
-    },
-    {
-      id: '1bhk',
-      type: '1 BHK',
-      /* F: A3 refuge floors, Series 5, 48.98 sq m; total 582 sq ft. */
-      area: '527 sq ft',
-      price: null,
-      note: 'Wing A3, on the refuge floors only. RERA carpet 48.98 sq m. The plan’s total area, with the balcony, is 582 sq ft.',
-    },
-  ] satisfies Configuration[],
-  cta: 'Register for Areas & Pricing',
+/**
+ * The home page's <title> and meta description, the share-card alt text and
+ * the project description in the JSON-LD. Kept here rather than in
+ * layout.tsx / structured-data.tsx so the figures in them are read from the
+ * same values as the page, not retyped.
+ *
+ * `title` must stay under 65 characters and `description` between 70 and 165
+ * (`npm run audit` checks both).
+ *
+ * ⚠ No price in `schemaDescription`: it is JSON-LD (Ruling R17).
+ */
+export const siteMeta = {
+  /* D: "Premium 2 & 3 BHK Residences". Was "2, 3 & 4 BHK Pre-Launch" (★). */
+  title: 'Venkatesh Serenique Bavdhan | 2 & 3 BHK Homes, Pune',
+  /* F for the carpet area, R for the rest. */
+  description: `${phase1.label} near Chandani Chowk, Bavdhan: 2 & 3 BHK from ${grouped(toSqft(configItem('2bhk').carpetSqm[0]))} sq ft RERA carpet, ${phase1.homes} homes, MahaRERA ${phase1.reraId}, completion ${phase1.completionShort}.`,
+  ogAlt: 'Venkatesh Serenique, 2 & 3 BHK homes near Chandani Chowk, Bavdhan, Pune',
+  /* Was "... Prices are on request." No figure: see the ⚠ above. */
+  schemaDescription: `Residential development by Venkatesh Buildcon near Chandani Chowk, Bavdhan, Pune. ${phase1.label}, MahaRERA ${phase1.reraId}, is one building of three residential wings with ${phase1.homes} homes and ${phase1.shops} shops, in 1, 2, 2.5 and 3 BHK configurations, with a declared completion date of ${phase1.completion}. The developer’s dated price list is shown on the site’s configurations page.`,
 }
 
 /**
@@ -698,7 +1178,9 @@ export const location = {
   mapEmbed: 'https://maps.google.com/maps?q=Bavdhan%2C%20Pune%2C%20Maharashtra&z=14&output=embed',
   mapTitle: 'Bavdhan, Pune locality map',
 
-  connectivityHeading: 'Distances from Bavdhan',
+  /* Was "Distances from Bavdhan", but most of the values below are the
+     developer's bands, measured from the project, not from the suburb. */
+  connectivityHeading: 'Key distances',
   /* Every one of these is a DISTANCE, not a drive time. Real-estate
      microsites publish invented drive times as a matter of course; this site
      does not, and the two times L used to supply are gone with the distances
@@ -862,8 +1344,8 @@ export const siteVisit = {
   /* Was "Register for first access" / "Pre-launch allocations ... go to
      registered buyers before they reach the portals". The project has
      launched; what a visitor gets now is the price list and the plans. */
-  heading: 'Get the price list and plans',
-  body: 'Leave your number and we will send the current price list, the floor plan for the home you are considering and the brochure, and arrange a site visit.',
+  heading: 'Get today’s price and the plans',
+  body: 'Leave your number and we will send today’s price and cost sheet, the floor plan for the home you are considering and the brochure, and arrange a site visit.',
   namePlaceholder: 'Name',
   phonePlaceholder: 'Mobile Number',
   cta: 'Register Now',
@@ -876,12 +1358,13 @@ export const siteVisit = {
  * form dialog confirms inline and never navigates, which is the right
  * behaviour for a modal — so do not "fix" that by routing the form here too.
  *
- * What the visitor gets is the price list and the plans, sent by the team.
- * The brochure download appears here too once `brochure` below is set; while
- * it is null, the team sends the brochure with everything else.
+ * What the visitor gets is today's price and the plans, sent by the team.
+ * The brochure download appears here too, because `brochure` below is set
+ * (it renders only after an enquiry from this tab).
  *
  * `steps[].when` are commitments the sales team has to keep. Soften them here
- * rather than letting the page write a cheque the client cannot cash.
+ * rather than letting the page write a cheque the client cannot cash. Do not
+ * add a new one without the client's say-so.
  */
 export const thankYou = {
   eyebrow: 'Enquiry received',
@@ -900,19 +1383,23 @@ export const thankYou = {
       id: 'list',
       when: 'Already done',
       title: 'Your request is logged',
-      body: 'The developer has not published a price list, so the current price comes to you directly from us, for the home you asked about.',
+      /* K. Was "The developer has not published a price list, so ...". */
+      body: `The price list on this site is dated ${priceList.issued}. Today’s price for the home you asked about, with floor rise for its floor, comes to you directly from us.`,
     },
     {
       id: 'send',
-      when: 'With the call',
+      /* Reverted to the wording before November 2026: Task 3 had changed it
+         to "With the call", a timing the client never committed to. */
+      when: 'The day it is issued',
       title: 'You get the documents',
-      body: 'The current price list, the floor plan for the home you are considering and the brochure. No drip campaign and no newsletter.',
+      body: 'Today’s cost sheet, the floor plan for the home you are considering and the brochure. No drip campaign and no newsletter.',
     },
   ],
 
   awaitingHeading: 'What you will be sent',
-  awaitingLede:
-    'The developer has published the plans, the amenity list and the specifications. The price list is the one thing it has not, and we send it on request.',
+  /* K. Was "... The price list is the one thing it has not, and we send it
+     on request." */
+  awaitingLede: `The plans, the amenity list, the specifications and the developer’s price list dated ${priceList.issued} are all on this site. That list was valid for ${priceList.validDays} days, so today’s price comes from us.`,
 
   callHeading: 'Would rather talk now?',
   callBody:
@@ -994,17 +1481,17 @@ export const legal = {
     'Developer’s corporate office: Off 701/702, 7th Floor, Vikram Monarch, Ganeshkhind Rd, opp. Modibaug, Shivajinagar, Pune, Maharashtra 411016',
 
   /* Was "The project is pre-launch. Carpet areas, pricing, amenities,
-     layouts and the possession date have not been finalised or published". */
-  disclaimer:
-    'We are an authorised marketing partner for this project. Content is provided by the respective owners and this website is published for information only. Nothing here is an offer, and no service is being sold through it. The registration details, the plot, the number of homes and the completion date are as filed with MahaRERA for Phase 1. Configurations, carpet areas, amenities and specifications are as published by the developer. The developer has not published a price list. Every figure on this site is attributed to its source and remains subject to change without notice. No home referred to here is guaranteed to be available. We may share your data with MahaRERA-registered entities where that is necessary to process your enquiry. You can expect a call, SMS or email on the details you register with us.',
+     layouts and the possession date have not been finalised or published",
+     then (until 8 Nov 2026) "The developer has not published a price list." */
+  disclaimer: `We are an authorised marketing partner for this project. Content is provided by the respective owners and this website is published for information only. Nothing here is an offer, and no service is being sold through it. The registration details, the plot, the number of homes and the completion date are as filed with MahaRERA for Phase 1. Configurations, carpet areas, amenities and specifications are as published by the developer. Prices are as per the developer’s price list dated ${priceList.issued}, which was valid for ${priceList.validDays} days from that date; confirm the current price with our sales team. Taxes and duties are at government rates and subject to change. Every figure on this site is attributed to its source and remains subject to change without notice. No home referred to here is guaranteed to be available. We may share your data with MahaRERA-registered entities where that is necessary to process your enquiry. You can expect a call, SMS or email on the details you register with us.`,
   copyright: 'Venkatesh Serenique, Bavdhan. All rights reserved.',
   links: [
     { href: '/privacy-policy', label: 'Privacy Policy' },
     { href: '/terms-conditions', label: 'Terms & Conditions' },
     { href: '/disclaimer', label: 'Disclaimer' },
   ],
-  disclaimerShort:
-    'We are an authorised marketing partner for this project. This site is published for information only and is not an offer. Figures are as filed with MahaRERA for Phase 1 or as published by the developer, prices are on request, and every figure shown is subject to change.',
+  /* Was "..., prices are on request, and ...". */
+  disclaimerShort: `We are an authorised marketing partner for this project. This site is published for information only and is not an offer. Figures are as filed with MahaRERA for Phase 1 or as published by the developer, prices are from the developer’s price list dated ${priceList.issuedShort} and must be confirmed with our sales team, and every figure shown is subject to change.`,
 }
 
 /**
@@ -1017,9 +1504,22 @@ export const legal = {
  * section means deleting the markup too.
  *
  * Rewritten 2026-11-06 for the launched project. Three answers used to be
- * "we don't know yet"; only the price still is, and it says so.
+ * "we don't know yet"; since 8 Nov 2026 none is, because the price list is
+ * published too.
+ *
+ * ⚠ `inSchema: false` keeps a question out of the FAQPage JSON-LD while it
+ * stays visible (markup may cover a subset of the visible questions, never
+ * more). The price answer carries ₹ figures from a dated, lapsed quotation,
+ * and no price goes into structured data (Ruling R17).
  */
-export const faqs = [
+export type Faq = { q: string; a: string; inSchema?: false }
+
+const plannedA2 = plannedWing('A2')
+const plannedA3 = plannedWing('A3')
+const start2 = startingPrice('2 BHK')
+const start3 = startingPrice('3 BHK')
+
+export const faqs: Faq[] = [
   {
     q: 'Where is Venkatesh Serenique located?',
     /* R: plot. Was "The developer has not yet published a street address". */
@@ -1029,11 +1529,15 @@ export const faqs = [
     q: 'What configurations are available?',
     /* D and F. Was "planned as 2, 3 and 4 BHK homes across eleven towers on
        14 acres" (★). */
-    a: 'Phase 1 is mostly 2 and 3 BHK homes. Wing A2 has 2 BHK homes and Wing A3 has 2 and 3 BHK homes, and the refuge floors add a 2.5 BHK in Wing A2 and a 1 BHK in Wing A3. RERA carpet areas run from 706 to 725 sq ft for a 2 BHK and 1,021 to 1,024 sq ft for a 3 BHK. No 4 BHK appears in any plan the developer has published for Phase 1.',
+    a: `Phase 1 is mostly 2 and 3 BHK homes. Wing A2 has 2 BHK homes and Wing A3 has 2 and 3 BHK homes, and the refuge floors add a 2.5 BHK in Wing A2 and a 1 BHK in Wing A3. RERA carpet areas run from ${configItem('2bhk').area} for a 2 BHK and ${configItem('3bhk').area} for a 3 BHK. No 4 BHK appears in any plan the developer has published for Phase 1.`,
   },
   {
     q: 'What is the price of a flat at Venkatesh Serenique?',
-    a: 'The developer has not published a price list for Serenique, and the prices quoted on listing sites do not come from the developer. Ask us and we will send the current price for the home you are considering, with its floor plan.',
+    /* K. Was "The developer has not published a price list for Serenique
+       ... Ask us and we will send the current price". Kept out of the
+       FAQPage JSON-LD (see ⚠ above). */
+    a: `The developer’s price list dated ${priceList.issued} starts at ${rupees(start2.agreement)} agreement value for a 2 BHK, or ${rupees(start2.allIn)} all-in with stamp duty, registration and GST, and at ${rupees(start3.agreement)} for a 3 BHK, or ${rupees(start3.allIn)} all-in. Every line, including the refuge-floor home, is on the configurations page. Floor rise from the ${priceList.terms.floorRiseFrom}th residential floor, the maintenance contingency fund and advance maintenance are extra. The list was valid for ${priceList.validDays} days, so ask us for today’s price.`,
+    inSchema: false,
   },
   {
     q: 'Is Venkatesh Serenique RERA registered?',
@@ -1053,7 +1557,7 @@ export const faqs = [
     /* R for the building, wings, floors and units; F for homes per floor and
        lifts; D for the acreage. Was "Eleven towers on 14 acres. Each runs
        three basement levels, ground, a podium and 27 floors" (★). */
-    a: `Phase 1 is a single building with three residential wings, A1, A2 and A3, above a parking podium, plus ${phase1.shops} shops at street level. Wing A2 has 27 habitable floors, with 8 homes on a typical floor served by 4 passenger lifts and a fire lift. Wing A3 has 28, with 6 homes on a typical floor served by 3 passenger lifts and a fire lift. Phase 1 registers ${phase1.homes} homes in all. The developer gives the whole parcel as ${phase1.parcelAcres} acres, of which Phase 1 takes ${phase1.landAcres} and ${phase1.futureAcres} acres are marked for future development.`,
+    a: `Phase 1 is a single building with three residential wings, A1, A2 and A3, above a parking podium, plus ${phase1.shops} shops at street level. Wing ${plannedA2.id} has ${plannedA2.habitableFloors} habitable floors, with ${plannedA2.homesPerTypicalFloor} homes on a typical floor served by ${plannedA2.lifts}. Wing ${plannedA3.id} has ${plannedA3.habitableFloors}, with ${plannedA3.homesPerTypicalFloor} homes on a typical floor served by ${plannedA3.lifts}. Phase 1 registers ${phase1.homes} homes in all. The developer gives the whole parcel as ${phase1.parcelAcres} acres, of which Phase 1 takes ${phase1.landAcres} and ${phase1.futureAcres} acres are marked for future development.`,
   },
   {
     q: 'What are the amenities?',
@@ -1064,28 +1568,47 @@ export const faqs = [
     q: 'Has Venkatesh Serenique launched?',
     /* D: "Now launched"; listed as ongoing since 27 Aug 2026. Replaces "Why
        is there so little information on this project?" */
-    a: 'Yes. The developer lists Serenique among its ongoing projects and describes it as launched. It has published renders, a master layout, floor plans with RERA carpet areas, the amenity list, the specifications and a brochure. The one thing it has not published is a price list, which we send on request.',
+    /* No figure here: this answer is in the JSON-LD. Was "... The one thing
+       it has not published is a price list, which we send on request." */
+    a: `Yes. The developer lists Serenique among its ongoing projects and describes it as launched. It has published renders, a master layout, floor plans with RERA carpet areas, the amenity list, the specifications and a brochure, and its price list dated ${priceList.issued} is on the configurations page.`,
   },
-] as const
+]
 
 /**
  * The developer's official brochure, handed over on /thank-you after an
- * enquiry (components/brochure-download.tsx). `null` until one is issued, and
- * while it is null the thank-you page is unchanged.
+ * enquiry (components/brochure-download.tsx). Set it to `null` to switch the
+ * download off; the thank-you page is then unchanged.
  *
- * To switch it on: put the PDF in public/brochure/, then set the export below.
  * `npm run audit` fails if `href` points at a file that is missing or empty.
  *
- * ⚠ 2026-11-06: an official brochure EXISTS (D:
- * https://venkateshbuildcon.com/wp-content/uploads/2026/10/Serenique_Main-Brochure-12X11_08-Oct-2_compressed-1.pdf,
- * 41.8 MB, filename dated 8 Oct), but it is still null here because nobody
- * has yet been able to open it and check it. It is image-only, and the
- * tooling available could not render it. Before switching it on, someone has
- * to read every page and confirm: it is Serenique's; it carries no broker's
- * mark or contact details; and it prints no price (D's project page carries a
- * "2.9 to 5 CR" template string copied from another project, which must not
- * reach visitors through the brochure either) and no figure that contradicts
- * MahaRERA (552 flats, a 4 BHK, a possession date other than 30 Sep 2031).
+ * D: https://venkateshbuildcon.com/wp-content/uploads/2026/10/Serenique_Main-Brochure-12X11_08-Oct-2_compressed-1.pdf
+ * (41.8 MB, 44 pages, InDesign export dated 8 Oct 2026). Offered by the
+ * user's decision of 8 Nov 2026 (spec decision 13), even though it prints the
+ * developer's own sales numbers. Every page was rendered and read on
+ * 2026-11-08: it is Serenique Phase 1's (MahaRERA PM1261012601412 on the
+ * cover, master plan and back cover); no broker, portal or third-party mark;
+ * NO price anywhere (in particular not D's "2.9 to 5 CR" template string),
+ * no floor plans and no carpet areas.
+ *
+ * What it prints that this site does not repeat (on the client list):
+ *   • "552 Flats & 13 Showrooms" (p.11), against MahaRERA's 380 homes and
+ *     13 shops for Phase 1. Not labelled as a phase figure.
+ *   • "28-Storey Towers" and "6-Level Parking" (p.11). MahaRERA has 27
+ *     habitable floors in A2 and 28 in A3; parking levels are not on record.
+ *   • "3 & 2 BHK" only (cover); the floor plans also have a 1 BHK and a
+ *     2.5 BHK on the refuge floors.
+ *   • A "Key distances" table (pp.40 to 41) in exact km that differs from the
+ *     developer's own website bands this site uses (e.g. Ryan International
+ *     School 3.0 km and Chellaram Hospital 5.0 km, both "within 2 km" on the
+ *     website; Jupiter Hospital, Baner 12.2 km against "about 6 km" here).
+ *   • The developer's sales phone numbers (p.44) and its own statistics
+ *     (p.5, "6500+ happy families", "CRISIL A-Stable rated for group").
+ *   • Lifestyle images marked "AI-Generated Image" (pp.6, 9, 23).
+ *
+ * The file in public/brochure/ is a compressed copy made on 2026-11-08 with
+ * PyMuPDF: text, QR and spec pages (1, 4, 36, 37, 40, 41, 44) kept as vectors,
+ * the rest rendered at 108 dpi (page 42, the portfolio, at 150 dpi) as JPEG
+ * q68, metadata reduced to a title. 41.8 MB to 7.8 MB; legibility re-checked.
  */
 export type Brochure = {
   /**
@@ -1102,4 +1625,10 @@ export type Brochure = {
   source: string
 }
 
-export const brochure: Brochure | null = null
+export const brochure: Brochure | null = {
+  href: '/brochure/venkatesh-serenique-brochure.pdf',
+  title: 'Download the Venkatesh Serenique brochure',
+  sizeLabel: 'PDF, 7.8 MB',
+  source:
+    'Developer website, Serenique_Main-Brochure-12X11_08-Oct-2_compressed-1.pdf (8 Oct 2026), compressed copy made 2026-11-08',
+}

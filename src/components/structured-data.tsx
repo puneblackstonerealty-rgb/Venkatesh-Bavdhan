@@ -12,10 +12,12 @@ import { SITE_URL } from '@/lib/seo'
  * claim the page does not make is what gets structured data ignored, or the
  * site penalised.
  *
- * Note what is deliberately ABSENT (re-checked 2026-11-06):
- *   • No `offers` / price markup. The developer has published no price list.
- *     Fabricating an offer to win a rich result is exactly the abuse the
- *     guidelines target.
+ * Note what is deliberately ABSENT (re-checked 2026-11-08):
+ *   • No `offers` / price markup, and no price in any text below (Ruling
+ *     R17). The site publishes the developer's price list, but it is a dated
+ *     quotation that has already lapsed, and structured data cannot carry
+ *     "as of". The price FAQ is visible on the page and left out of the
+ *     FAQPage markup for the same reason (`inSchema: false` in project.ts).
  *   • No `amenityFeature` YET. The developer published an amenity list in
  *     2026 (content/project.ts `amenities`), but no page lays it out as a
  *     list. Add it together with the /amenities route, not before, so the
@@ -88,7 +90,8 @@ export function SiteStructuredData() {
           {
             // Residence is the correct type for a housing development. A
             // Product would rank the whole project as one item for sale, which
-            // it is not — the flats are, and none of them is priced yet.
+            // it is not — the flats are, and their prices stay out of
+            // structured data (see the note at the top).
             '@type': ['Residence', 'ApartmentComplex'],
             '@id': PROJECT_ID,
             name: site.name,
@@ -161,7 +164,9 @@ export function BreadcrumbStructuredData({ name, path }: { name: string; path: s
 /**
  * FAQ markup, generated from the same `faqs` array the home page renders
  * visibly. Google requires FAQ markup to match content the visitor can see;
- * reading one array is what guarantees that rather than hoping.
+ * reading one array is what guarantees that rather than hoping. Questions
+ * marked `inSchema: false` (the price answer) stay visible but are left out
+ * of the markup, which may cover fewer questions than the page, never more.
  */
 export function FaqStructuredData() {
   return (
@@ -169,7 +174,7 @@ export function FaqStructuredData() {
       data={{
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: faqs.map((faq) => ({
+        mainEntity: faqs.filter((faq) => faq.inSchema !== false).map((faq) => ({
           '@type': 'Question',
           name: faq.q,
           acceptedAnswer: { '@type': 'Answer', text: faq.a },

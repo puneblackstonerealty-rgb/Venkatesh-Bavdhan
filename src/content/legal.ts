@@ -10,19 +10,21 @@
  * Until November 2026 these pages stated the pre-launch position bluntly,
  * because nothing had been published. Rewritten 2026-11-06 for the launched
  * project: Phase 1 is on the MahaRERA record and the developer has published
- * plans, carpet areas, amenities, specifications, renders and a brochure. The
- * one thing still unpublished is a price list, and the pages say so. A policy
- * page that implied otherwise would contradict the site it governs.
+ * plans, carpet areas, amenities, specifications, renders and a brochure.
+ * Updated 2026-11-08: the site now also publishes the developer's price list
+ * (dated, lapsed), so the price sections say what that list is and is not.
+ * A policy page that contradicted the site it governs would be worse than
+ * none.
  *
  * Figures are not retyped here: the registration details are read from
- * `phase1` in project.ts.
+ * `phase1` and the price-list date and conditions from `priceList` in
+ * project.ts.
  */
 
-import { phase1 } from './project'
-
+import { phase1, priceList } from './project'
 
 export const legalPages = {
-  lastUpdated: '6 November 2026',
+  lastUpdated: '8 November 2026',
 
   terms: {
     eyebrow: 'Legal',
@@ -38,7 +40,7 @@ export const legalPages = {
       {
         heading: 'What has been published',
         paragraphs: [
-          `Venkatesh Serenique has been launched by the developer, and ${phase1.label} is registered with MahaRERA under number ${phase1.reraId}. At the date this page was last updated, the developer had published floor plans with RERA carpet areas, an amenity list, specifications, renders and a brochure. It had not published a price list.`,
+          `Venkatesh Serenique has been launched by the developer, and ${phase1.label} is registered with MahaRERA under number ${phase1.reraId}. At the date this page was last updated, the developer had published floor plans with RERA carpet areas, an amenity list, specifications, renders and a brochure, and this site also showed the developer’s price list dated ${priceList.issued}.`,
           'Where this site states a figure, it states where the figure came from: the MahaRERA record for Phase 1, or the developer’s own published material. Where nothing has been published, this site says so rather than substituting a figure from a comparable project or a market average. Where this site summarises the developer’s material, the developer’s own documents and the MahaRERA record govern.',
         ],
       },
@@ -52,7 +54,8 @@ export const legalPages = {
       {
         heading: 'Prices, areas and availability',
         paragraphs: [
-          'The developer has not published a price list for this project. Any price quoted to you in the course of an enquiry is indicative, is exclusive of stamp duty, registration, GST, maintenance and every other statutory charge unless expressly stated, and may change at any time without notice.',
+          `Prices on this site are taken from the developer’s price list dated ${priceList.issued}, for ${priceList.wings}. That list was a quotation valid for ${priceList.validDays} days from its date, so the price you are offered may differ from it. Its agreement values exclude floor rise, which applies from the ${priceList.terms.floorRiseFrom}th residential floor, the maintenance contingency fund and advance maintenance. Its all-in totals add stamp duty, registration and GST at government rates, which are subject to change.`,
+          'Any price quoted to you in the course of an enquiry is indicative, is exclusive of stamp duty, registration, GST, maintenance and every other statutory charge unless expressly stated, and may change at any time without notice. The price in your allotment letter and agreement for sale is the one that applies.',
           'Areas stated on this site are carpet areas as defined under the Real Estate (Regulation and Development) Act, 2016, taken from the RERA carpet-area statements on the developer’s floor plans. They are subject to the tolerances and final measurements recorded in the agreement for sale.',
           'Inventory and offers may change at any time. Availability is not guaranteed at the price or on the terms discussed.',
         ],
@@ -191,7 +194,7 @@ export const legalPages = {
       {
         heading: 'What has been published, and what has not',
         paragraphs: [
-          'The developer has launched this project and has published floor plans with RERA carpet areas, an amenity list, specifications, renders, a master layout and a brochure. It has not published a price list.',
+          `The developer has launched this project and has published floor plans with RERA carpet areas, an amenity list, specifications, renders, a master layout and a brochure. This site also shows the developer’s price list dated ${priceList.issued}. That list was valid for ${priceList.validDays} days from its date, so confirm the current price with our sales team before you rely on it.`,
           'Several websites publish prices and other figures for this project that do not come from the developer or from MahaRERA, and in August 2026 one of them reproduced a different Venkatesh project’s statistics on a Bavdhan page. We do not repeat them. Where this site shows nothing, it is because nothing verifiable exists, not because it has been left out.',
         ],
       },
@@ -206,6 +209,7 @@ export const legalPages = {
         paragraphs: [
           `The registration number, the registered name, the plot, the building and its wings, the number of homes and shops, the floor counts and the completion date of ${phase1.completion} are taken from the MahaRERA record for ${phase1.label}. They describe Phase 1 only, not the whole land parcel.`,
           'The land area, the configurations, the carpet areas, the amenities and the specifications are taken from the developer’s own website and floor plans. Where they differ from figures this site published before the launch, the published figures replace the earlier ones.',
+          `Prices are taken from the developer’s price list dated ${priceList.issued}, line by line as it prints them. Where a line’s area differs from the developer’s floor plans, the line is shown as the price list states it, with a note.`,
           'Some locality distances on the location page are the developer’s own distance bands, measured from the project; the rest are compiled from public locality data and measured from the suburb. Confirm every figure against the developer’s own documentation and the MahaRERA portal before you act on it.',
         ],
       },

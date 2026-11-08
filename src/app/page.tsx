@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { ArticleCard } from '@/components/article-card'
 import { CtaButton, RegisterForm } from '@/components/lead'
 import { Reveal } from '@/components/reveal'
@@ -186,12 +188,25 @@ export default function LandingPage() {
                 <dl className="mt-6 border-t border-line pt-6 text-sm">
                   <div className="flex justify-between gap-4">
                     <dt className="text-muted">Carpet area</dt>
-                    <dd className="text-ink">{config.area ?? 'To be announced'}</dd>
+                    <dd className="text-ink">{config.area}</dd>
                   </div>
-                  <div className="mt-2 flex justify-between gap-4">
-                    <dt className="text-muted">Price</dt>
-                    <dd className="text-ink">{config.price ?? 'On request'}</dd>
-                  </div>
+                  {config.agreement && config.price ? (
+                    <>
+                      <div className="mt-2 flex justify-between gap-4">
+                        <dt className="text-muted">Agreement value</dt>
+                        <dd className="text-ink">{config.agreement}</dd>
+                      </div>
+                      <div className="mt-2 flex justify-between gap-4">
+                        <dt className="text-muted">All-in</dt>
+                        <dd className="text-ink">{config.price}</dd>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="mt-2 flex justify-between gap-4">
+                      <dt className="text-muted">Price</dt>
+                      <dd className="text-ink">Not on the price list</dd>
+                    </div>
+                  )}
                 </dl>
 
                 <div className="mt-auto pt-7">
@@ -202,6 +217,16 @@ export default function LandingPage() {
               </article>
             ))}
           </div>
+
+          {/* The prices on the cards are the starting lines of the developer's
+              price list; the full list, with its date and conditions, is on
+              /configurations. */}
+          <p className="mt-6 text-sm text-muted">
+            {configurations.pricesNote}{' '}
+            <Link href="/configurations#price-list" className="text-brand underline underline-offset-4">
+              See every line of the price list
+            </Link>
+          </p>
 
           <div className="mt-10">
             <Reveal
@@ -310,12 +335,17 @@ export default function LandingPage() {
           <dl className="mt-10 grid max-w-[46rem] grid-cols-2 gap-x-8 gap-y-6 border-t border-line pt-8 sm:grid-cols-3">
             <Stat label="Years building in Pune" value="26" />
             <Stat label="Projects across Pune" value={String(portfolio.total)} />
-            <Stat label="Delivered" value={String(completedProjects.length)} />
+            {/* "Listed as completed", not "Delivered": the count is the
+                developer's own `completed` tag, and Skydale's occupancy
+                certificate has not been checked. */}
+            <Stat label="Listed as completed" value={String(completedProjects.length)} />
           </dl>
 
           <div className="mt-9 flex flex-wrap gap-3">
+            {/* Not "See all 34 projects": the page shows 33 cards, because
+                Serenique itself is counted but not carded. */}
             <Button href="/about-developer" variant="secondary">
-              See all {portfolio.total} projects
+              See the developer’s portfolio
             </Button>
           </div>
         </Container>

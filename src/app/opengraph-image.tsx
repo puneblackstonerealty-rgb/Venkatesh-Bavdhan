@@ -12,7 +12,9 @@ import { hero, siteMeta } from '@/content/project'
  *
  * It carries only figures that are actually published, and reads every one of
  * them from content/project.ts (the hero facts), so it cannot drift from the
- * page. No price appears here, because the developer has published none.
+ * page. No price appears here: the site's prices come from a dated price
+ * list that has lapsed, and a share card, like structured data, travels
+ * without the date beside it.
  */
 export const alt = siteMeta.ogAlt
 export const size = { width: 1200, height: 630 }

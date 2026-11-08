@@ -44,8 +44,9 @@
   /* ⚠ Rewritten for Serenique. Until November 2026 the project was
      pre-launch and every option here was a request to be sent something WHEN
      it was issued. It has launched: the plans, carpet areas and amenity list
-     are published, so those are now sent on request. The price list is still
-     unpublished by the developer and is sent by the team. The `value`s are
+     are published, so those are now sent on request. The site shows the
+     developer's price list dated 13 Oct 2026, which has lapsed, so the team
+     sends today's price. The `value`s are
      unchanged; the sheet records each button's label, so the only change
      there is "Price list" losing its old "when released". */
   var INTEREST_OPTIONS = [
@@ -74,8 +75,8 @@
     if (v === 'Site Visit') return 'Happy to arrange that. The site is at Bavdhan.';
     if (v === 'Call Back') return 'Sure, I will have someone call you.';
     if (v === 'Details on WhatsApp') return 'Sure, I will send it across on WhatsApp.';
-    // The price list is not published by the developer, so the team sends
-    // it; the plans and amenity list are published and are sent on request.
+    // The site's price list is dated and has lapsed, so the team sends the
+    // current one; the plans and amenity list are sent on request.
     if (v === 'Price List') return 'Sure, I will have the team send you the current price list.';
     return 'Sure, I will send that across.';
   }

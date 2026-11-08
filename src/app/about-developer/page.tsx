@@ -59,7 +59,10 @@ export default function AboutDeveloperPage() {
               </div>
               <div className="rounded-lg border border-line bg-card p-6">
                 <dd className="font-display text-4xl text-brand">{completedProjects.length}</dd>
-                <dt className="eyebrow mt-2 text-muted">Delivered</dt>
+                {/* The developer's own `completed` tag, not a checked
+                    handover (Skydale's occupancy certificate is unverified),
+                    so not "Delivered". */}
+                <dt className="eyebrow mt-2 text-muted">Listed as completed</dt>
               </div>
             </dl>
           </div>

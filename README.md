@@ -15,7 +15,11 @@ launched. MahaRERA records Phase 1 as `VENKATESH SERENIQUE- PHASE -1`,
 Bavdhan Khurd. The developer's own site gives the land (**3.75 acres** in
 Phase 1 of a **9.75-acre** parcel), **2 & 3 BHK** (plus a 1 BHK and a 2.5 BHK
 on the refuge floors in its floor plans), RERA carpet areas, amenities,
-specifications, renders and a brochure. It has **not** published a price list.
+specifications, renders and a brochure. It has **not** published a price list
+itself; on 8 November 2026 the client supplied the developer's own **price
+list (cost sheet) dated 13 Oct 2026** for Wings A2 and A3, and the site now
+publishes every line of it on `/configurations` with its date and conditions
+(see "The price list and the brochure" below).
 
 Authority order is now **MahaRERA > the developer's own website > the
 client's earlier figures > news > portals**. Every value in
@@ -53,7 +57,8 @@ The site was built around that gap rather than papering over it. The hero
 carries a **release ledger** — a plain list of what has been issued and what
 has not — and each unreleased section was a `<Reveal>` block that said so and
 captured the enquiry. Since the launch the ledger shows almost everything as
-published (the price list is the one row still out), and the reveal blocks
+published (today's price is the one row still out, because the price list
+is a dated quotation that has lapsed), and the reveal blocks
 describe the published material and offer to send it, until the real
 sections are built. The original reasoning:
 
@@ -223,8 +228,10 @@ provenance is visible at the filename.
 own site (a clean official logo, renders, master layout, cluster and podium
 plans, floor plans with RERA carpet areas, the amenity list, Form C with its
 QR, and the survey number). The files are in the research assets folder with
-their source URLs. Only item 6's **price list** is still unpublished. The
-original list:
+their source URLs. Item 6's **price list** arrived from the client on
+2026-11-08 and is published (see "The price list and the brochure"); it stays
+out of the JSON-LD (Ruling R17), so item 6's `offers` note no longer applies.
+The original list:
 
 1. **The clean launch creative** — same artwork, no broker watermark. Unblocks
    the hero and the OG card immediately.
@@ -241,6 +248,43 @@ original list:
 Also carried over and worth a glance: `site.phone` / `site.leadEmail`, taken
 from the Kharadi site because it is the same marketing operation. Change them
 in one place if Serenique gets its own tracked line.
+
+---
+
+## The price list and the brochure
+
+**Price list.** `priceList` in `src/content/project.ts` holds every line of
+the developer's cost sheet dated 13 Oct 2026 (10 lines: 9 in Wings A2 and A3
+and one "2 BHK (REFUGE)" line with no wing), transcribed from the client kit's
+`price-sheets.csv` and re-checked against a render of the sheet. A build-time
+check fails if any line's all-in total is not the sum of its parts. Every
+price on the site is derived from it: the hero's "from" figure, the
+configuration cards, the starting prices, the table and conditions on
+`/configurations`, the price FAQ, the legal pages and `/llms.txt`.
+
+- The sheet was "valid for 15 Days only", so it lapsed around 28 Oct 2026.
+  Every price carries the date and tells the buyer to confirm today's price.
+  When the client sends a newer sheet, replace `PRICE_LIST_ISSUED` and every
+  line together.
+- **Never published:** the sheet itself (image or PDF), the booking payee's
+  name (Ruling R18; the booking amount is), and anything from the
+  channel-partner docket (token scheme, "indicative" ranges, area tables).
+- **No price in JSON-LD** (Ruling R17), and none on the share card.
+- Two lines disagree with the developer's floor plans: the "2 BHK (REFUGE)"
+  line (81.40 sq m, no wing; the plan's 2.5 BHK is 83.62 sq m) and Wing A3
+  serial 6 (67.85 sq m; the plan says 66.93). Both are published as the sheet
+  states them, with a visitor note and a `CONFLICT:` comment, and are on the
+  client list.
+
+**Brochure.** `public/brochure/venkatesh-serenique-brochure.pdf` is a
+compressed copy of the developer's official 44-page brochure (41.8 MB to
+7.8 MB), offered on `/thank-you` after an enquiry (spec decision 13). Every
+page was checked on 2026-11-08: no price, no broker mark. It does print
+figures this site does not repeat (552 flats, 6-level parking, exact km
+distances that differ from the developer's website bands); the comment above
+`brochure` in `project.ts` lists them. To replace it, recompress the new PDF
+(text and QR pages as vectors, photo pages at about 110 dpi, JPEG about q70;
+target under 8 MB), re-check every page, and update `sizeLabel`.
 
 ---
 
@@ -285,7 +329,8 @@ rejected and why. In order of authority (re-ranked 2026-11-06; the header of
 propstarrealty.com and the housing.com URL slug, the August sources for the
 RERA number, the possession date and the registered name, are no longer used.
 Broker prices, and the developer page's "2.9 to 5 CR" (copied from its
-Skydale page), are not published.
+Skydale page), are not published. **Prices come only from the developer's
+price list (source K in `project.ts`).**
 
 Rejected outright: `venkateshprelaunch.com` and `puneupcomingprojects.com`.
 Both rank for this query and both are recycled boilerplate. They are named in
@@ -486,11 +531,13 @@ everywhere and nobody has to remember an arbitrary value.
 - **The FAQ section and `<FaqStructuredData />` read the same array.** Google
   requires FAQ markup to correspond to visible content. Deleting the visible
   section means deleting the markup too.
-- **The JSON-LD has no `offers`, `amenityFeature`, `geo` or `aggregateRating`,
-  and must not get them** until the underlying facts are published and shown
-  on a page. The amenity list is published now, so `amenityFeature` can go in
-  with the `/amenities` route. Marking up a price that does not exist to win a
-  rich result is exactly the abuse the structured-data guidelines target.
+- **The JSON-LD has no `offers`, `amenityFeature`, `geo` or `aggregateRating`.**
+  `offers` and any other price must stay out even though the site now shows
+  the developer's price list (Ruling R17): the list is a dated quotation that
+  has lapsed, and structured data cannot say "as of". For the same reason the
+  price FAQ is visible but marked `inSchema: false`, which keeps it out of the
+  FAQPage markup. The amenity list is published now, so `amenityFeature` can go
+  in with the `/amenities` route.
 - **`/thank-you` is noindex, disallowed in `robots.ts`, and absent from
   `sitemap.ts`.** All three have to agree.
 
@@ -509,4 +556,5 @@ npm run lint        exit 0
 Smoke-tested against the production build: all 14 routes return 200; `/api/lead`
 returns 400 on an invalid mobile and 200 with a reference id on a valid one; the
 rendered home page contains no currency, crore, lakh or square-foot figure
-anywhere.
+anywhere. (That last check was right for August; since November the pages carry
+RERA carpet areas, and since 8 November the price list's figures.)

@@ -39,7 +39,7 @@ const LOCAL_BUILD_OK = true
 
 // Other projects' names. Appearing in a page's visible text fails the audit
 // (a sister site's copy pasted in by mistake). This site's own name is left out.
-const SIBLING_NAMES = /Skydove|Codename\s+New\s+Beginnings|Vybe|Tropical\s+Thyme/i
+const SIBLING_NAMES = /Skydove|Codename\s+New\s+Beginnings|Vanaya|Vybe|Tropical\s+Thyme/i
 
 // Pages that legitimately name sister projects (the developer track record).
 const SIBLING_ROUTES_OK = ['/about-developer', '/updates/the-developer-track-record']
