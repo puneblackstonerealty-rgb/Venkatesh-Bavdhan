@@ -95,10 +95,10 @@ export function Header({
       <div ref={barRef}>
         <Container className="flex items-center justify-between gap-6 py-3">
           <Link href="/" aria-label="Venkatesh Serenique home">
-            <Wordmark />
+            <Wordmark priority />
           </Link>
 
-          <nav className="hidden items-center gap-6 md:flex lg:gap-8">
+          <nav className="hidden items-center gap-5 lg:flex xl:gap-8">
             {nav.map((item) => (
               <Link
                 key={item.href}
@@ -117,11 +117,11 @@ export function Header({
           <div className="flex items-center gap-2">
             <a
               href={`tel:${phone}`}
-              className="inline-flex min-h-11 items-center gap-2 rounded-md bg-brand px-4 text-sm font-medium whitespace-nowrap text-white transition-colors hover:bg-brand-hover"
+              className="inline-flex min-h-11 items-center gap-2 rounded-md bg-brand px-4 text-sm font-medium whitespace-nowrap text-surface transition-colors hover:bg-brand-hover"
             >
               <PhoneIcon />
-              <span className="hidden sm:inline md:hidden lg:inline">{phoneDisplay}</span>
-              <span className="sm:hidden md:inline lg:hidden">Call</span>
+              <span className="hidden sm:inline lg:hidden xl:inline">{phoneDisplay}</span>
+              <span className="sm:hidden lg:inline xl:hidden">Call</span>
             </a>
             <button
               ref={toggleRef}
@@ -130,7 +130,7 @@ export function Header({
               aria-expanded={open}
               aria-controls="mobile-menu"
               onClick={() => setOpen((value) => !value)}
-              className="flex min-h-11 min-w-11 items-center justify-center rounded-md border border-line md:hidden"
+              className="flex min-h-11 min-w-11 items-center justify-center rounded-md border border-line lg:hidden"
             >
               {/* Strokes are 2px, not a hairline: at 1px the open-state cross
                   reads as decoration rather than a control. */}
@@ -157,7 +157,7 @@ export function Header({
         ref={drawerRef}
         style={{ top: barHeight }}
         className={cn(
-          'fixed inset-x-0 bottom-0 z-50 flex flex-col bg-card transition-transform duration-300 md:hidden',
+          'fixed inset-x-0 bottom-0 z-50 flex flex-col bg-card transition-transform duration-300 lg:hidden',
           open ? 'translate-x-0' : 'translate-x-full',
         )}
         /* `inert`, not just aria-hidden. The panel stays mounted when closed so

@@ -30,7 +30,7 @@ export default function OpengraphImage() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',
-          background: 'linear-gradient(135deg, #152430 0%, #0d1820 58%, #17303a 100%)',
+          background: 'linear-gradient(135deg, #26361a 0%, #1c2813 58%, #2f431d 100%)',
           padding: '68px 72px',
           fontFamily: 'sans-serif',
         }}
@@ -41,7 +41,7 @@ export default function OpengraphImage() {
               fontSize: 22,
               letterSpacing: 6,
               textTransform: 'uppercase',
-              color: '#c08654',
+              color: '#d4ae63',
               display: 'flex',
             }}
           >
@@ -53,14 +53,14 @@ export default function OpengraphImage() {
               marginTop: 30,
               fontSize: 86,
               lineHeight: 1.02,
-              color: '#ffffff',
+              color: '#fef4e9',
               display: 'flex',
             }}
           >
             Venkatesh Serenique
           </div>
 
-          <div style={{ marginTop: 26, fontSize: 34, color: '#c08654', display: 'flex' }}>
+          <div style={{ marginTop: 26, fontSize: 34, color: '#d4ae63', display: 'flex' }}>
             {hero.tagline}
           </div>
           <div
@@ -90,7 +90,7 @@ export default function OpengraphImage() {
               Dec 2031, all since superseded. */}
           {hero.facts.map(({ value, label }) => (
             <div key={label} style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontSize: 36, color: '#ffffff' }}>{value}</span>
+              <span style={{ fontSize: 36, color: '#fef4e9' }}>{value}</span>
               <span
                 style={{
                   fontSize: 18,

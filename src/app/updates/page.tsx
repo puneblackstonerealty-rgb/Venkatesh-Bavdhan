@@ -26,16 +26,24 @@ export default function UpdatesPage() {
   return (
     <>
       <BreadcrumbStructuredData name="Updates" path="/updates" />
-      <PageHero eyebrow={updatesIndex.eyebrow} title={updatesIndex.title} lede={updatesIndex.lede}>
+      <PageHero
+        image={{
+          src: '/gallery/lifestyle-hammock.webp',
+          alt: 'A resident resting in a hammock in a landscaped garden, from the Serenique brochure',
+        }}
+        eyebrow={updatesIndex.eyebrow}
+        title={updatesIndex.title}
+        lede={updatesIndex.lede}
+      >
         {categories.length > 0 && (
           <ul className="mt-8 flex flex-wrap gap-2">
             {categories.map((category) => (
               <li
                 key={category.name}
-                className="rounded-sm border border-white/20 px-3 py-1 text-xs text-white/70"
+                className="rounded-sm border border-surface/20 px-3 py-1 text-xs text-surface/70"
               >
                 {category.name}
-                <span className="ml-1.5 text-white/40">{category.count}</span>
+                <span className="ml-1.5 text-surface/40">{category.count}</span>
               </li>
             ))}
           </ul>

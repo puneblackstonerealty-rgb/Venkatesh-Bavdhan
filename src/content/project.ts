@@ -651,6 +651,8 @@ export const site = {
  */
 export const nav = [
   { href: '/configurations', label: 'Homes' },
+  { href: '/amenities', label: 'Amenities' },
+  { href: '/gallery', label: 'Gallery' },
   { href: '/location', label: 'Location' },
   { href: '/about-developer', label: 'Developer' },
   { href: '/updates', label: 'Updates' },
@@ -702,6 +704,201 @@ export const hero = {
   priceNote: `per the developer’s price list dated ${priceList.issuedShort}. Confirm today’s price with us.`,
   cta: 'Register Your Interest',
   ctaSecondary: 'Get Today’s Price',
+  /* The brochure's own headline (Oct 2026, page 8), verbatim, split the way
+     the brochure sets it: each verb in cream, each completion in gold. */
+  brochureLine: [
+    { verb: 'Pause', rest: 'the chaos.' },
+    { verb: 'Play', rest: 'with the choices.' },
+  ],
+  /* The developer's sunset elevation render of Phase 1 (official, from its
+     project page; see research_notes/.../assets/serenique-bavdhan). */
+  image: {
+    src: '/gallery/elevation-sunset.webp',
+    alt: 'Venkatesh Serenique Phase 1 at sunset, its towers rising over a green edge beside the road',
+  },
+}
+
+/* The credit printed on every render and brochure image on the site, the
+   same words the developer prints on its own. One constant so it cannot
+   drift between the hero, the gallery and the amenity tiles. */
+export const IMAGE_CREDIT = 'Artistic impression'
+
+/* ─── The brochure's own words (Serenique brochure, Oct 2026) ──────────────
+   B: Serenique_Main-Brochure-12X11_08-Oct-2, the developer's own brochure,
+   supplied with the launch material and published at /brochure/. Lines are
+   verbatim; the page numbers are the brochure's. The redesign (spec decision
+   16) follows the brochure's page order, so its copy leads each section. */
+
+export type PauseLine = ReadonlyArray<{ verb: string; rest: string }>
+
+export const brochureCopy = {
+  /* B p7 and p8. */
+  intro: {
+    lines: [
+      { verb: 'Built', rest: 'to pause.' },
+      { verb: 'Designed', rest: 'to play.' },
+    ] as PauseLine,
+    body: 'Some days call for quiet. Others call for a little more life. At Serenique, you have the space to choose both. Set across an expansive development in Bavdhan, thoughtfully planned residences, open spaces and lifestyle experiences come together to let every day unfold at your pace.',
+  },
+  /* B p12, p19, p22, p17 and p28: the line the brochure prints over each
+     spread. */
+  world: [
+    { verb: 'Pause', rest: 'the world.' },
+    { verb: 'Play', rest: 'your way.' },
+  ] as PauseLine,
+  ordinary: [
+    { verb: 'Pause', rest: 'the ordinary.' },
+    { verb: 'Play', rest: 'with singularity.' },
+  ] as PauseLine,
+  noise: [
+    { verb: 'Pause', rest: 'the noise.' },
+    { verb: 'Play', rest: 'in the moment.' },
+  ] as PauseLine,
+  expected: [
+    { verb: 'Pause', rest: 'the expected.' },
+    { verb: 'Play', rest: 'with possibilities.' },
+  ] as PauseLine,
+  hustle: [
+    { verb: 'Pause', rest: 'the hustle.' },
+    { verb: 'Play', rest: 'with serenity.' },
+  ] as PauseLine,
+  /* B p22 body copy. */
+  noiseBody:
+    'Here, life finds room to slow down. Landscaped greens, quiet corners and thoughtfully planned outdoor spaces create everyday opportunities to step away from the rush, spend time together and simply enjoy the moment.',
+  /* B p3. */
+  cmdQuote: {
+    text: 'We have built a legacy of trust and integrity by building homes that add value to your life.',
+    by: 'Mr. Ankush Asabe',
+    role: 'CMD, Venkatesh Buildcon',
+  },
+  /* B p5, the developer's own figures. They differ from its older creatives
+     (7M sq ft, 6,000+ families); the brochure is the newest first-party
+     source, Oct 2026. */
+  legacy: [
+    { id: 'since', value: '2000', label: 'Delivering homes since' },
+    { id: 'developed', value: '10M sq ft', label: 'Developed' },
+    { id: 'families', value: '6,500+', label: 'Families' },
+    { id: 'developing', value: '8M sq ft', label: 'Under development' },
+    { id: 'rating', value: 'A-Stable', label: 'CRISIL rating for the group' },
+  ],
+  /* B p44. */
+  credits: [
+    { role: 'Principal architect', name: 'Amit Bhat Associates' },
+    { role: 'Landscape architect', name: 'Ar. Vikas Bhosekar' },
+    { role: 'Structural consultant', name: 'G. A. Bhilare Consultants Pvt. Ltd.' },
+    { role: 'Legal consultant', name: 'Adv. Unmesh Deshpande' },
+  ],
+  /* B p27, the key to the A-cluster amenity plan, in the plan's numbering. */
+  clusterLegend: [
+    'Jogging track',
+    'Toddlers’ play area',
+    'Creche',
+    'Chit-chat plaza and outdoor seating',
+    'Indoor children’s play area',
+    'Senior citizens’ plaza',
+    'Indoor games',
+    'Pergola',
+    'Box cricket',
+    'Multipurpose court',
+    'Banquet hall',
+    'Multifit gym',
+    'Deck',
+    'Swimming pool',
+    'Kids’ pool',
+    'Floating seat',
+    'Changing room and restroom',
+    'Aerobics and zumba',
+    'Co-working lounge',
+    'Reading lounge',
+    'Society office',
+    'Acoustic room',
+    'Lawn',
+  ],
+}
+
+/* The brochure's "Project highlights" spread (B p11), filled with the figures
+   this site can stand behind: MahaRERA's for Phase 1, the developer's for the
+   parcel. B's own tile says "552 flats & 13 showrooms" and "6-level parking";
+   neither is printed here (552 is not what MahaRERA registers for Phase 1,
+   and the parking levels conflict; both are on the client list). */
+export const projectHighlights = [
+  {
+    id: 'land',
+    title: `${phase1.parcelAcres}-acre land parcel`,
+    detail: `Phase 1 on ${phase1.landAcres} acres, Phase 2 on ${phase1.futureAcres} acres (future development)`,
+  },
+  {
+    id: 'homes',
+    title: '2 & 3 BHK serene residences',
+    detail: `${phase1.homes} homes and ${phase1.shops} shops in Phase 1`,
+  },
+  {
+    id: 'tower',
+    title: `Up to ${maxFloors} storeys`,
+    detail: 'One building with three residential wings',
+  },
+  {
+    id: 'amenities',
+    title: '20+ amenities',
+    detail: 'Across 40,000 sq ft, indoor and outdoor',
+  },
+  {
+    id: 'location',
+    title: 'Near Chandani Chowk',
+    detail: 'NH-48 and Paud Road in the immediate catchment',
+  },
+  {
+    id: 'rera',
+    title: 'MahaRERA registered',
+    detail: `Phase 1, ${phase1.reraId}, completion ${phase1.completionShort}`,
+  },
+] as const
+
+/* ─── Images ────────────────────────────────────────────────────────────────
+   Every image is the developer's own: its project-page renders (official,
+   no third-party mark, see research_notes/.../assets/serenique-bavdhan) and
+   brochure pages B. All carry IMAGE_CREDIT where shown. */
+export type GalleryImage = {
+  id: string
+  src: string
+  alt: string
+  caption: string
+  group: 'The building' | 'Amenities' | 'Lifestyle' | 'Plans'
+  width: number
+  height: number
+}
+
+export const gallery: GalleryImage[] = [
+  { id: 'sunset', src: '/gallery/elevation-sunset.webp', alt: 'Venkatesh Serenique Phase 1 at sunset, seen across a green edge', caption: 'Phase 1 at sunset', group: 'The building', width: 2400, height: 1350 },
+  { id: 'day', src: '/gallery/elevation-day.webp', alt: 'Venkatesh Serenique Phase 1 by day, seen from the road', caption: 'From the road, by day', group: 'The building', width: 2400, height: 1350 },
+  { id: 'dusk', src: '/gallery/tower-dusk.webp', alt: 'The Phase 1 towers at dusk above the shop frontage', caption: 'The towers at dusk', group: 'The building', width: 2400, height: 2000 },
+  { id: 'worms-eye', src: '/gallery/tower-worms-eye.webp', alt: 'Looking up the face of a Phase 1 tower against an evening sky', caption: 'Looking up the tower', group: 'The building', width: 2400, height: 2000 },
+  { id: 'entrance', src: '/gallery/entrance-gate.webp', alt: 'The entrance gate with the Serenique monogram, lit at dusk', caption: 'The entrance', group: 'The building', width: 2400, height: 1350 },
+  { id: 'shops', src: '/gallery/high-street-shops.webp', alt: 'The ground-floor shops along the frontage, with people walking past', caption: 'The shops on the frontage', group: 'The building', width: 2400, height: 1350 },
+  { id: 'aerial', src: '/gallery/aerial-phase-one.webp', alt: 'Aerial view of Phase 1 beside the road, with the land marked for future development', caption: 'Phase 1 from the air', group: 'The building', width: 2400, height: 1350 },
+  { id: 'pool', src: '/gallery/podium-pool.webp', alt: 'The podium pool and amenity deck seen from above', caption: 'The podium pool', group: 'Amenities', width: 2400, height: 1350 },
+  { id: 'kids', src: '/gallery/kids-play.webp', alt: 'The kids’ play area under the podium, with slides and spring riders', caption: 'Kids’ play area', group: 'Amenities', width: 2400, height: 1350 },
+  { id: 'court', src: '/gallery/multipurpose-court.webp', alt: 'The multipurpose court seen from above, with players on it', caption: 'Multipurpose court', group: 'Amenities', width: 2400, height: 1350 },
+  { id: 'sit-out', src: '/gallery/podium-sit-out.webp', alt: 'A landscaped sit-out on the podium with curved bench seating', caption: 'Podium sit-out', group: 'Amenities', width: 2400, height: 1351 },
+  { id: 'co-working', src: '/gallery/co-working.webp', alt: 'The co-working lounge with long desks and soft seating', caption: 'Co-working lounge', group: 'Amenities', width: 2400, height: 1351 },
+  { id: 'gym', src: '/gallery/gym.webp', alt: 'The gym with treadmills and weight machines', caption: 'Gym', group: 'Amenities', width: 2400, height: 1351 },
+  { id: 'yoga', src: '/gallery/yoga.webp', alt: 'The yoga and meditation room with mats laid out', caption: 'Yoga and meditation', group: 'Amenities', width: 2400, height: 1351 },
+  { id: 'creche', src: '/gallery/creche.webp', alt: 'The creche with low tables and a reading corner', caption: 'Creche', group: 'Amenities', width: 2400, height: 1351 },
+  { id: 'games', src: '/gallery/indoor-games.webp', alt: 'The indoor games room with chess and card tables', caption: 'Indoor games', group: 'Amenities', width: 2400, height: 1351 },
+  { id: 'lounge', src: '/gallery/lifestyle-hibiscus-lounge.webp', alt: 'A woman resting on a day bed beside an oversized pink hibiscus, from the Serenique brochure', caption: 'Serene living', group: 'Lifestyle', width: 2123, height: 1954 },
+  { id: 'hammock', src: '/gallery/lifestyle-hammock.webp', alt: 'A resident resting in a hammock in a landscaped garden, from the Serenique brochure', caption: 'Pause the chaos', group: 'Lifestyle', width: 2123, height: 1954 },
+  { id: 'garden', src: '/gallery/lifestyle-garden-run.webp', alt: 'A mother and daughter running across a lawn with a dog, beside an oversized hibiscus, from the Serenique brochure', caption: 'Play in the moment', group: 'Lifestyle', width: 2123, height: 1954 },
+  { id: 'master', src: '/gallery/master-layout-plan.webp', alt: 'Master layout plan of Venkatesh Serenique: Wings A1 to A3, MHADA Wing A4 and the future development parcel', caption: 'Master layout plan', group: 'Plans', width: 2400, height: 1697 },
+  { id: 'cluster', src: '/gallery/cluster-plan.webp', alt: 'A-cluster plan showing Wings A1 to A3, the swimming pool, the shops and MHADA Wing A4', caption: 'A-cluster plan', group: 'Plans', width: 2400, height: 1697 },
+  { id: 'podium-plan', src: '/gallery/podium-amenities-plan.webp', alt: 'Podium level amenity plan with numbered amenities', caption: 'Podium amenity plan', group: 'Plans', width: 2400, height: 1697 },
+]
+
+/** Looks an image up by id and throws on a typo, so a missing image fails the
+    build instead of rendering a broken frame. */
+export function galleryImage(id: string): GalleryImage {
+  const image = gallery.find((item) => item.id === id)
+  if (!image) throw new Error(`project.ts: no gallery image "${id}"`)
+  return image
 }
 
 /**

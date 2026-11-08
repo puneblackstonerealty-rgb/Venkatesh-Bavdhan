@@ -8,29 +8,29 @@
    Fonts hand off to the site's own faces via the variables set in globals.css,
    with the upstream families kept as fallbacks. */
 :root {
-    /* Serenique palette. Slate-teal is the light-surface accent from
-       globals.css; the widget sits on white, so copper is NOT used here —
-       copper is a dark-surface-only token and would fail contrast on these
-       bubbles. Deep twilight is used only for shadows and the header. */
-    --hb-brand:        #2c5561;
-    --hb-brand-rgb:    44, 85, 97;
-    --hb-brand-2:      #37697a;
-    --hb-brand-light:  #437f93;
-    --hb-brand-strong: #22454f;
-    --hb-brand-strong-rgb: 34, 69, 79;
-    --hb-brand-deep:   #152430;
-    --hb-soft:         #e8eef0;
+    /* Serenique brochure palette (Nov 2026 redesign): olive is the
+       light-surface accent from globals.css; the widget sits on cream paper,
+       so gold is NOT used here (it fails contrast on these bubbles). Deep
+       olive is used only for shadows and the header. */
+    --hb-brand:        #405828;
+    --hb-brand-rgb:    64, 88, 40;
+    --hb-brand-2:      #4e6a33;
+    --hb-brand-light:  #5f7e3f;
+    --hb-brand-strong: #33471f;
+    --hb-brand-strong-rgb: 51, 71, 31;
+    --hb-brand-deep:   #26361a;
+    --hb-soft:         #efebd6;
     --hb-avatar:       url("./img/agent.webp");
-    --hb-bg:           #f7f5f1;
-    --hb-surface:      #ffffff;
-    --hb-bot:          #f0eee9;
-    --hb-ink:          #101a20;
-    --hb-ink-soft:     #66737a;
-    --hb-border:       #e2e6e6;
-    --hb-shadow:       0 26px 64px -16px rgba(21, 36, 48, .34), 0 8px 22px -10px rgba(21, 36, 48, .22);
-    --hb-shadow-sm:    0 8px 22px -8px rgba(21, 36, 48, .28);
+    --hb-bg:           #fef4e9;
+    --hb-surface:      #fffaf4;
+    --hb-bot:          #f6ebdb;
+    --hb-ink:          #2b2a29;
+    --hb-ink-soft:     #73695d;
+    --hb-border:       #ebdcc5;
+    --hb-shadow:       0 26px 64px -16px rgba(28, 40, 19, .34), 0 8px 22px -10px rgba(28, 40, 19, .22);
+    --hb-shadow-sm:    0 8px 22px -8px rgba(28, 40, 19, .28);
     --hb-radius:       18px;
-    /* Inherited from next/font in layout.tsx — Fraunces and Manrope. The
+    /* Inherited from next/font in layout.tsx — Forum and Poppins. The
        widget no longer loads any font of its own; see the note in chatbot.js. */
     --hb-font:         var(--font-body-src), ui-sans-serif, system-ui, sans-serif;
     --hb-display:      var(--font-display-src), Georgia, serif;
@@ -345,7 +345,7 @@
     max-width: 82%;
     display: inline-block;
     text-align: left;
-    box-shadow: 0 2px 6px -3px rgba(6, 38, 44, .12);
+    box-shadow: 0 2px 6px -3px rgba(28, 40, 19, .12);
     word-break: break-word;
 }
 #leadgenie-root .hb-message-content.human {
@@ -381,7 +381,7 @@
     height: 30px;
     border-radius: 50%;
     border: 2px solid #fff;
-    box-shadow: 0 2px 6px -2px rgba(6, 38, 44, .3);
+    box-shadow: 0 2px 6px -2px rgba(28, 40, 19, .3);
     display: block;
     position: absolute;
     left: 0;
@@ -416,7 +416,7 @@
     display: inline-flex;
     gap: 5px;
     align-items: center;
-    box-shadow: 0 2px 6px -3px rgba(6, 38, 44, .12);
+    box-shadow: 0 2px 6px -3px rgba(28, 40, 19, .12);
 }
 #leadgenie-root .hb-message-content .dot {
     width: 7px;

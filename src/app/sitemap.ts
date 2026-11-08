@@ -11,13 +11,14 @@ import { SITE_URL } from '@/lib/seo'
  * /thank-you is deliberately absent — it is noindex and disallowed in robots,
  * and all three have to agree.
  *
- * ⚠ There is no /amenities or /gallery entry because those routes do not
- * exist yet — see the note on `nav` in content/project.ts. Add both here on
- * the same commit that creates them, or they will not be crawled.
+ * /amenities and /gallery were added with the brochure redesign (Nov 2026),
+ * on the same commit that created the routes.
  */
 const ROUTES: Array<{ path: string; priority: number; changeFrequency: 'weekly' | 'monthly' }> = [
   { path: '/', priority: 1.0, changeFrequency: 'weekly' },
   { path: '/configurations', priority: 0.9, changeFrequency: 'weekly' },
+  { path: '/amenities', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/gallery', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/location', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.9, changeFrequency: 'monthly' },
   { path: '/updates', priority: 0.7, changeFrequency: 'weekly' },

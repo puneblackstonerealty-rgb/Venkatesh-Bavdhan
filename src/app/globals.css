@@ -1,55 +1,57 @@
 @import 'tailwindcss';
 
 /* ─────────────────────────────────────────────────────────────────────────
-   Design tokens.
+   Design tokens, taken from the developer's Serenique brochure (Oct 2026).
 
-   This site has NO PHOTOGRAPHY — the developer has released none. Type,
-   colour and space therefore carry the entire page, which makes these tokens
-   load-bearing in a way they would not be on a site with a hero render to
-   hide behind.
+   The brochure is cream paper, an olive-green wordmark, a gold "S" monogram
+   and gold hibiscus line-art, with warm-lit renders. The site follows it
+   (user decision 16, 8 Nov 2026). Values were sampled from the brochure's
+   own pages: paper #FEF4E9, wordmark olive #405828, monogram gold #A37731.
 
-   The palette is twilight blue-green, warm limestone and copper: chosen for
-   Bavdhan, which sits under the Sahyadri foothills on Pune's western edge,
-   and chosen deliberately NOT to be the forest-green-and-gold of the client's
-   Kharadi site. The two projects will be seen side by side and must not read
-   as one recoloured template.
+   The token NAMES predate the restyle and are kept so no component had to
+   change to pick up the palette. Read them as roles, not colours:
+     surface        the cream page          card     a lighter paper panel
+     brand          olive (text, buttons)   twilight deep olive (dark bands)
+     copper         LIGHT gold, dark bands  copper-deep  brochure gold (ornament)
+     gold-text      small gold text on cream
 
-   ⚠ One rule about copper: it is only ever used on dark surfaces. #c08654 on
-   twilight is 5.1:1; the same copper on white is 2.9:1 and would fail. On
-   light surfaces the accent is --color-brand (slate-teal), 8.2:1 on white.
-   There is deliberately no light-background copper token, so the mistake
-   cannot be made by reaching for one.
+   ⚠ Gold contrast. The brochure gold #A37731 is 3.7:1 on cream, so it is
+   for ornaments, rules and large display type only. Small gold text on cream
+   uses --color-gold-text (5.0:1). On the deep-olive bands the accent is
+   --color-copper (6.2:1). Same rule as before: copper is dark-surface only.
 
-   Measured contrast, all against their intended background:
-     brand   on white     8.2:1      body    on white    7.7:1
-     ink     on white    17.6:1      muted   on white    4.9:1
-     white   on twilight 15.8:1      copper  on twilight 5.1:1
-     twilight-deep on copper  5.8:1  (the copper button)
+   Measured contrast, against the intended background:
+     brand     on cream    7.3:1     body      on cream     8.6:1
+     ink       on cream   13.2:1     muted     on cream     5.0:1
+     cream     on twilight 11.9:1    copper    on twilight  6.2:1
+     twilight-deep on copper 7.4:1   (the gold button)
+     cream     on brand    7.3:1     (the olive button)
    ───────────────────────────────────────────────────────────────────────── */
 @theme {
-  /* Neutrals, warmed very slightly so they sit under the limestone surface
-     rather than fighting it with a blue-grey cast. */
-  --color-ink: #101a20;
-  --color-body: #47555c;
-  --color-muted: #66737a;
-  --color-line: #e2e6e6;
-  --color-line-strong: #c8d0d1;
-  --color-surface: #f7f5f1;
-  --color-card: #ffffff;
+  /* Neutrals, warm: they sit on cream paper, so a cool grey would read blue. */
+  --color-ink: #2b2a29;
+  --color-body: #4a4640;
+  --color-muted: #73695d;
+  --color-line: #ebdcc5;
+  --color-line-strong: #d9c29c;
+  --color-surface: #fef4e9;
+  --color-card: #fffaf4;
 
   /* Brand */
-  --color-brand: #2c5561;
-  --color-brand-hover: #22454f;
-  --color-brand-soft: #e8eef0;
-  --color-twilight: #152430;
-  --color-twilight-deep: #0d1820;
-  --color-copper: #c08654;
-  --color-copper-deep: #8f5f38;
+  --color-brand: #405828;
+  --color-brand-hover: #33471f;
+  --color-brand-soft: #efebd6;
+  --color-twilight: #26361a;
+  --color-twilight-deep: #1c2813;
+  --color-copper: #d4ae63;
+  --color-copper-deep: #a37731;
+  --color-gold-text: #8a6224;
 
-  /* Type scale, sized for Manrope. Manrope has a large x-height, so unlike a
-     Futura-descendant it does not need every step nudged up — 16px body reads
-     as 16px. Line heights ride with each step so nothing has to be re-set at
-     the call site. */
+  /* Type scale. Body is Poppins (the face on the developer's floor plans),
+     display is Forum, a flared Roman serif standing in for the
+     brochure's headline face. Forum caps run wide, so the two largest
+     steps are a notch smaller than a lowercase serif would need. Line
+     heights ride with each step so nothing is re-set at the call site. */
   --text-2xs: 0.75rem; /* 12px — uppercase micro labels only */
   --text-2xs--line-height: 1.45;
   --text-2xs--letter-spacing: 0.14em;
@@ -65,12 +67,12 @@
   --text-xl--line-height: 1.35;
   --text-2xl: 1.75rem; /* 28px */
   --text-2xl--line-height: 1.25;
-  --text-3xl: 2.25rem; /* 36px */
-  --text-3xl--line-height: 1.18;
-  --text-4xl: 3rem; /* 48px */
-  --text-4xl--line-height: 1.1;
-  --text-5xl: 4rem; /* 64px */
-  --text-5xl--line-height: 1.03;
+  --text-3xl: 2.125rem; /* 34px */
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 2.75rem; /* 44px */
+  --text-4xl--line-height: 1.12;
+  --text-5xl: 3.5rem; /* 56px */
+  --text-5xl--line-height: 1.06;
 
   /* ─── Corner radius ──────────────────────────────────────────────────────
      ONE scale for the whole site, taken from the chat widget so the two do
@@ -133,25 +135,40 @@
 
   body {
     font-family: var(--font-sans);
-    background: var(--color-card);
+    background: var(--color-surface);
     color: var(--color-body);
     font-size: var(--text-base);
     line-height: 1.75;
     text-rendering: optimizeLegibility;
   }
 
-  /* Fraunces is a soft, high-contrast serif with optical sizing. It is set
-     light (300) at display sizes, where its contrast is the point, and its
-     default optical axis handles the rest. No negative tracking: closing up a
-     serif this delicate muddies it. */
+  /* Forum has one weight. The brochure sets its headlines in spaced
+     capitals ("PAUSE THE CHAOS. PLAY WITH THE CHOICES."), so page-level h1
+     and h2 do the same. Running prose (article bodies, legal pages) and long
+     article titles opt out with `.normal-case-display`, because a
+     ten-word sentence in capitals stops being readable. */
   h1,
   h2,
   h3,
   h4 {
     font-family: var(--font-display);
-    color: var(--color-ink);
-    font-weight: 300;
-    letter-spacing: 0;
+    color: var(--color-brand);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  h1,
+  h2 {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .normal-case-display h1,
+  .normal-case-display h2,
+  h1.normal-case-display,
+  h2.normal-case-display {
+    text-transform: none;
+    letter-spacing: 0.01em;
   }
 
   :focus-visible {
@@ -187,26 +204,69 @@
     opacity: 0.35;
   }
 
-  /* The wordmark, set in type rather than shipped as an image.
-     ⚠ Deliberate: no logo file has been supplied for this project, and the
-     developer identification is not yet confirmed (see CONFIRM in
-     content/project.ts). Borrowing the sibling project's logo asset would
-     assert a brand relationship nobody has verified. Type-setting it is
-     honest, works at every size, and is a one-file swap when the real
-     wordmark arrives. */
-  .wordmark {
-    font-family: var(--font-display);
-    font-weight: 300;
-    letter-spacing: 0.02em;
-    line-height: 1;
+  /* The brochure's divider: two gold hairlines with the monogram between
+     them. Used under section headings in place of a plain rule. `--rule-mono`
+     switches the monogram image for dark bands. */
+  .rule-monogram {
+    --rule-mono: url('/brand/serenique-monogram.png');
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 9.5rem;
+    height: 1.25rem;
+    color: var(--color-copper-deep);
   }
 
-  .wordmark-kicker {
-    font-size: 0.5rem;
-    letter-spacing: 0.34em;
-    text-transform: uppercase;
+  .rule-monogram::before,
+  .rule-monogram::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.7;
+  }
+
+  .rule-monogram > span {
+    width: 1.25rem;
+    height: 1.25rem;
+    background: var(--rule-mono) center / contain no-repeat;
+  }
+
+  .rule-monogram-light {
+    --rule-mono: url('/brand/serenique-monogram-light.png');
+    color: var(--color-copper);
+  }
+
+  .rule-monogram-center {
+    margin-inline: auto;
+  }
+
+  /* The gold hibiscus line-art from the brochure, as a quiet corner ornament.
+     Decorative only: aria-hidden at the call site, never over text. */
+  .ornament-hibiscus {
+    pointer-events: none;
+    position: absolute;
+    aspect-ratio: 1400 / 1719;
+    background: url('/brand/hibiscus-line.png') center / contain no-repeat;
+    opacity: 0.55;
+  }
+
+  .ornament-hibiscus-light {
+    background-image: url('/brand/hibiscus-line-light.png');
+    opacity: 0.22;
+  }
+
+  /* The brochure's "PHASE 1" tag: a gold block with spaced white capitals. */
+  .phase-tag {
+    display: inline-block;
+    padding: 0.3rem 0.9rem 0.25rem;
+    background: var(--color-copper-deep);
+    color: #fff;
+    font-size: var(--text-2xs);
     font-weight: 600;
-    line-height: 1;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    line-height: 1.4;
   }
 }
 

@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Fraunces, Manrope } from 'next/font/google'
+import { Forum, Poppins } from 'next/font/google'
 
 import { Analytics, AnalyticsNoScript } from '@/components/analytics'
 import { ChatWidget } from '@/components/chat-widget'
@@ -14,31 +14,29 @@ import { ALLOW_INDEXING, OG_IMAGE, SITE_URL } from '@/lib/seo'
 import './globals.css'
 
 /**
- * Fraunces + Manrope.
+ * Forum + Poppins, chosen to match the developer's Serenique brochure.
  *
- * This site has no photography — see the note at the top of globals.css — so
- * the typeface pair is doing work that a hero render would normally do, and it
- * is chosen rather than defaulted to. Fraunces is a soft, high-contrast serif
- * with an optical-size axis, so it holds its detail at the very large settings
- * a photo-less hero needs and does not fall apart at 15px. Manrope is a
- * geometric-humanist sans with a large x-height, which keeps dense factual
- * copy readable at small sizes.
+ * The brochure sets its headlines in a flared, glyphic Roman face in spaced
+ * capitals ("PAUSE THE CHAOS. PLAY WITH THE CHOICES."). Forum is the closest
+ * free face with the same flared terminals. Marcellus would be closer still,
+ * but the client's Kharadi site already uses it, and the two projects are
+ * seen side by side. Poppins is the face on the developer's own Serenique
+ * floor plans, so the body copy matches the developer's documents.
  *
- * They also share no DNA with the Marcellus/Jost pair on the client's Kharadi
- * site. The two projects will be seen side by side and must not read as one
- * template recoloured.
- *
- * Both are variable fonts, so `weight` is deliberately omitted — specifying it
- * would pin a static instance and lose the axis.
+ * Forum ships one weight (400). Poppins is not a variable font, so its
+ * weights are listed: 300 for large light text, 400 body, 500 and 600 for
+ * labels and buttons.
  */
-const display = Fraunces({
+const display = Forum({
   subsets: ['latin'],
+  weight: '400',
   display: 'swap',
   variable: '--font-display-src',
 })
 
-const body = Manrope({
+const body = Poppins({
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600'],
   display: 'swap',
   variable: '--font-body-src',
 })
@@ -107,7 +105,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#152430',
+  themeColor: '#26361a',
   colorScheme: 'light',
 }
 
@@ -123,7 +121,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-white"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[100] focus:rounded-md focus:bg-brand focus:px-4 focus:py-2 focus:text-surface"
         >
           Skip to content
         </a>

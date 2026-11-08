@@ -24,7 +24,8 @@ type Params = { params: Promise<{ slug: string }> }
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const article = getArticle(slug)
-  if (!article) return pageMetadata({ path: '/updates', title: 'Not found', description: '', index: false })
+  if (!article)
+    return pageMetadata({ path: '/updates', title: 'Not found', description: '', index: false })
 
   const { meta } = article
   const description = meta.metaDescription ?? meta.excerpt
@@ -87,24 +88,26 @@ export default async function ArticlePage({ params }: Params) {
           className="pointer-events-none absolute -top-40 -left-40 h-[32rem] w-[32rem] rounded-full bg-brand/30 blur-[120px]"
         />
         <Container className="relative py-14 md:py-20">
-          <nav aria-label="Breadcrumb" className="text-xs text-white/45">
-            <Link href="/" className="hover:text-white">
+          <nav aria-label="Breadcrumb" className="text-xs text-surface/45">
+            <Link href="/" className="hover:text-surface">
               Home
             </Link>
             <span aria-hidden="true" className="mx-2">
               /
             </span>
-            <Link href="/updates" className="hover:text-white">
+            <Link href="/updates" className="hover:text-surface">
               Updates
             </Link>
           </nav>
 
           <div className="mt-8 max-w-[46rem]">
             <Eyebrow tone="dark">{meta.category}</Eyebrow>
-            <h1 className="mt-5 text-3xl text-white md:text-4xl">{meta.title}</h1>
-            <p className="mt-5 text-base text-white/65">{meta.excerpt}</p>
+            <h1 className="normal-case-display mt-5 text-3xl text-surface md:text-4xl">
+              {meta.title}
+            </h1>
+            <p className="mt-5 text-base text-surface/65">{meta.excerpt}</p>
 
-            <p className="mt-8 text-xs text-white/45">
+            <p className="mt-8 text-xs text-surface/45">
               {meta.author} · {formatArticleDate(meta.publishedAt)}
               {meta.readingMinutes ? ` · ${meta.readingMinutes} min read` : ''}
               {meta.updatedAt ? ` · updated ${formatArticleDate(meta.updatedAt)}` : ''}

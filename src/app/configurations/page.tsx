@@ -37,11 +37,15 @@ export default function ConfigurationsPage() {
     <>
       <BreadcrumbStructuredData name="Configurations" path="/configurations" />
       <PageHero
+        image={{
+          src: '/gallery/podium-pool.webp',
+          alt: 'The podium pool and amenity deck of Venkatesh Serenique Phase 1, seen from above the towers',
+        }}
         eyebrow="Homes"
         title="Configurations"
         lede={configurations.intro}
       >
-        <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-white/12 pt-8 sm:grid-cols-4">
+        <dl className="mt-10 grid grid-cols-2 gap-x-6 gap-y-5 border-t border-surface/12 pt-8 sm:grid-cols-4">
           {hero.facts.map((fact) => (
             <Stat key={fact.label} label={fact.label} value={fact.value} tone="dark" />
           ))}
@@ -95,7 +99,6 @@ export default function ConfigurationsPage() {
               </article>
             ))}
           </div>
-
         </Container>
       </Section>
 
@@ -106,7 +109,11 @@ export default function ConfigurationsPage() {
           so the page itself never scrolls sideways. */}
       <Section id="price-list" tone="surface">
         <Container>
-          <SectionHead eyebrow={priceCopy.eyebrow} title={priceCopy.heading} lede={priceCopy.lede} />
+          <SectionHead
+            eyebrow={priceCopy.eyebrow}
+            title={priceCopy.heading}
+            lede={priceCopy.lede}
+          />
 
           <h3 className="mt-10 text-xl">{priceCopy.startingHeading}</h3>
           <div className="mt-5 grid gap-4 sm:grid-cols-3">
@@ -147,7 +154,11 @@ export default function ConfigurationsPage() {
                   {lineRows(line).map(([label, value, strong]) => (
                     <div key={label} className="mt-2 flex justify-between gap-4 first:mt-0">
                       <dt className="text-muted">{label}</dt>
-                      <dd className={strong ? 'text-right font-medium text-ink' : 'text-right text-ink'}>
+                      <dd
+                        className={
+                          strong ? 'text-right font-medium text-ink' : 'text-right text-ink'
+                        }
+                      >
                         {value}
                       </dd>
                     </div>
@@ -164,22 +175,47 @@ export default function ConfigurationsPage() {
               <caption className="sr-only">{priceCopy.caption}</caption>
               <thead>
                 <tr className="border-b border-line text-xs text-muted">
-                  <th scope="col" className="px-2.5 py-3 font-medium">Home</th>
-                  <th scope="col" className="px-2.5 py-3 font-medium">RERA carpet</th>
-                  <th scope="col" className="px-2.5 py-3 font-medium">Balcony</th>
-                  <th scope="col" className="px-2.5 py-3 font-medium">Dry balcony</th>
-                  <th scope="col" className="px-2.5 py-3 font-medium">Total carpet area</th>
-                  <th scope="col" className="px-2.5 py-3 text-right font-medium">Agreement value</th>
-                  <th scope="col" className="px-2.5 py-3 text-right font-medium">Stamp duty</th>
-                  <th scope="col" className="px-2.5 py-3 text-right font-medium">Registration</th>
-                  <th scope="col" className="px-2.5 py-3 text-right font-medium">GST</th>
-                  <th scope="col" className="px-2.5 py-3 text-right font-medium text-ink">All-in</th>
+                  <th scope="col" className="px-2.5 py-3 font-medium">
+                    Home
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 font-medium">
+                    RERA carpet
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 font-medium">
+                    Balcony
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 font-medium">
+                    Dry balcony
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 font-medium">
+                    Total carpet area
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 text-right font-medium">
+                    Agreement value
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 text-right font-medium">
+                    Stamp duty
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 text-right font-medium">
+                    Registration
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 text-right font-medium">
+                    GST
+                  </th>
+                  <th scope="col" className="px-2.5 py-3 text-right font-medium text-ink">
+                    All-in
+                  </th>
                 </tr>
               </thead>
               <tbody className="tabular-nums">
                 {priceList.lines.flatMap((line) => {
                   const rows = [
-                    <tr key={line.id} className={line.note ? 'align-top' : 'border-b border-line align-top last:border-b-0'}>
+                    <tr
+                      key={line.id}
+                      className={
+                        line.note ? 'align-top' : 'border-b border-line align-top last:border-b-0'
+                      }
+                    >
                       <th scope="row" className="px-2.5 py-3 text-left font-normal">
                         <span className="block font-display text-base whitespace-nowrap text-ink">
                           {line.type}
@@ -205,11 +241,17 @@ export default function ConfigurationsPage() {
                       <td className="px-2.5 py-3 text-body">
                         <Area sqm={line.totalCarpet.sqm} sqft={line.totalCarpet.sqft} />
                       </td>
-                      <td className="px-2.5 py-3 text-right text-ink">{rupees(line.agreementValue)}</td>
+                      <td className="px-2.5 py-3 text-right text-ink">
+                        {rupees(line.agreementValue)}
+                      </td>
                       <td className="px-2.5 py-3 text-right text-body">{rupees(line.stampDuty)}</td>
-                      <td className="px-2.5 py-3 text-right text-body">{rupees(line.registration)}</td>
+                      <td className="px-2.5 py-3 text-right text-body">
+                        {rupees(line.registration)}
+                      </td>
                       <td className="px-2.5 py-3 text-right text-body">{rupees(line.gst)}</td>
-                      <td className="px-2.5 py-3 text-right font-medium text-ink">{rupees(line.allIn)}</td>
+                      <td className="px-2.5 py-3 text-right font-medium text-ink">
+                        {rupees(line.allIn)}
+                      </td>
                     </tr>,
                   ]
                   if (line.note) {
@@ -237,7 +279,10 @@ export default function ConfigurationsPage() {
             <ul className="mt-5 max-w-[52rem] space-y-3 text-sm text-body">
               {priceConditions.map((condition) => (
                 <li key={condition} className="flex gap-3">
-                  <span aria-hidden="true" className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand" />
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-1 w-1 shrink-0 rounded-full bg-brand"
+                  />
                   <span>{condition}</span>
                 </li>
               ))}

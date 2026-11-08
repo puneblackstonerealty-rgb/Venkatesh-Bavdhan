@@ -34,7 +34,7 @@ function whatsappHref(phone: string, message: string) {
 
 export function MobileCtaBar({ phone, phoneDisplay }: { phone: string; phoneDisplay: string }) {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-white/10 bg-twilight-deep pb-[env(safe-area-inset-bottom)] lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-40 border-t border-surface/10 bg-twilight-deep pb-[env(safe-area-inset-bottom)] lg:hidden">
       {/* 1fr auto 1fr: the two text buttons stay equal width and the WhatsApp
           target sits between them at its natural icon width, rather than
           taking a third of the bar and squeezing the labels onto two lines on
@@ -43,7 +43,7 @@ export function MobileCtaBar({ phone, phoneDisplay }: { phone: string; phoneDisp
         <a
           href={`tel:${phone}`}
           aria-label={`Call ${phoneDisplay}`}
-          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-white/25 text-sm font-medium text-white transition-colors active:bg-white/10"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-surface/25 text-sm font-medium text-surface transition-colors active:bg-surface/10"
         >
           <PhoneIcon />
           Call Now
@@ -62,7 +62,7 @@ export function MobileCtaBar({ phone, phoneDisplay }: { phone: string; phoneDisp
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Message us on WhatsApp about ${PROJECT}`}
-          className="inline-flex min-h-11 w-11 items-center justify-center rounded-md border border-white/25 transition-colors active:bg-white/10"
+          className="inline-flex min-h-11 w-11 items-center justify-center rounded-md border border-surface/25 transition-colors active:bg-surface/10"
         >
           <WhatsAppIcon />
         </a>
@@ -70,7 +70,7 @@ export function MobileCtaBar({ phone, phoneDisplay }: { phone: string; phoneDisp
         <button
           type="button"
           onClick={() => openLead('Register your interest')}
-          className="inline-flex min-h-11 items-center justify-center rounded-md bg-copper text-sm font-medium text-twilight-deep transition-colors active:bg-white"
+          className="inline-flex min-h-11 items-center justify-center rounded-md bg-copper text-sm font-medium text-twilight-deep transition-colors active:bg-surface"
         >
           Register Now
         </button>
@@ -98,7 +98,7 @@ function WhatsAppIcon() {
         d="M4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98c-0.001,0,0,0,0,0h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303z"
       />
       <path
-        fill="#cfd8dc"
+        fill="#ebdcc5"
         d="M24.014,5c5.079,0.002,9.845,1.979,13.43,5.566c3.584,3.588,5.558,8.356,5.556,13.428c-0.004,10.465-8.522,18.98-18.986,18.98h-0.008c-3.177-0.001-6.3-0.798-9.073-2.311L4.868,43.303l2.694-9.835C5.9,30.59,5.026,27.324,5.027,23.979C5.032,13.514,13.548,5,24.014,5"
       />
       <path

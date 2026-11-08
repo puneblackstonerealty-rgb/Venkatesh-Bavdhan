@@ -17,7 +17,15 @@ export default function ContactPage() {
   return (
     <>
       <BreadcrumbStructuredData name="Contact" path="/contact" />
-      <PageHero eyebrow="Get In Touch" title="Contact" lede={contact.lede} />
+      <PageHero
+        image={{
+          src: '/gallery/elevation-day.webp',
+          alt: 'Venkatesh Serenique Phase 1 by day, seen from the road',
+        }}
+        eyebrow="Get In Touch"
+        title="Contact"
+        lede={contact.lede}
+      />
 
       <Section tone="white">
         <Container>
@@ -44,8 +52,7 @@ export default function ContactPage() {
                 {site.name}, {site.locality}
               </p>
               <p className="mt-1 text-sm text-muted">
-                Registered as {site.registeredName}. MahaRERA{' '}
-                {legal.reraRegistrations[0]?.id}.
+                Registered as {site.registeredName}. MahaRERA {legal.reraRegistrations[0]?.id}.
               </p>
 
               <p className="eyebrow mt-10 text-muted">Developer&rsquo;s corporate office</p>

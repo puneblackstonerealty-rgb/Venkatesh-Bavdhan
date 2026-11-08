@@ -246,7 +246,7 @@ function Field({
       placeholder={placeholder}
       aria-label={placeholder}
       className={cn(
-        'h-12 w-full rounded-md border border-line bg-white px-4 text-base text-ink',
+        'h-12 w-full rounded-md border border-line bg-card px-4 text-base text-ink',
         'placeholder:text-muted focus:border-brand focus:outline-none',
       )}
       {...rest}
@@ -288,7 +288,7 @@ export function RegisterForm({
       />
       <button
         type="submit"
-        className="h-12 shrink-0 rounded-md bg-brand px-8 text-sm font-medium text-white transition-colors hover:bg-brand-hover"
+        className="h-12 shrink-0 rounded-md bg-brand px-8 text-sm font-medium text-surface transition-colors hover:bg-brand-hover"
       >
         {cta}
       </button>

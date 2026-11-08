@@ -43,8 +43,8 @@ export default function ThankYouPage() {
               <Eyebrow tone="dark">{thankYou.eyebrow}</Eyebrow>
             </div>
 
-            <h1 className="mt-5 text-3xl text-white md:text-4xl">{thankYou.heading}</h1>
-            <p className="mt-5 text-base text-white/65">{thankYou.lede}</p>
+            <h1 className="mt-5 text-3xl text-surface md:text-4xl">{thankYou.heading}</h1>
+            <p className="mt-5 text-base text-surface/65">{thankYou.lede}</p>
 
             <div className="mt-9 flex flex-wrap justify-center gap-3">
               <BrochureDownload />
@@ -114,22 +114,22 @@ export default function ThankYouPage() {
         <Container>
           <div className="flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
             <div className="max-w-[34rem]">
-              <h2 className="text-2xl text-white md:text-3xl">{thankYou.callHeading}</h2>
-              <p className="mt-4 text-base text-white/65">{thankYou.callBody}</p>
-              <p className="mt-6 text-xs text-white/40">{thankYou.wrongDetails}</p>
+              <h2 className="text-2xl text-surface md:text-3xl">{thankYou.callHeading}</h2>
+              <p className="mt-4 text-base text-surface/65">{thankYou.callBody}</p>
+              <p className="mt-6 text-xs text-surface/40">{thankYou.wrongDetails}</p>
             </div>
 
             <div className="shrink-0">
               <a
                 href={`tel:${site.phone}`}
-                className="inline-flex items-center gap-3 rounded-lg border border-white/20 bg-white/[0.04] px-7 py-5 transition-colors hover:border-copper"
+                className="inline-flex items-center gap-3 rounded-lg border border-surface/20 bg-surface/[0.04] px-7 py-5 transition-colors hover:border-copper"
               >
                 <span className="text-copper">
                   <PhoneIcon large />
                 </span>
                 <span className="text-left">
-                  <span className="eyebrow block text-white/45">Call us</span>
-                  <span className="mt-1 block font-display text-2xl text-white">
+                  <span className="eyebrow block text-surface/45">Call us</span>
+                  <span className="mt-1 block font-display text-2xl text-surface">
                     {site.phoneDisplay}
                   </span>
                 </span>

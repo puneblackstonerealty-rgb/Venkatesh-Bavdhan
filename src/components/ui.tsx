@@ -13,7 +13,7 @@ export function Container({ children, className }: { children: ReactNode; classN
 /**
  * Section tones.
  *
- * `dark` sets `text-white/70` on the wrapper so descendants inherit a readable
+ * `dark` sets `text-surface/70` on the wrapper so descendants inherit a readable
  * default instead of every child having to remember it. Copper is only offered
  * on dark — see the note in globals.css about why it never appears on light.
  */
@@ -21,11 +21,15 @@ export function Section({
   children,
   id,
   tone = 'white',
+  ornament,
   className,
 }: {
   children: ReactNode
   id?: string
   tone?: 'white' | 'surface' | 'dark'
+  /** The brochure's gold hibiscus line-art in one corner. Use sparingly: two
+      or three sections a page at most, or it stops reading as a detail. */
+  ornament?: 'left' | 'right'
   className?: string
 }) {
   return (
@@ -33,13 +37,26 @@ export function Section({
       id={id}
       className={cn(
         'py-16 md:py-24',
+        ornament && 'relative overflow-hidden',
         tone === 'surface' && 'bg-surface',
         tone === 'white' && 'bg-card',
-        tone === 'dark' && 'bg-twilight text-white/70',
+        tone === 'dark' && 'bg-twilight text-surface/70',
         className,
       )}
     >
-      {children}
+      {ornament && (
+        <span
+          aria-hidden="true"
+          className={cn(
+            'ornament-hibiscus w-56 md:w-80',
+            ornament === 'right'
+              ? '-top-10 -right-16 md:-right-10'
+              : '-bottom-16 -left-16 -scale-x-100 md:-left-20 md:w-60',
+            tone === 'dark' && 'ornament-hibiscus-light',
+          )}
+        />
+      )}
+      <div className={cn(ornament && 'relative')}>{children}</div>
     </section>
   )
 }
@@ -67,18 +84,23 @@ export function SectionHead({
   return (
     <div className={cn('max-w-[46rem]', align === 'center' && 'mx-auto text-center', className)}>
       {eyebrow && (
-        <p
-          className={cn(
-            'eyebrow rule-lead',
-            align === 'center' && '[&::after]:mx-auto',
-            dark ? 'text-copper' : 'text-brand',
-          )}
-        >
-          {eyebrow}
-        </p>
+        <p className={cn('eyebrow', dark ? 'text-copper' : 'text-gold-text')}>{eyebrow}</p>
       )}
-      <h2 className={cn('mt-5 text-2xl md:text-3xl', dark && 'text-white')}>{title}</h2>
-      {lede && <p className={cn('mt-4 text-base', dark ? 'text-white/65' : 'text-body')}>{lede}</p>}
+      <h2 className={cn('mt-4 text-2xl md:text-3xl', dark && 'text-surface')}>{title}</h2>
+      {/* The brochure's divider: gold hairlines either side of the monogram. */}
+      <span
+        aria-hidden="true"
+        className={cn(
+          'rule-monogram mt-4',
+          dark && 'rule-monogram-light',
+          align === 'center' && 'rule-monogram-center',
+        )}
+      >
+        <span />
+      </span>
+      {lede && (
+        <p className={cn('mt-5 text-base', dark ? 'text-surface/65' : 'text-body')}>{lede}</p>
+      )}
     </div>
   )
 }
@@ -87,13 +109,13 @@ type ButtonVariant = 'primary' | 'secondary' | 'copper' | 'ghost-light'
 
 const VARIANTS: Record<ButtonVariant, string> = {
   /* 8.2:1 on white. The page's default action. */
-  primary: 'bg-brand text-white hover:bg-brand-hover',
+  primary: 'bg-brand text-surface hover:bg-brand-hover',
   /* Outlined, for the second action in a pair — so a hero with two CTAs reads
      as one choice and one alternative rather than two competing slabs. */
   secondary: 'border border-line-strong bg-card text-ink hover:border-brand hover:text-brand',
   /* Dark surfaces only. 5.8:1 twilight-deep on copper. */
-  copper: 'bg-copper text-twilight-deep hover:bg-white',
-  'ghost-light': 'border border-white/30 text-white hover:border-white hover:bg-white/10',
+  copper: 'bg-copper text-twilight-deep hover:bg-surface',
+  'ghost-light': 'border border-surface/30 text-surface hover:border-surface hover:bg-surface/10',
 }
 
 export function Button({
@@ -176,8 +198,8 @@ export function Stat({
   const dark = tone === 'dark'
   return (
     <div>
-      <dt className={cn('eyebrow', dark ? 'text-white/45' : 'text-muted')}>{label}</dt>
-      <dd className={cn('mt-1.5 font-display text-lg', dark ? 'text-white' : 'text-ink')}>
+      <dt className={cn('eyebrow', dark ? 'text-surface/45' : 'text-muted')}>{label}</dt>
+      <dd className={cn('mt-1.5 font-display text-lg', dark ? 'text-surface' : 'text-ink')}>
         {value}
       </dd>
     </div>

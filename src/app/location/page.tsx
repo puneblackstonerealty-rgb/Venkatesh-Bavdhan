@@ -21,6 +21,10 @@ export default function LocationPage() {
     <>
       <BreadcrumbStructuredData name="Location & Connectivity" path="/location" />
       <PageHero
+        image={{
+          src: '/gallery/aerial-phase-one.webp',
+          alt: 'Aerial view of Venkatesh Serenique Phase 1 beside the road, with the land marked for future development',
+        }}
         eyebrow="Address"
         title="Location & Connectivity"
         lede={location.paragraphs[0]}

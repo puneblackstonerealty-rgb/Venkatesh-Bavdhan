@@ -66,7 +66,7 @@ export function ArticleCard({
       <div className={cn('flex flex-1 flex-col', feature ? 'p-6 md:p-8' : 'p-5')}>
         <p className="eyebrow text-brand">{meta.category}</p>
 
-        <h3 className={cn('mt-3 text-ink', feature ? 'text-xl md:text-2xl' : 'font-display text-lg')}>
+        <h3 className={cn('mt-3 text-brand', feature ? 'text-xl md:text-2xl' : 'font-display text-lg')}>
           {meta.title}
         </h3>
 

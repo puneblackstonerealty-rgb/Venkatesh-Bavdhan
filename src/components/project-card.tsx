@@ -66,7 +66,7 @@ export function ProjectCard({
             className={cn(
               'absolute top-3 left-3 rounded-xs px-2 py-1',
               'text-[10px] font-semibold tracking-[0.14em] uppercase',
-              project.luxe ? 'bg-copper text-twilight-deep' : 'bg-twilight/85 text-white',
+              project.luxe ? 'bg-copper text-twilight-deep' : 'bg-twilight/85 text-surface',
             )}
           >
             {project.luxe ? 'Luxe' : 'Commercial'}

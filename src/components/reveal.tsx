@@ -42,20 +42,20 @@ export function Reveal({
     <div
       className={cn(
         'rounded-lg border border-dashed px-6 py-10 text-center md:px-12 md:py-14',
-        dark ? 'border-white/20 bg-white/[0.03]' : 'border-line-strong bg-surface',
+        dark ? 'border-surface/20 bg-surface/[0.03]' : 'border-line-strong bg-surface',
         className,
       )}
     >
       <Eyebrow tone={dark ? 'dark' : 'light'}>{eyebrow}</Eyebrow>
 
-      <h3 className={cn('mx-auto mt-5 max-w-[34rem] text-xl md:text-2xl', dark && 'text-white')}>
+      <h3 className={cn('mx-auto mt-5 max-w-[34rem] text-xl md:text-2xl', dark && 'text-surface')}>
         {heading}
       </h3>
 
       <p
         className={cn(
           'mx-auto mt-4 max-w-[38rem] text-sm',
-          dark ? 'text-white/60' : 'text-body',
+          dark ? 'text-surface/60' : 'text-body',
         )}
       >
         {body}

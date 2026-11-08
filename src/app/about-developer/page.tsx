@@ -6,7 +6,12 @@ import { PageCta, PageHero } from '@/components/page-shell'
 import { ProjectCard } from '@/components/project-card'
 import { BreadcrumbStructuredData } from '@/components/structured-data'
 import { Button, Container, Section, SectionHead } from '@/components/ui'
-import { completedProjects, launchProjects, ongoingProjects, portfolio } from '@/content/developer-projects'
+import {
+  completedProjects,
+  launchProjects,
+  ongoingProjects,
+  portfolio,
+} from '@/content/developer-projects'
 import { developer, site } from '@/content/project'
 import { pageMetadata } from '@/lib/seo'
 
@@ -22,7 +27,15 @@ export default function AboutDeveloperPage() {
   return (
     <>
       <BreadcrumbStructuredData name="About the Developer" path="/about-developer" />
-      <PageHero eyebrow="The Developer" title="About the developer" lede={developer.tagline} />
+      <PageHero
+        image={{
+          src: '/gallery/entrance-gate.webp',
+          alt: 'The entrance gate of Venkatesh Serenique, with the Serenique monogram on the gateway',
+        }}
+        eyebrow="The Developer"
+        title="About the developer"
+        lede={developer.tagline}
+      />
 
       <Section tone="white">
         <Container>
@@ -43,7 +56,6 @@ export default function AboutDeveloperPage() {
                   {paragraph}
                 </p>
               ))}
-
             </div>
 
             <dl className="grid h-fit gap-5 sm:grid-cols-2 lg:grid-cols-1">
@@ -72,11 +84,7 @@ export default function AboutDeveloperPage() {
       {/* ── Current launches ───────────────────────────────────────────── */}
       <Section tone="surface">
         <Container>
-          <SectionHead
-            eyebrow="Track Record"
-            title={portfolio.heading}
-            lede={portfolio.lede}
-          />
+          <SectionHead eyebrow="Track Record" title={portfolio.heading} lede={portfolio.lede} />
 
           <div className="mt-14">
             <GroupHead
