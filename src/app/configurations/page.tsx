@@ -5,17 +5,17 @@ import { PageCta, PageHero } from '@/components/page-shell'
 import { Reveal } from '@/components/reveal'
 import { BreadcrumbStructuredData } from '@/components/structured-data'
 import { Container, Section, SectionHead, Stat } from '@/components/ui'
-import { configurations, hero, overview, releaseStatus, reveals } from '@/content/project'
+import { configurations, hero, releaseStatus, reveals } from '@/content/project'
 import { pageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = pageMetadata({
   path: '/configurations',
   /* Kept under 60 characters INCLUDING the "| Venkatesh Serenique" the root
      layout appends. The longer "Homes: Areas, Plans & Price" version came to
-     62 and was being cut mid-phrase in results. */
-  title: '2, 3 & 4 BHK: Areas & Price',
-  description:
-    '2, 3 & 4 BHK across eleven towers on 14 acres at Bavdhan. Carpet areas and pricing are unreleased, so register to receive them first.',
+     62 and was being cut mid-phrase in results. Both strings live in
+     content/project.ts, next to the figures they quote. */
+  title: configurations.metaTitle,
+  description: configurations.metaDescription,
 })
 
 export default function ConfigurationsPage() {
@@ -56,7 +56,7 @@ export default function ConfigurationsPage() {
                   </div>
                   <div className="mt-2 flex justify-between gap-4">
                     <dt className="text-muted">Floor plan</dt>
-                    <dd className="text-ink">Awaited</dd>
+                    <dd className="text-ink">{configurations.planStatus}</dd>
                   </div>
                 </dl>
 
@@ -76,12 +76,12 @@ export default function ConfigurationsPage() {
         <Container>
           <SectionHead
             eyebrow="Scale"
-            /* Was "What the registration covers". The MahaRERA registration on
-               record is Phase 1, and the 14 acres and 11 towers describe the
-               whole scheme, so that heading claimed a mapping between the two
-               that nobody has published. */
+            /* The lede is the Phase 1 scale as MahaRERA and the developer
+               state it, read from content/project.ts. It used to be typed
+               here as "Eleven towers ... on 14 acres", figures the launch
+               has since superseded. */
             title="The scale of the project"
-            lede={`Eleven towers of ${overview.structure}, on 14 acres at Bavdhan.`}
+            lede={configurations.scaleLede}
           />
 
           <dl className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -125,8 +125,8 @@ export default function ConfigurationsPage() {
       </Section>
 
       <PageCta
-        title="Be first on the price list"
-        body="Pre-launch rates reach registered buyers before they reach the portals. That gap is the whole advantage of buying this early."
+        title="Get the current price list"
+        body="The developer has not published a price list. Ask us and we will send the current price for the home you are considering, with its floor plan."
       >
         <CtaButton intent="Register for Areas & Pricing" variant="copper" size="lg">
           {configurations.cta}

@@ -8,7 +8,7 @@ export const metadata: Metadata = pageMetadata({
   path: '/terms-conditions',
   title: 'Terms & Conditions',
   description:
-    'The terms on which this website is made available, including the pre-launch position on prices, areas and availability.',
+    'The terms on which this website is made available, including how it states prices, carpet areas and availability for the project.',
 })
 
 export default function TermsConditionsPage() {

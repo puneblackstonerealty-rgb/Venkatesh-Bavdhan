@@ -357,7 +357,7 @@ export default function LandingPage() {
           <SectionHead
             eyebrow="Questions"
             title="Frequently asked"
-            lede={`What buyers ask us most about ${site.name}, including the three questions nobody can answer yet.`}
+            lede={`What buyers ask us most about ${site.name}.`}
           />
           <dl className="mt-12 max-w-[52rem]">
             {faqs.map((faq) => (

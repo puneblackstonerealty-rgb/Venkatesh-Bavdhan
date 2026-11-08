@@ -1,4 +1,4 @@
-import { faqs, legal, overview, site } from '@/content/project'
+import { faqs, legal, phase1, site, siteMeta } from '@/content/project'
 import { SITE_URL } from '@/lib/seo'
 
 /**
@@ -12,13 +12,17 @@ import { SITE_URL } from '@/lib/seo'
  * claim the page does not make is what gets structured data ignored, or the
  * site penalised.
  *
- * Note what is deliberately ABSENT, and must stay absent until the developer
- * publishes it:
- *   • No `offers` / price markup. No price exists. Fabricating an offer to win
- *     a rich result is exactly the abuse the guidelines target.
- *   • No `amenityFeature`. No amenity schedule has been published.
- *   • No `geo` coordinates. No street address has been published, so any
- *     lat/long here would be a guess presented to Google as a fact.
+ * Note what is deliberately ABSENT (re-checked 2026-11-06):
+ *   • No `offers` / price markup. The developer has published no price list.
+ *     Fabricating an offer to win a rich result is exactly the abuse the
+ *     guidelines target.
+ *   • No `amenityFeature` YET. The developer published an amenity list in
+ *     2026 (content/project.ts `amenities`), but no page lays it out as a
+ *     list. Add it together with the /amenities route, not before, so the
+ *     markup matches visible content.
+ *   • No `geo` coordinates. The survey number is on the MahaRERA record and
+ *     is used as the street address, but no coordinates have been published,
+ *     so any lat/long here would be a guess presented to Google as a fact.
  *   • No `aggregateRating` or review markup. There is nothing to rate.
  */
 function JsonLd({ data }: { data: Record<string, unknown> }) {
@@ -90,15 +94,18 @@ export function SiteStructuredData() {
             name: site.name,
             alternateName: site.registeredName,
             url: SITE_URL,
-            description: `Pre-launch residential development by ${site.developer} at ${site.locality}. Eleven towers of ${overview.structure} on 14 acres, in 2, 3 and 4 BHK configurations. The total number of homes, carpet areas and pricing have not been published.`,
-            /* numberOfAccommodationUnits is deliberately absent. It used to
-               assert 380, which came from a source since shown to be wrong on
-               every structural figure it published. An omitted property costs
-               nothing in structured data; a wrong one is a claim made to
-               Google in the developer's name. Add it back only from a
-               published total. */
+            description: siteMeta.schemaDescription,
+            /* numberOfAccommodationUnits is deliberately absent. MahaRERA
+               now gives 380 homes, but for Phase 1 only, and this node is the
+               whole development (the developer describes a 9.75-acre parcel
+               with 6 acres still to come). A property cannot carry the
+               "Phase 1" label the page gives the figure, so asserting it here
+               would overstate what it covers. The figure is in `description`
+               with its label. */
             address: {
               '@type': 'PostalAddress',
+              // MahaRERA Form C. Also printed in the location FAQ.
+              streetAddress: phase1.plotStreet,
               addressLocality: 'Bavdhan',
               addressRegion: 'Maharashtra',
               postalCode: '411021',

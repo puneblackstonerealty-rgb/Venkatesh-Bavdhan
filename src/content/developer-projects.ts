@@ -4,13 +4,18 @@
  * ─── Source ────────────────────────────────────────────────────────────────
  *
  * All of it is from venkateshbuildcon.com — the developer's own site — crawled
- * 2026-08-07: the listing at /pune-projects/ plus all 33 individual project
- * pages. First-party throughout. Nothing here comes from a listing portal.
+ * 2026-08-07 (the listing at /pune-projects/ plus all 33 individual project
+ * pages) and re-checked against the listing on 2026-11-06. First-party
+ * throughout. Nothing here comes from a listing portal.
  *
  *   • `status` is the developer's own taxonomy. Their listing marks each card
- *     with `project_status-completed|ongoing|upcoming`; the two carrying BOTH
- *     ongoing and upcoming are their current launches, and are grouped as
- *     `launch` here.
+ *     with `project_status-completed|ongoing|upcoming`. In August two cards
+ *     carried BOTH ongoing and upcoming and were grouped here as current
+ *     launches. As of 2026-11-06 no card carries both; Tresor and Vanaya are
+ *     plain `ongoing`. They are still grouped first, now as the developer's
+ *     2026 launches (Tresor unveiled at a First Privilege Meet, events post
+ *     published 17 Aug 2026; Vanaya's Grand Launch and Bhoomipujan, 16/17 Oct
+ *     2026, developer events and News & PR pages).
  *   • `config` and `where` are split from the line printed directly beneath
  *     each project's <h1>. That line is the reliable field.
  *   • `luxe` marks membership of Venkatesh Luxe, their premium sub-brand, as
@@ -21,14 +26,17 @@
  *
  * ⚠ DO NOT take copy from their og:title / og:description tags. They are
  * broken across most of the site: the Tresor page and the New Beginnings page
- * both serve Anandmayi's title, and fourteen unrelated projects all serve
- * "Venkatesh Lake Vista: 1, 2, 3 BHK Flats in Ambegaon". Only the <h1> and the
- * line beneath it are trustworthy, which is why those are what is used.
+ * both served Anandmayi's title in August, and fourteen unrelated projects all
+ * serve "Venkatesh Lake Vista: 1, 2, 3 BHK Flats in Ambegaon". Only the <h1>
+ * and the line beneath it are trustworthy, which is why those are what is
+ * used. The same caution applies to RERA numbers printed on their project
+ * pages: several are copied from the wrong project (2026-11-06).
  *
- * ⚠ These are the DEVELOPER'S projects, not this one. They are shown to
- * establish the builder's track record and nothing more. Serenique is a
- * separate registration and is not among them — it is too new to be listed on
- * the developer's own site yet.
+ * ⚠ These are the DEVELOPER'S other projects. They are shown to establish the
+ * builder's track record and nothing more. Since 27 Aug 2026 Serenique itself
+ * is on the developer's listing too (ongoing, "3 & 2 BHK, near Chandani
+ * Chowk"); it is counted in `portfolio.total` but not shown as a card on its
+ * own site.
  */
 
 export type DeveloperProject = {
@@ -52,7 +60,7 @@ export type DeveloperProject = {
   href?: string
 }
 
-/** Their current launches — tagged both ongoing and upcoming on their site. */
+/** Their 2026 launches. Tagged `ongoing` on the listing (2026-11-06); see the header. */
 export const launchProjects: DeveloperProject[] = [
   {
     slug: 'venkatesh-tresor',
@@ -64,19 +72,25 @@ export const launchProjects: DeveloperProject[] = [
   },
   {
     slug: 'new-beginnings',
-    name: 'Venkatesh New Beginnings',
+    /* Listing, 2026-11-06: the card that read "Venkatesh New Beginnings" in
+       August now reads "Venkatesh Vanaya", sub-line "4, 3 & 2 BHK Tropical
+       Homes, Near Oxygen Park, Kharadi". The slug is kept because it is only
+       a key. Was name "Venkatesh New Beginnings", where "Kharadi". */
+    name: 'Venkatesh Vanaya',
     config: '4, 3 & 2 BHK tropical homes',
-    where: 'Kharadi',
+    where: 'Near Oxygen Park, Kharadi',
     /* ⚠ The ONE image here not taken from the developer's site, which is why
-       it carries a different filename to the slug. That page's og:image is a
-       decorative leaf-vine graphic, not a render — it is one of the pages
-       whose meta tags are broken. This is the project's actual hero render,
-       taken from the client's own Kharadi project files, which are first-party
-       campaign material for this same development. Every other image in this
-       file is its own page's og:image. */
+       it carries a different filename to the slug. In August that page's
+       og:image was a decorative leaf-vine graphic, so this hero was taken
+       from the client's own Kharadi project files instead.
+       ⚠ 2026-11-06: the developer's og:image is now a real render (Cam-06),
+       and the Kharadi research found that several images in the client's
+       Kharadi files are NOT renders of this project. Whether this one is has
+       not been checked. Swap it for the official render (Task 6). */
     image: '/developer/new-beginnings-hero.webp',
     /* The client's own microsite for the Kharadi project — the sibling build
-       to this one. Safe to link because the lead lands with the same team. */
+       to this one, same domain after the rename. Safe to link because the
+       lead lands with the same team. */
     href: 'https://venkateshnewbeginnings.com/',
   },
 ]
@@ -89,14 +103,6 @@ export const ongoingProjects: DeveloperProject[] = [
     where: 'Erandwane',
     luxe: true,
     image: '/developer/venkatesh-erandwane-central.jpg',
-  },
-  {
-    slug: 'venkatesh-skydale',
-    name: 'Venkatesh Skydale',
-    config: '5, 4 & 3 BHK luxury homes',
-    where: 'Sinhagad Road',
-    luxe: true,
-    image: '/developer/venkatesh-skydale.jpg',
   },
   {
     slug: 'venkatesh-laurel',
@@ -155,6 +161,19 @@ export const ongoingProjects: DeveloperProject[] = [
 ]
 
 export const completedProjects: DeveloperProject[] = [
+  {
+    slug: 'venkatesh-skydale',
+    name: 'Venkatesh Skydale',
+    /* Listing card, unchanged. The page body now says 2 to 5 BHK; the card
+       line is the field this file trusts. */
+    config: '5, 4 & 3 BHK luxury homes',
+    where: 'Sinhagad Road',
+    luxe: true,
+    /* Moved from ongoing: the listing tags it `project_status-completed` as
+       of 2026-11-06 (ongoing in August). OC and possession status are not
+       verified (MahaRERA detail pages are CAPTCHA-gated). */
+    image: '/developer/venkatesh-skydale.jpg',
+  },
   {
     slug: 'venkatesh-viom',
     name: 'Venkatesh Viom',
@@ -311,25 +330,36 @@ export const completedProjects: DeveloperProject[] = [
   },
 ]
 
+/**
+ * Serenique itself, which the developer's listing includes (ongoing, card
+ * dated 27 Aug 2026) but this site does not show as a card. Counted so the
+ * total matches the developer's own 34 (23 completed, 11 ongoing).
+ */
+const SERENIQUE_ON_LISTING = 1
+
 export const portfolio = {
   heading: 'The portfolio behind Serenique',
-  lede: 'Thirty-three projects across Pune, as published on the developer’s own website. They are shown here as context on the builder. Serenique is a separate, newer registration and is not yet listed among them.',
+  /* Listing, 2026-11-06: 34 projects, Serenique among them. Was "Thirty-three
+     projects ... Serenique is a separate, newer registration and is not yet
+     listed among them". */
+  lede: 'Thirty-four projects across Pune, as published on the developer’s own website. Serenique is one of them; the other thirty-three are shown here as context on the builder.',
   groups: [
     {
       id: 'launch',
-      label: 'Current launches',
-      note: 'Marked both ongoing and upcoming by the developer.',
+      label: 'Recent launches',
+      note: 'Launched by the developer in 2026.',
       items: launchProjects,
     },
     { id: 'ongoing', label: 'Ongoing', note: 'Under construction across Pune.', items: ongoingProjects },
     {
       id: 'completed',
       label: 'Completed',
-      note: 'Delivered, from Kothrud and Mundhwa to Ambegaon and Vadgaon.',
+      /* Skydale (Sinhagad Road) joined this group on 2026-11-06. */
+      note: 'Marked completed by the developer, from Kothrud and Mundhwa to Ambegaon, Vadgaon and Sinhagad Road.',
       items: completedProjects,
     },
   ],
   /* Counted from the developer's own listing rather than asserted. If a
      project is added or removed above, the figure on the page moves with it. */
-  total: launchProjects.length + ongoingProjects.length + completedProjects.length,
+  total: launchProjects.length + ongoingProjects.length + completedProjects.length + SERENIQUE_ON_LISTING,
 }

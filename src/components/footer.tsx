@@ -17,7 +17,7 @@ export function SiteFooter() {
           <div>
             <Wordmark tone="dark" />
             <p className="mt-6 max-w-[24rem] text-sm">
-              Pre-launch registrations for {site.name}, {site.locality}.
+              Enquiries and site visits for {site.name}, {site.locality}.
             </p>
             <a
               href={`tel:${site.phone}`}

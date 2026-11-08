@@ -1,21 +1,37 @@
 # Venkatesh Serenique — Bavdhan, Pune
 
-Marketing site for a **pre-launch** residential project at Bavdhan, built with
-Next.js 16 (App Router), React 19, TypeScript and Tailwind 4.
+Marketing site for a residential project at Bavdhan, **launched in 2026**,
+built with Next.js 16 (App Router), React 19, TypeScript and Tailwind 4.
 
 ---
 
 ## The one thing to understand first
 
-This project is genuinely pre-launch. As of 7 August 2026 **nobody has
-published** carpet areas, a price list, an amenity schedule, floor plans, a
-master plan, renders, a brochure, or even a street address for it. Not the
-developer, not the listing portals.
+**Where the facts come from, as of 6 November 2026.** The project has
+launched. MahaRERA records Phase 1 as `VENKATESH SERENIQUE- PHASE -1`,
+**PM1261012601412** (registered 3 Aug 2026, corrected 31 Aug 2026, completion
+**30 Sep 2031**): one building of three residential wings (A1, A2, A3) and a
+13-shop commercial wing, **380 homes + 13 shops**, on Survey No. 34/1/1/1,
+Bavdhan Khurd. The developer's own site gives the land (**3.75 acres** in
+Phase 1 of a **9.75-acre** parcel), **2 & 3 BHK** (plus a 1 BHK and a 2.5 BHK
+on the refuge floors in its floor plans), RERA carpet areas, amenities,
+specifications, renders and a brochure. It has **not** published a price list.
 
-What *is* known is: **14 acres, 11 towers, 3 basements + ground + podium + 27
-floors, and 2, 3 & 4 BHK** — all four given to us by the developer through the
-channel partnership on **9 August 2026**. Plus a MahaRERA registration and a
-December 2031 possession date, which still rest on a listing partner.
+Authority order is now **MahaRERA > the developer's own website > the
+client's earlier figures > news > portals**. Every value in
+`src/content/project.ts` names its source and date, and `phase1` there holds
+the MahaRERA record that the rest of the site reads.
+
+> **The client's 9 August figures are superseded.** 14 acres, 11 towers,
+> 3 basements + G + P + 27 floors and 2, 3 & 4 BHK were given to us before
+> launch. MahaRERA and the developer contradict all four, and by the client's
+> standing decision the official figures replace them. The `380 homes` this
+> site deleted in August as "impossible" turned out to be the Phase 1
+> residential count exactly; it is back, labelled Phase 1. The "PM" prefix on
+> the RERA number, once suspected to be a typo, is a genuine MahaRERA prefix.
+> Do not reinstate any of the August figures.
+
+The history below is kept because the lesson in it still holds.
 
 > **Read this before trusting any figure in git history.** Until 9 August the
 > site carried 2.5 acres, 3 towers, 28 storeys, 380 homes and 2 & 3 BHK, taken
@@ -33,11 +49,13 @@ December 2031 possession date, which still rest on a listing partner.
 > A listing site is a poor substitute for the builder even when it agrees with
 > the builder.
 
-The site is built around that gap rather than papering over it. The hero
+The site was built around that gap rather than papering over it. The hero
 carries a **release ledger** — a plain list of what has been issued and what
-has not — and each unreleased section is a `<Reveal>` block that says so and
-captures the enquiry. That is a deliberate design position, not an unfinished
-one:
+has not — and each unreleased section was a `<Reveal>` block that said so and
+captured the enquiry. Since the launch the ledger shows almost everything as
+published (the price list is the one row still out), and the reveal blocks
+describe the published material and offer to send it, until the real
+sections are built. The original reasoning:
 
 - Several sites currently ranking for this project publish full spec sheets.
   Those figures are not sourced from the developer. One of them reproduces the
@@ -59,7 +77,7 @@ None of them blocks development; all three block go-live.
 
 | What | Where | Why it matters |
 | ---- | ----- | -------------- |
-| **The MahaRERA number** | `legal.reraRegistrations` in `content/project.ts` | Published as `PM1261012601412`. MahaRERA Pune registrations are `P52100…` or `PR126101…` — the `PM` prefix matches neither and reads like a transcription slip of `PR1261012601412`. It is reproduced **exactly as sourced** rather than silently corrected, and the footer shows a caveat until it is verified at [maharera.maharashtra.gov.in](https://maharera.maharashtra.gov.in/). |
+| ~~The MahaRERA number~~ **Resolved 2026-11-06** | `phase1` / `legal.reraRegistrations` in `content/project.ts` | `PM1261012601412` is genuine: the MahaRERA search returns it for "Serenique" and Form C (dated 31 Aug 2026) carries it. "PM" is a current MahaRERA prefix, not a slip for "PR". The detail view on the portal is CAPTCHA-gated, so land area, the unit-type table, litigation and QPRs were not read; worth one manual look. |
 | **Blackstone Realty's RERA agent number** | `legal.advertiser` | The footer now reads "Marketed by Blackstone Realty, Pune." The previous Home Bazaar Services line and its registration number were carried over from another project by mistake and have been removed. **No agent registration is printed at all right now** — a marketing site for a MahaRERA-registered project is expected to carry one. Add Blackstone Realty's to this string. |
 | **The chat persona** | `site.chatAgentName` | The widget introduces itself as "Sneha Kulkarni". That is a persona, not a named employee — the same pattern the Kharadi site runs. Replace it with a real member of the team, or accept that a visitor being asked for a phone number is talking to a name that is not a person. |
 
@@ -73,12 +91,13 @@ The facts those captions stated are still true and are still recorded in
 `src/content/project.ts` — they are simply no longer printed. Three consequences
 worth knowing:
 
-- The map is a **locality** embed centred on Bavdhan, not a plot pin. Nothing on
-  the page says so any more.
+- The map is a **locality** embed centred on Bavdhan, not a plot pin. The
+  survey number is now on record, but no coordinates are. Nothing on the page
+  says so any more.
 - Landmark lists carry no distances because no source publishes them. Nothing on
   the page says so any more.
-- The RERA number is unverified and the footer no longer warns about it. That
-  makes the first row of this table more urgent, not less.
+- The RERA number was unverified when the caveat was removed. It has since
+  been verified (2026-11-06), so the missing caveat no longer matters.
 
 **Resolved 2026-08-07 — developer identity.** This was the third open item. The
 developer's own logo artwork, recovered from the reference sites, reads *"Shree
@@ -159,9 +178,13 @@ grouped by the developer's own status taxonomy (their listing tags each card
 
 | Group | Count | Notes |
 | ----- | ----- | ----- |
-| Current launches | 2 | Tresor and New Beginnings — tagged *both* ongoing and upcoming |
-| Ongoing | 9 | Includes 2 commercial (Vertica, Midori Commercial) |
-| Completed | 22 | |
+| Recent launches | 2 | Tresor and Vanaya (formerly New Beginnings). In August both were tagged ongoing *and* upcoming; as of 2026-11-06 both are plain ongoing |
+| Ongoing | 8 | Includes 2 commercial (Vertica, Midori Commercial) |
+| Completed | 23 | Skydale moved here on 2026-11-06 |
+
+The developer's own count is 34: the 33 above plus Serenique, which is on its
+listing since 27 Aug 2026 but is not shown as a card on its own site.
+`portfolio.total` counts it.
 
 `config` and `where` are split from the line printed directly beneath each
 project's `<h1>`. **That line is the only trustworthy field on those pages.**
@@ -196,8 +219,12 @@ provenance is visible at the filename.
 
 ### Ask the developer for
 
-In priority order. Each one deletes a `<Reveal>` block and turns it into a real
-section:
+**Update 2026-11-06:** items 1 to 5 and 7 are now published on the developer's
+own site (a clean official logo, renders, master layout, cluster and podium
+plans, floor plans with RERA carpet areas, the amenity list, Form C with its
+QR, and the survey number). The files are in the research assets folder with
+their source URLs. Only item 6's **price list** is still unpublished. The
+original list:
 
 1. **The clean launch creative** — same artwork, no broker watermark. Unblocks
    the hero and the OG card immediately.
@@ -243,16 +270,22 @@ All three of build, lint and typecheck must pass before deploying.
 that file, not to components.
 
 That file also records where each fact came from, and which sources were
-rejected and why. In order of authority:
+rejected and why. In order of authority (re-ranked 2026-11-06; the header of
+`project.ts` has the URLs and dates):
 
-1. **propstarrealty.com** — the only source publishing hard project numbers.
-2. **housing.com** — blocks automated fetching (HTTP 406); only its URL slug
-   could be read, which still establishes the registered name and the builder
-   name as Housing records them.
-3. **venkateshbuildcon.com** — first-party, and therefore authoritative on the
-   *developer*. It does not list Serenique.
-4. **Bavdhan locality data** — used only on the location page, and only where
-   at least two sources agree.
+1. **MahaRERA** — the search result, the public record and Form C for
+   PM1261012601412. Phase-level facts are labelled Phase 1.
+2. **venkateshbuildcon.com** — the developer's own Serenique page and floor
+   plans: land, configurations, carpet areas, amenities, specifications.
+3. **The client's 9 August figures** — superseded where 1 or 2 contradict them.
+4. **News** for the locality (Punekar News, Free Press Journal).
+5. **Bavdhan locality data** — kept on the location page only where the
+   developer gives nothing for the same place.
+
+propstarrealty.com and the housing.com URL slug, the August sources for the
+RERA number, the possession date and the registered name, are no longer used.
+Broker prices, and the developer page's "2.9 to 5 CR" (copied from its
+Skydale page), are not published.
 
 Rejected outright: `venkateshprelaunch.com` and `puneupcomingprojects.com`.
 Both rank for this query and both are recycled boilerplate. They are named in
@@ -347,7 +380,7 @@ undo all four changes below.
 | ------ | --- |
 | Retinted to slate-teal | Copper is a dark-surface-only token and would fail contrast on white chat bubbles. The widget sits on white. |
 | Conversation rewritten | The stock flow offered a brochure, a quotation and "inventory available with us". None of that exists — this project is pre-launch. Every option is now a request to be sent something *when it is issued*, and the reply says so. |
-| 2, 3 & 4 BHK | The stock widget offered a 1 BHK, which this project does not have. The 4 BHK was also removed on 7 August and **put back on 9 August** once the developer confirmed it. Keep `BHK_OPTIONS` in step with `configurations` in `content/project.ts`. |
+| 1, 2, 2.5 & 3 BHK | Phase 1's configurations per the developer's floor plans (2026-11-06). The 4 BHK added on 9 August is gone: no published Phase 1 plan has one. The 1 BHK the stock widget offered turns out to exist, on Wing A3's refuge floors. Keep `BHK_OPTIONS` in step with `configurations` in `content/project.ts`. |
 | Google Fonts injection removed | It fetched Bricolage Grotesque and Plus Jakarta Sans on every page load — two families nothing rendered in, since the CSS inherits Fraunces and Manrope from `next/font`. It was also an undeclared third-party request and it blocked render on a below-the-fold widget. |
 
 The widget is suppressed on `/thank-you`; someone who has just submitted should
@@ -355,10 +388,12 @@ not be asked for the same number again.
 
 ### Routes that deliberately do not exist yet
 
-**`/amenities` and `/gallery`.** No amenity schedule and no renders exist. A
-route whose whole body reads "coming soon" is thin content — it competes with
-the home page for the same query and loses to the aggregator listings this site
-is meant to outrank. Both live as `<Reveal>` blocks on the home page instead.
+**`/amenities` and `/gallery`.** Until November 2026 no amenity schedule and
+no renders existed, and a route whose whole body reads "coming soon" is thin
+content. Both now exist on the developer's site, so both routes are due; the
+amenity list and specifications are already data in `content/project.ts`
+(`amenities`, `specifications`). Until they are built, both live as `<Reveal>`
+blocks on the home page.
 
 To promote them when the client kit lands: build the route, delete the matching
 entry from `reveals` in `content/project.ts`, add the path to
@@ -452,9 +487,10 @@ everywhere and nobody has to remember an arbitrary value.
   requires FAQ markup to correspond to visible content. Deleting the visible
   section means deleting the markup too.
 - **The JSON-LD has no `offers`, `amenityFeature`, `geo` or `aggregateRating`,
-  and must not get them** until the underlying facts are published. Marking up
-  a price that does not exist to win a rich result is exactly the abuse the
-  structured-data guidelines target.
+  and must not get them** until the underlying facts are published and shown
+  on a page. The amenity list is published now, so `amenityFeature` can go in
+  with the `/amenities` route. Marking up a price that does not exist to win a
+  rich result is exactly the abuse the structured-data guidelines target.
 - **`/thank-you` is noindex, disallowed in `robots.ts`, and absent from
   `sitemap.ts`.** All three have to agree.
 

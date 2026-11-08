@@ -13,7 +13,9 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   path: '/about-developer',
   title: 'About the Developer',
-  description: `Venkatesh Buildcon has built ${portfolio.total} projects across Pune in 26 years, from Kothrud and Mundhwa to Shivajinagar, Baner and Kharadi. The portfolio behind Serenique.`,
+  /* "lists", not "has built": the developer's count includes its ongoing
+     projects, Serenique among them. */
+  description: `Venkatesh Buildcon lists ${portfolio.total} projects across Pune in 26 years, from Kothrud and Mundhwa to Shivajinagar, Baner, Kharadi and Bavdhan. The portfolio behind Serenique.`,
 })
 
 export default function AboutDeveloperPage() {

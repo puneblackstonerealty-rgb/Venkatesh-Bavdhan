@@ -1,5 +1,7 @@
 import { ImageResponse } from 'next/og'
 
+import { hero, siteMeta } from '@/content/project'
+
 /**
  * The share card.
  *
@@ -8,10 +10,11 @@ import { ImageResponse } from 'next/og'
  * PNG, which is what WhatsApp, Facebook and LinkedIn all want. A WebP at some
  * other aspect gets letterboxed or cropped differently by each of them.
  *
- * It carries only figures that are actually published. No price appears here,
- * for the same reason no price appears anywhere else on the site.
+ * It carries only figures that are actually published, and reads every one of
+ * them from content/project.ts (the hero facts), so it cannot drift from the
+ * page. No price appears here, because the developer has published none.
  */
-export const alt = 'Venkatesh Serenique, 2, 3 & 4 BHK pre-launch at Bavdhan, Pune'
+export const alt = siteMeta.ogAlt
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -40,7 +43,7 @@ export default function OpengraphImage() {
               display: 'flex',
             }}
           >
-            Pre-Launch · Registrations Open
+            {hero.badge}
           </div>
 
           <div
@@ -56,7 +59,7 @@ export default function OpengraphImage() {
           </div>
 
           <div style={{ marginTop: 26, fontSize: 34, color: '#c08654', display: 'flex' }}>
-            2, 3 &amp; 4 BHK Homes
+            {hero.tagline}
           </div>
           <div
             style={{
@@ -79,16 +82,11 @@ export default function OpengraphImage() {
             paddingTop: 26,
           }}
         >
-          {/* Four slots, and the old fourth was "380 Homes" — a figure that
-              no longer exists. Possession takes the slot rather than leaving a
-              gap, because it is the other thing a buyer scans a share card
-              for. Do not put a unit count back here until one is published. */}
-          {[
-            ['14 Acres', 'Land Parcel'],
-            ['11', 'Towers'],
-            ['G + 27', 'Floors'],
-            ['Dec 2031', 'Possession'],
-          ].map(([value, label]) => (
+          {/* The hero's four facts: Phase 1 land, Phase 1 homes (MahaRERA),
+              floors and the MahaRERA completion date. Until November 2026
+              these were hard-coded here as 14 acres, 11 towers, G + 27 and
+              Dec 2031, all since superseded. */}
+          {hero.facts.map(({ value, label }) => (
             <div key={label} style={{ display: 'flex', flexDirection: 'column' }}>
               <span style={{ fontSize: 36, color: '#ffffff' }}>{value}</span>
               <span

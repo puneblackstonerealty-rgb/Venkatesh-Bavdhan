@@ -8,7 +8,7 @@ import { Header } from '@/components/header'
 import { LeadDialog } from '@/components/lead'
 import { MobileCtaBar } from '@/components/mobile-cta'
 import { SiteStructuredData } from '@/components/structured-data'
-import { nav, site } from '@/content/project'
+import { nav, site, siteMeta } from '@/content/project'
 import { ALLOW_INDEXING, OG_IMAGE, SITE_URL } from '@/lib/seo'
 
 import './globals.css'
@@ -43,9 +43,11 @@ const body = Manrope({
   variable: '--font-body-src',
 })
 
-const TITLE = 'Venkatesh Serenique Bavdhan | 2, 3 & 4 BHK Pre-Launch, Pune'
-const DESCRIPTION =
-  'Pre-launch at Bavdhan, Pune. 11 towers of G + 27 floors on 14 acres, in 2, 3 & 4 BHK. MahaRERA registered. Register for the first price list.'
+/* Read from content/project.ts so the figures in them cannot drift from the
+   page. They were hard-coded here until November 2026, and still said
+   "pre-launch" and "11 towers on 14 acres" after the project launched. */
+const TITLE = siteMeta.title
+const DESCRIPTION = siteMeta.description
 
 export const metadata: Metadata = {
   // Makes every relative URL in metadata — canonicals, OG images — resolve to
@@ -88,7 +90,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     images: [OG_IMAGE.url],
   },
-  // Stops iOS Safari auto-linking figures like "14 Acres" as phone numbers.
+  // Stops iOS Safari auto-linking figures like "3.75 Acres" as phone numbers.
   formatDetection: { telephone: false },
 
   /* Google Search Console site verification.

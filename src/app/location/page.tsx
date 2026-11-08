@@ -10,8 +10,10 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata: Metadata = pageMetadata({
   path: '/location',
   title: 'Location & Connectivity, Bavdhan',
-  description:
-    'Bavdhan, Pune West. Chandani Chowk, NH-48 and Paud Road at the doorstep, Vanaz Metro under 4 km, Kothrud and Baner 5 to 7 km, Hinjawadi about 14 km.',
+  /* In content/project.ts, beside the distances it quotes. It used to be
+     typed here and kept the old 5 to 7 km and 14 km after they were
+     corrected. */
+  description: location.metaDescription,
 })
 
 export default function LocationPage() {

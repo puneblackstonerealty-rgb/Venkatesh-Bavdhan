@@ -7,14 +7,22 @@
  * legal advice and should be reviewed by the client's own counsel before the
  * site goes live.
  *
- * The pre-launch position is stated bluntly throughout, because it is the
- * single most material fact about this project: no price list, no carpet
- * areas, no amenity schedule and no plans have been published by anyone. A
- * policy page that implied otherwise would contradict the site it governs.
+ * Until November 2026 these pages stated the pre-launch position bluntly,
+ * because nothing had been published. Rewritten 2026-11-06 for the launched
+ * project: Phase 1 is on the MahaRERA record and the developer has published
+ * plans, carpet areas, amenities, specifications, renders and a brochure. The
+ * one thing still unpublished is a price list, and the pages say so. A policy
+ * page that implied otherwise would contradict the site it governs.
+ *
+ * Figures are not retyped here: the registration details are read from
+ * `phase1` in project.ts.
  */
 
+import { phase1 } from './project'
+
+
 export const legalPages = {
-  lastUpdated: '7 August 2026',
+  lastUpdated: '6 November 2026',
 
   terms: {
     eyebrow: 'Legal',
@@ -28,10 +36,10 @@ export const legalPages = {
         ],
       },
       {
-        heading: 'The project is pre-launch',
+        heading: 'What has been published',
         paragraphs: [
-          'Venkatesh Serenique is a pre-launch project. At the date this page was last updated, the developer had not published carpet areas, a price list, an amenity schedule, floor plans, a master plan or renders for it.',
-          'Where this site states a figure, it states where the figure came from. Where nothing has been published, this site says so rather than substituting a figure from a comparable project or a market average. No statement on this site should be read as the developer’s announced specification.',
+          `Venkatesh Serenique has been launched by the developer, and ${phase1.label} is registered with MahaRERA under number ${phase1.reraId}. At the date this page was last updated, the developer had published floor plans with RERA carpet areas, an amenity list, specifications, renders and a brochure. It had not published a price list.`,
+          'Where this site states a figure, it states where the figure came from: the MahaRERA record for Phase 1, or the developer’s own published material. Where nothing has been published, this site says so rather than substituting a figure from a comparable project or a market average. Where this site summarises the developer’s material, the developer’s own documents and the MahaRERA record govern.',
         ],
       },
       {
@@ -44,15 +52,15 @@ export const legalPages = {
       {
         heading: 'Prices, areas and availability',
         paragraphs: [
-          'No price has been announced for this project. Any price quoted to you in the course of an enquiry is indicative, is exclusive of stamp duty, registration, GST, maintenance and every other statutory charge unless expressly stated, and may change at any time without notice.',
-          'Areas, when published, will be carpet areas as defined under the Real Estate (Regulation and Development) Act, 2016, and will be subject to the tolerances and final measurements recorded in the agreement for sale.',
+          'The developer has not published a price list for this project. Any price quoted to you in the course of an enquiry is indicative, is exclusive of stamp duty, registration, GST, maintenance and every other statutory charge unless expressly stated, and may change at any time without notice.',
+          'Areas stated on this site are carpet areas as defined under the Real Estate (Regulation and Development) Act, 2016, taken from the RERA carpet-area statements on the developer’s floor plans. They are subject to the tolerances and final measurements recorded in the agreement for sale.',
           'Inventory and offers may change at any time. Availability is not guaranteed at the price or on the terms discussed.',
         ],
       },
       {
         heading: 'Images and plans',
         paragraphs: [
-          'This site currently publishes no project imagery, because the developer has released none. Any render, elevation, layout or master plan added to this site in future will be an artistic impression, will be labelled as one, and will be indicative only, subject to change and to approval by the sanctioning authorities.',
+          'Any render, elevation, layout, floor plan or master plan of this project shown on this site is the developer’s own. It is an artistic impression, is labelled as one, and is indicative only, subject to change and to approval by the sanctioning authorities.',
         ],
       },
       {
@@ -113,7 +121,7 @@ export const legalPages = {
       {
         heading: 'How we use it',
         paragraphs: [
-          'To contact you about Venkatesh Serenique. That means answering your question, sending you the carpet areas, price list, plans or amenity schedule once the developer releases them, and arranging a site visit. That is the only purpose.',
+          'To contact you about Venkatesh Serenique. That means answering your question, sending you the price list, floor plans, brochure or amenity schedule, and arranging a site visit. That is the only purpose.',
           'We do not sell your data, and we do not use it for unrelated marketing.',
         ],
       },
@@ -181,10 +189,10 @@ export const legalPages = {
         ],
       },
       {
-        heading: 'The project is pre-launch, and this site says so',
+        heading: 'What has been published, and what has not',
         paragraphs: [
-          'No carpet areas, price list, amenity schedule, floor plans, master plan or renders have been published for this project by the developer or by anyone else.',
-          'Several websites currently ranking for this project do publish such details. Those figures are not sourced from the developer, and one of those sites reproduces a different Venkatesh project’s statistics on a Bavdhan page. We have not repeated them. Where this site shows nothing, it is because nothing verifiable exists, not because it has been left out.',
+          'The developer has launched this project and has published floor plans with RERA carpet areas, an amenity list, specifications, renders, a master layout and a brochure. It has not published a price list.',
+          'Several websites publish prices and other figures for this project that do not come from the developer or from MahaRERA, and in August 2026 one of them reproduced a different Venkatesh project’s statistics on a Bavdhan page. We do not repeat them. Where this site shows nothing, it is because nothing verifiable exists, not because it has been left out.',
         ],
       },
       {
@@ -196,15 +204,15 @@ export const legalPages = {
       {
         heading: 'Where our figures come from',
         paragraphs: [
-          'The acreage, tower count, floor count and configuration mix shown on this site were provided to us by the developer through our channel partnership on 9 August 2026. They replace earlier figures taken from the project’s listing partners, which were materially wrong. The possession date and the MahaRERA number still come from a listing partner and have not been confirmed to us by the developer.',
-          'The total number of homes has been removed rather than restated. The figure previously published for it came from the same source as the superseded acreage and tower count, and no corrected total has been issued.',
-          'The locality distances on the location page are compiled from public locality data for Bavdhan and are measured from the suburb rather than the project gate, because no street address has been published for Serenique. Confirm every figure against the developer’s own documentation and the MahaRERA portal before you act on it.',
+          `The registration number, the registered name, the plot, the building and its wings, the number of homes and shops, the floor counts and the completion date of ${phase1.completion} are taken from the MahaRERA record for ${phase1.label}. They describe Phase 1 only, not the whole land parcel.`,
+          'The land area, the configurations, the carpet areas, the amenities and the specifications are taken from the developer’s own website and floor plans. Where they differ from figures this site published before the launch, the published figures replace the earlier ones.',
+          'Some locality distances on the location page are the developer’s own distance bands, measured from the project; the rest are compiled from public locality data and measured from the suburb. Confirm every figure against the developer’s own documentation and the MahaRERA portal before you act on it.',
         ],
       },
       {
         heading: 'Verify on the MahaRERA portal',
         paragraphs: [
-          'The project is registered under the name Shree Venkatesh Serenique Phase 1. The registration number is printed in the footer of every page. It is reproduced exactly as published by the listing partner and has not yet been verified by us against the portal. Check it yourself at maharera.maharashtra.gov.in before making any payment.',
+          `${phase1.label} is registered under the name ${phase1.registeredName}, registration number ${phase1.reraId}, which is also printed in the footer of every page. We checked it against the MahaRERA portal on 6 November 2026. Check it yourself at maharera.maharashtra.gov.in before making any payment.`,
         ],
       },
       {
