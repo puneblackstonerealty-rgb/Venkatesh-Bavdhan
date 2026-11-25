@@ -13,7 +13,7 @@ export const meta: ArticleMeta = {
     "Water in Bavdhan: alternate-day supply, tankers, and why the developer's own spec lists chargeable tankers. What to ask before you book.",
   category: 'Locality',
   publishedAt: '2026-08-05',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-25',
   author: 'Blackstone Realty',
   readingMinutes: 6,
   cover: {
@@ -25,6 +25,10 @@ export const meta: ArticleMeta = {
       label: 'Published resident reporting and locality reviews for Bavdhan, compiled August 2026',
     },
     { label: 'Reporting on water supply in Pune’s western suburbs, 2026' },
+    {
+      label: 'Free Press Journal, Pune may face alternate-day water supply after Diwali, 1 November 2026',
+      href: 'https://www.freepressjournal.in/pune/pune-may-face-alternate-day-water-supply-after-diwali',
+    },
   ],
 }
 
@@ -117,6 +121,12 @@ export default function Body() {
         Pune ran an alternate-day supply city-wide from June to August 2026. Ask the sales team how
         the building is expected to cope in a repeat, and ask to see the overhead and underground
         tank capacities on the plans.
+      </p>
+      <p>
+        A repeat is already being discussed. On 1 November 2026 the canal advisory committee asked
+        PMC to consider alternate-day supply again. The city&rsquo;s allocation for the year is 13
+        TMC, and 6.35 TMC had been used by then. PMC said it would decide after Diwali; we have not
+        seen a decision reported since.
       </p>
 
       <h2>The fair counterweight</h2>

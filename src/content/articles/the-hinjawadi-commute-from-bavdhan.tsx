@@ -11,7 +11,7 @@ export const meta: ArticleMeta = {
     'Fourteen kilometres and about thirty minutes is the published figure. It is accurate at some hours and optimistic at the ones you would actually travel.',
   category: 'Locality',
   publishedAt: '2026-08-10',
-  updatedAt: '2026-11-08',
+  updatedAt: '2026-11-25',
   author: 'Blackstone Realty',
   readingMinutes: 5,
   cover: {
@@ -21,6 +21,14 @@ export const meta: ArticleMeta = {
   sources: [
     { label: 'Locality research for Bavdhan, compiled August 2026' },
     { label: 'Pune Metro', href: 'https://www.punemetrorail.org/' },
+    {
+      label: 'Punekar News, Hinjawadi to Shivajinagar Metro Line 3: 17 of 23 stations to open on 4 November, 31 October 2026',
+      href: 'https://www.punekarnews.in/?p=248292',
+    },
+    {
+      label: 'Free Press Journal, PM Modi virtually inaugurates the Hinjawadi to Shivajinagar metro, 3 November 2026',
+      href: 'https://www.freepressjournal.in/pune/finally-pm-modi-virtually-inaugurates-hinjawadi-shivajinagar-metro-all-you-need-to-know',
+    },
   ],
 }
 
@@ -61,7 +69,7 @@ export default function Body() {
       <p>
         The Chandani Chowk interchange. Getting out of Bavdhan and onto the road towards Hinjawadi
         no longer involves the signal that used to define the journey, and grade-separated movement
-        in eight directions is a genuine improvement on what was there before 2024.
+        in eight directions is a genuine improvement on what was there before August 2023.
       </p>
       <p>
         The other advantage is direction. A large part of Pune&rsquo;s traffic moves towards the
@@ -79,6 +87,24 @@ export default function Body() {
           extension changes nothing about it.
         </p>
       </Note>
+
+      <h2>Metro Line 3 is open, but not yet at the Baner end</h2>
+      <p>
+        The line that does go to Hinjawadi is Metro Line 3, the Pink Line from Maan to the District
+        Court. It was inaugurated on 3 November 2026, with passenger services due from the next
+        day and 17 of its 23 stations open at the start.
+      </p>
+      <p>
+        Line 3 does not reach Bavdhan. To use it you would drive or ride to a station on its route,
+        and the ones nearest west Pune, on the Baner and Balewadi stretch, were among those not
+        open at launch: Balewadi Phata, Baner Gaon and the Baner-Pashan Link Road station among
+        them. The remaining stations were reported to follow in stages by January 2027.
+      </p>
+      <p>
+        Once the Baner stations open, a short ride to Line 3 and the train into Hinjawadi becomes a
+        real alternative to the peak-hour drive. Until then, check which stations are open on the
+        Pune Metro site before you plan around it.
+      </p>
 
       <h2>The honest comparison</h2>
       <p>
