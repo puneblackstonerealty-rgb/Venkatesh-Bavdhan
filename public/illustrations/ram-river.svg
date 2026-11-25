@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Schematic of the Ram river from Khatpewadi through Bhugaon, Bhukum, Bavdhan, Pashan, Baner and Aundh to the Mula">
+  <rect width="1200" height="675" fill="#fef4e9"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#405828"/>
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">The Ram river, about 19 km</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">From the Sahyadri foothills to the Mula, through the suburbs of west Pune.</text>
+
+  <path d="M110 470 C 220 420, 300 500, 400 440 S 560 360, 660 400 S 840 330, 940 300 S 1060 250, 1110 230" fill="none" stroke="#5f9fae" stroke-width="12" stroke-linecap="round"/>
+  <path d="M1080 170 L1110 230 L1150 300" fill="none" stroke="#5f9fae" stroke-width="20" stroke-linecap="round" opacity="0.55"/>
+  <text x="1150" y="166" font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#3f6f7a" text-anchor="end">Mula</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif" font-size="15" fill="#2b2a29" text-anchor="middle">
+    <circle cx="110" cy="470" r="8" fill="#405828"/><text x="110" y="510">Khatpewadi</text>
+    <circle cx="300" cy="474" r="7" fill="#405828"/><text x="300" y="512">Bhukum</text>
+    <circle cx="430" cy="430" r="7" fill="#405828"/><text x="430" y="470">Bhugaon</text>
+    <circle cx="600" cy="384" r="12" fill="#26361a"/><text x="600" y="428" font-size="17">Bavdhan</text>
+    <circle cx="760" cy="374" r="7" fill="#405828"/><text x="760" y="414">Pashan</text>
+    <circle cx="900" cy="314" r="7" fill="#405828"/><text x="900" y="354">Baner</text>
+    <circle cx="1040" cy="262" r="7" fill="#405828"/><text x="1040" y="302">Aundh</text>
+  </g>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="180" width="300" height="96" rx="12" fill="#26361a"/>
+    <text x="100" y="218" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#fffaf4">NGT, July 2025</text>
+    <text x="100" y="246" font-size="14" fill="#fffaf4" opacity="0.75">stop untreated sewage, 6 months</text>
+    <rect x="400" y="180" width="300" height="96" rx="12" fill="#26361a"/>
+    <text x="420" y="218" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#fffaf4">Next hearing</text>
+    <text x="420" y="246" font-size="14" fill="#fffaf4" opacity="0.75">26 November 2026</text>
+  </g>
+
+  <line x1="80" y1="580" x2="1120" y2="580" stroke="#d9c29c" stroke-width="1.5"/>
+  <text x="80" y="620" font-family="Georgia, 'Times New Roman', serif" font-size="22" fill="#405828">Ask which watercourse runs beside Serenique, and where its flood lines fall.</text>
+  <text x="1120" y="656" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" text-anchor="end">Schematic, not to scale. Course: Wikipedia (Ramnadi). Orders: Punekar News, Jul 2025 and Oct 2026.</text>
+</svg>

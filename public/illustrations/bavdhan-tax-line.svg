@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Bavdhan Budruk joined PMC in 2021; Bavdhan Khurd, where Serenique is registered, is not on that list">
+  <rect width="1200" height="675" fill="#fef4e9"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#405828"/>
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">One suburb, two villages on the record</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">Who taxes a new flat in Bavdhan depends on which side of the line its survey number falls.</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="80" y="180" width="500" height="290" rx="14" fill="#fffaf4" stroke="#d9c29c"/>
+    <text x="110" y="226" font-size="13" fill="#73695d" letter-spacing="0.18em">BAVDHAN BUDRUK</text>
+    <text x="110" y="276" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#2b2a29">Merged into PMC</text>
+    <text x="110" y="314" font-size="17" fill="#4a4640">On the state&#8217;s final notification of</text>
+    <text x="110" y="338" font-size="17" fill="#4a4640">23 villages, June 2021.</text>
+    <rect x="110" y="380" width="200" height="54" rx="27" fill="#405828"/>
+    <text x="210" y="414" font-size="17" fill="#fffaf4" text-anchor="middle">PMC</text>
+
+    <rect x="620" y="180" width="500" height="290" rx="14" fill="#fffaf4" stroke="#d9c29c"/>
+    <text x="650" y="226" font-size="13" fill="#73695d" letter-spacing="0.18em">BAVDHAN KHURD · SERENIQUE</text>
+    <text x="650" y="276" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#2b2a29">Not on that list</text>
+    <text x="650" y="314" font-size="17" fill="#4a4640">Survey No. 34, Taluka Mulshi.</text>
+    <text x="650" y="338" font-size="17" fill="#4a4640">Ask who issued the commencement certificate.</text>
+    <rect x="650" y="380" width="200" height="54" rx="27" fill="none" stroke="#405828" stroke-width="2.5" stroke-dasharray="8 6"/>
+    <text x="750" y="414" font-size="17" fill="#405828" text-anchor="middle">PMC or PMRDA?</text>
+  </g>
+
+  <line x1="80" y1="522" x2="1120" y2="522" stroke="#d9c29c" stroke-width="1.5"/>
+  <text x="80" y="566" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#405828">Merged villages: a 35 to 40 per cent cut was under consideration in September 2026</text>
+  <text x="80" y="600" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#73695d">No decision had been reported when this was written. Any &#8220;after the cut&#8221; figure is a guess.</text>
+  <text x="1120" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" text-anchor="end">Sources: Free Press Journal (Jun 2021, Jun 2026), Punekar News (Sep 2026), MahaRERA Form C.</text>
+</svg>

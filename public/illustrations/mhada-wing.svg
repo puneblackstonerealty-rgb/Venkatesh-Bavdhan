@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Block diagram: MHADA Wing A4 stands apart from Wings A1, A2 and A3, with its own gate">
+  <rect width="1200" height="675" fill="#fef4e9"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#405828"/>
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">A fourth wing on the plan</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">MHADA Wing A4 is drawn on the developer&#8217;s layout. It is not in the Phase 1 registration.</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <!-- Road -->
+    <rect x="80" y="190" width="1040" height="40" rx="6" fill="#e7d6bd"/>
+    <text x="600" y="216" font-size="14" fill="#73695d" text-anchor="middle" letter-spacing="0.14em">PROPOSED DP ROADS · 18 M AND 24 M</text>
+
+    <!-- Phase 1 registered -->
+    <rect x="390" y="262" width="730" height="250" rx="14" fill="#fffaf4" stroke="#405828" stroke-width="2.5"/>
+    <text x="414" y="292" font-size="13" fill="#405828" letter-spacing="0.18em">PHASE 1 · MAHARERA PM1261012601412 · 393 UNITS</text>
+    <rect x="414" y="312" width="120" height="170" rx="8" fill="#d9c29c"/>
+    <text x="474" y="404" font-size="20" fill="#2b2a29" text-anchor="middle">A1</text>
+    <rect x="552" y="312" width="280" height="170" rx="8" fill="#405828"/>
+    <text x="692" y="404" font-size="22" fill="#fffaf4" text-anchor="middle">Wing A2</text>
+    <rect x="850" y="312" width="246" height="170" rx="8" fill="#26361a"/>
+    <text x="973" y="404" font-size="22" fill="#fffaf4" text-anchor="middle">Wing A3</text>
+
+    <!-- MHADA -->
+    <rect x="80" y="262" width="270" height="250" rx="14" fill="none" stroke="#73695d" stroke-width="2.5" stroke-dasharray="10 8"/>
+    <text x="104" y="292" font-size="13" fill="#73695d" letter-spacing="0.18em">NOT IN PHASE 1 RECORD</text>
+    <rect x="104" y="312" width="222" height="120" rx="8" fill="#f3e3cc"/>
+    <text x="215" y="370" font-size="20" fill="#2b2a29" text-anchor="middle">MHADA</text>
+    <text x="215" y="396" font-size="20" fill="#2b2a29" text-anchor="middle">Wing A4</text>
+    <text x="104" y="462" font-size="15" fill="#4a4640">Own gate · own STP</text>
+    <path d="M140 262 L140 230" stroke="#73695d" stroke-width="3" marker-end="none"/>
+    <text x="150" y="252" font-size="13" fill="#73695d">gate</text>
+  </g>
+
+  <line x1="80" y1="560" x2="1120" y2="560" stroke="#d9c29c" stroke-width="1.5"/>
+  <text x="80" y="602" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#405828">Ask: shared amenities? same society? registered separately?</text>
+  <text x="1120" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" text-anchor="end">Schematic, not to scale. Developer&#8217;s master layout and A-Cluster plan (Oct 2026); MahaRERA Form C.</text>
+</svg>

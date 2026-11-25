@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import type { ReactNode } from 'react'
 
+import type { IMAGE_CREDIT } from '@/content/project'
 import { isVector } from '@/lib/images'
 
 import { cn } from './ui'
@@ -8,25 +9,20 @@ import { cn } from './ui'
 /**
  * A picture inside an article body.
  *
- * ⚠ This project has NO imagery of its own. No renders, no elevations, no
- * master plan, no brochure — see the release ledger in content/project.ts.
- * That constraint decides what may appear here, and `credit` is required
- * rather than defaulted so the decision is made per picture:
+ * `credit` is required rather than defaulted so the decision is made per
+ * picture:
  *
  *   'Illustration'          the diagrams in /public/illustrations, drawn for
- *                           these articles. Charts and schematics only. They
- *                           never depict Serenique, because nobody knows what
- *                           it looks like yet.
+ *                           these articles. Charts and schematics only; they
+ *                           never pretend to depict Serenique.
  *   'Delivered project'     a photograph of a building Venkatesh Buildcon has
- *                           actually completed, from /public/developer. Fair
- *                           to show when the subject IS the track record, and
- *                           the caption must name the project so it cannot be
+ *                           actually completed, from /public/developer. The
+ *                           caption must name the project so it cannot be
  *                           mistaken for Serenique.
- *
- * There is deliberately no 'Artistic impression' option. The sibling Kharadi
- * site has renders and uses that credit. Here it would have to sit under a
- * picture of something else, which is the exact substitution this site exists
- * not to make.
+ *   IMAGE_CREDIT            the developer's own renders and plans of Serenique
+ *                           in /public/gallery (launch material, Oct 2026).
+ *                           Until launch this site had none, so this option
+ *                           did not exist.
  *
  * `caption` is not decoration. It is where the number in the picture gets its
  * source, since SVG text is not selectable, not searchable and not read by
@@ -52,7 +48,7 @@ export function Figure({
   height: number
   /** Visible line under the image. Carries the source of any figure shown. */
   caption: string
-  credit: 'Illustration' | 'Delivered project'
+  credit: 'Illustration' | 'Delivered project' | typeof IMAGE_CREDIT
   className?: string
 }) {
   return (

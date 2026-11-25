@@ -50,12 +50,21 @@ import type { ArticleModule } from './types'
    The buying guides here are deliberately the ones that site does NOT cover:
    defect liability, OC and CC, conveyance, delay interest, floor choice,
    parking, and diligence with nothing published. Check the other site before
-   adding. */
+   adding.
+
+   Added 25 Nov 2026 (dated 2 to 23 Nov), also owned here now: property tax
+   and the PMC merged villages, inclusive housing (the MHADA wing / 20 per
+   cent scheme), choosing between wings, air quality, the Ram river and the
+   NGT, the Ring Road, and the Chandani Chowk to Bhugaon road. The Skydove
+   site (venkateshskydovesinhagadroad.com) shares this developer too; check
+   its registry as well. */
 
 /* The project itself */
 import * as releasedSoFar from './what-has-actually-been-released'
 import * as scale from './phase-one-and-the-whole-site'
 import * as phaseOne from './what-phase-one-covers'
+import * as wingChoice from './wing-a2-or-wing-a3'
+import * as mhadaWing from './the-mhada-wing'
 
 /* Bavdhan and west Pune */
 import * as bavdhanConnectivity from './what-bavdhan-actually-connects-to'
@@ -66,6 +75,10 @@ import * as metroPhase2 from './the-metro-extension-to-chandani-chowk'
 import * as water from './water-in-bavdhan'
 import * as socialInfra from './schools-and-hospitals-around-bavdhan'
 import * as hinjawadiCommute from './the-hinjawadi-commute-from-bavdhan'
+import * as ringRoad from './the-ring-road-and-bavdhan'
+import * as bhugaonRoad from './the-bhugaon-road-plan'
+import * as airQuality from './air-quality-in-bavdhan'
+import * as ramRiver from './the-ram-river-at-bavdhan'
 
 /* The developer */
 import * as developerRecord from './the-developer-track-record'
@@ -79,11 +92,14 @@ import * as delayInterest from './when-possession-runs-late'
 import * as highRise from './living-on-the-twenty-seventh-floor'
 import * as whichFloor from './which-floor-should-you-buy'
 import * as parking from './parking-and-what-you-actually-own'
+import * as propertyTax from './property-tax-in-bavdhan'
 
 const REGISTERED: ArticleModule[] = [
   releasedSoFar,
   scale,
   phaseOne,
+  wingChoice,
+  mhadaWing,
   bavdhanConnectivity,
   bavdhanRates,
   chandaniChowk,
@@ -92,6 +108,10 @@ const REGISTERED: ArticleModule[] = [
   water,
   socialInfra,
   hinjawadiCommute,
+  ringRoad,
+  bhugaonRoad,
+  airQuality,
+  ramRiver,
   developerRecord,
   reraCheck,
   defectLiability,
@@ -101,6 +121,7 @@ const REGISTERED: ArticleModule[] = [
   highRise,
   whichFloor,
   parking,
+  propertyTax,
 ]
 
 /** Newest first. This is the order every listing uses. */

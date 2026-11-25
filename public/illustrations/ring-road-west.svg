@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Schematic of the Ring Road western section running west of the highway that passes Chandani Chowk">
+  <rect width="1200" height="675" fill="#fef4e9"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#405828"/>
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">A bypass for the road Bavdhan uses</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">The Ring Road&#8217;s western section runs from Urse to Shivare, west of the highway past Chandani Chowk.</text>
+
+  <!-- City -->
+  <ellipse cx="930" cy="420" rx="170" ry="130" fill="#f3e3cc"/>
+  <text x="960" y="470" font-family="Helvetica Neue, Arial, sans-serif" font-size="18" fill="#73695d" text-anchor="middle" letter-spacing="0.12em">PUNE CITY</text>
+
+  <!-- Highway past Chandani Chowk -->
+  <path d="M560 190 C 610 260, 640 330, 650 380 S 690 500, 720 560" fill="none" stroke="#73695d" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="648" cy="372" r="13" fill="#405828"/>
+  <text x="672" y="368" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#2b2a29">Chandani Chowk</text>
+  <text x="672" y="390" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#73695d">Bavdhan, Serenique</text>
+  <text x="742" y="560" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#73695d">Highway today</text>
+
+  <!-- Ring road west -->
+  <path d="M420 200 C 300 290, 280 420, 380 520 S 560 590, 620 575" fill="none" stroke="#405828" stroke-width="8" stroke-dasharray="18 12" stroke-linecap="round"/>
+  <circle cx="420" cy="200" r="11" fill="#fffaf4" stroke="#405828" stroke-width="4"/>
+  <text x="300" y="196" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#2b2a29">Urse</text>
+  <text x="252" y="216" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d">Expressway</text>
+  <circle cx="620" cy="575" r="11" fill="#fffaf4" stroke="#405828" stroke-width="4"/>
+  <text x="560" y="610" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#2b2a29">Shivare</text>
+  <text x="120" y="380" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#405828">Ring Road west</text>
+  <text x="120" y="402" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#73695d">69 km, 5 packages</text>
+
+  <!-- Facts -->
+  <rect x="80" y="440" width="190" height="96" rx="12" fill="#26361a"/>
+  <text x="100" y="478" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#fffaf4">30%</text>
+  <text x="100" y="506" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#fffaf4" opacity="0.7">built, Sep 2026</text>
+  <rect x="1000" y="190" width="160" height="96" rx="12" fill="#26361a"/>
+  <text x="1018" y="228" font-family="Georgia, 'Times New Roman', serif" font-size="26" fill="#fffaf4">Dec 2027</text>
+  <text x="1018" y="256" font-family="Helvetica Neue, Arial, sans-serif" font-size="14" fill="#fffaf4" opacity="0.7">opening target</text>
+
+  <text x="1120" y="660" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" text-anchor="end">Schematic, not to scale. MSRDC figures as reported, Mar and Sep 2026.</text>
+</svg>

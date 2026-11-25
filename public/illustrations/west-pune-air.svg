@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" width="1200" height="675" role="img" aria-label="Air quality index bands with Pune readings from October and the night after Diwali 2026">
+  <rect width="1200" height="675" fill="#fef4e9"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#405828"/>
+  <text x="80" y="92" font-family="Georgia, 'Times New Roman', serif" font-size="40" fill="#2b2a29">Pune&#8217;s air, autumn 2026</text>
+  <text x="80" y="130" font-family="Helvetica Neue, Arial, sans-serif" font-size="19" fill="#4a4640">Where the readings fell on India&#8217;s 0 to 500 air quality scale.</text>
+
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <!-- Bands: 0-500 mapped to x 80..1120 (2.08 px per point) -->
+    <rect x="80" y="300" width="104" height="44" fill="#7fa36a"/>
+    <rect x="184" y="300" width="104" height="44" fill="#b5c97a"/>
+    <rect x="288" y="300" width="208" height="44" fill="#e8cf7a"/>
+    <rect x="496" y="300" width="208" height="44" fill="#e3a160"/>
+    <rect x="704" y="300" width="208" height="44" fill="#c9694a"/>
+    <rect x="912" y="300" width="208" height="44" fill="#8e3b33"/>
+    <g font-size="13" fill="#73695d" text-anchor="middle">
+      <text x="132" y="372">Good</text><text x="236" y="372">Satisfactory</text><text x="392" y="372">Moderate</text>
+      <text x="600" y="372">Poor</text><text x="808" y="372">Very poor</text><text x="1016" y="372">Severe</text>
+    </g>
+    <g font-size="12" fill="#a0968a" text-anchor="middle">
+      <text x="80" y="392">0</text><text x="288" y="392">100</text><text x="496" y="392">200</text><text x="704" y="392">300</text><text x="912" y="392">400</text><text x="1120" y="392">500</text>
+    </g>
+
+    <!-- Markers above -->
+    <line x1="315" y1="236" x2="315" y2="300" stroke="#2b2a29" stroke-width="2"/>
+    <text x="315" y="200" font-size="16" fill="#2b2a29" text-anchor="middle">SPPU 113</text>
+    <text x="315" y="222" font-size="13" fill="#73695d" text-anchor="middle">8 Nov, 10 pm</text>
+    <line x1="373" y1="256" x2="373" y2="300" stroke="#73695d" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="400" y="250" font-size="14" fill="#73695d">City, 22 Oct: 141</text>
+    <line x1="504" y1="236" x2="504" y2="300" stroke="#2b2a29" stroke-width="2"/>
+    <text x="560" y="200" font-size="16" fill="#2b2a29" text-anchor="middle">Shivajinagar 204</text>
+    <text x="560" y="222" font-size="13" fill="#73695d" text-anchor="middle">8 Nov, 10 pm</text>
+    <line x1="979" y1="236" x2="979" y2="300" stroke="#2b2a29" stroke-width="2"/>
+    <text x="979" y="200" font-size="16" fill="#2b2a29" text-anchor="middle">City peak 432</text>
+    <text x="979" y="222" font-size="13" fill="#73695d" text-anchor="middle">early 9 Nov</text>
+  </g>
+
+  <line x1="80" y1="470" x2="1120" y2="470" stroke="#d9c29c" stroke-width="1.5"/>
+  <text x="80" y="512" font-family="Georgia, 'Times New Roman', serif" font-size="24" fill="#405828">No official station sits in Bavdhan. SPPU, across Pashan, is the nearest one named.</text>
+  <text x="80" y="546" font-family="Helvetica Neue, Arial, sans-serif" font-size="16" fill="#73695d">Check the nearest real stations yourself, on a still winter evening.</text>
+  <text x="1120" y="650" font-family="Helvetica Neue, Arial, sans-serif" font-size="13" fill="#73695d" text-anchor="end">Bands: CPCB. Readings: Free Press Journal, 26 Oct and 9 Nov 2026.</text>
+</svg>
